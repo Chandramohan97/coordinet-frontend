@@ -13,10 +13,12 @@ const HomePage = () => {
       <NavContainer>
         <NavLogo>Coordinet</NavLogo>
         <ButtonDiv>
-          <Link to="/login">
+          <Link to="login">
             <Button>Login</Button>
           </Link>
-          <Button>Signup</Button>
+          <Link to="signUp">
+            <Button>Signup</Button>
+          </Link>
         </ButtonDiv>
       </NavContainer>
     </div>
