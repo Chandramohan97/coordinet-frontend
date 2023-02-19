@@ -4,8 +4,8 @@ import {
   NavLogo,
   ButtonDiv,
 } from "../../Components/Nav/NavbarStyles";
-
 import { Button } from "../../Components/button/ButtonStyles";
+import { Link } from "react-router-dom";
 
 const HomePage = () => {
   return (
@@ -13,7 +13,9 @@ const HomePage = () => {
       <NavContainer>
         <NavLogo>Coordinet</NavLogo>
         <ButtonDiv>
-          <Button>Login</Button>
+          <Link to="/login">
+            <Button>Login</Button>
+          </Link>
           <Button>Signup</Button>
         </ButtonDiv>
       </NavContainer>
