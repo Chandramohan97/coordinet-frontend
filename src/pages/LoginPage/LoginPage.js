@@ -1,5 +1,5 @@
 import React from "react";
-
+import { Link } from "react-router-dom";
 import { Form, Input, Text } from "../../Components/form/LoginFormStyles";
 import {
   NavContainer,
@@ -14,7 +14,9 @@ const LoginPage = () => {
       <NavContainer>
         <NavLogo>Coordinet</NavLogo>
         <ButtonDiv>
-          <Button>Signup</Button>
+          <Link to="/signup">
+            <Button>Signup</Button>
+          </Link>
         </ButtonDiv>
       </NavContainer>
       <Text>Let's Go !</Text>
