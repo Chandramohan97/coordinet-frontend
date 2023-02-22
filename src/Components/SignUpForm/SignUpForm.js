@@ -1,5 +1,13 @@
 import React from "react";
 import CustomButton from "../button/CustomButton";
+import {
+  Box,
+  FormControl,
+  FormLabel,
+  Heading,
+  Input,
+  VStack,
+} from "@chakra-ui/react";
 const SignUpForm = () => {
   return (
     <Box>
@@ -10,7 +18,7 @@ const SignUpForm = () => {
         <form>
           <VStack spacing="20px">
             <FormControl>
-              <FormLabel>Email</FormLabel>
+              <FormLabel>Name</FormLabel>
               <Input
                 height="5vh"
                 width="20vw"
@@ -18,6 +26,22 @@ const SignUpForm = () => {
                 placeholder="Enter email address"
                 textIndent="0.25rem"
               ></Input>
+              <FormLabel>Mobile Number</FormLabel>
+              <Input
+                height="5vh"
+                width="20vw"
+                borderRadius="5px"
+                placeholder="Enter Mobile Number"
+                textIndent="0.25rem"
+              />
+              <FormLabel>Email</FormLabel>
+              <Input
+                height="5vh"
+                width="20vw"
+                borderRadius="5px"
+                placeholder="Enter Email address"
+                textIndent="0.25rem"
+              />
             </FormControl>
 
             <FormControl>
@@ -43,7 +67,7 @@ const SignUpForm = () => {
             margin="30px 10px"
             borderRadius="5px"
           >
-            Login
+            Sign Up
           </CustomButton>
         </form>
         <CustomButton
@@ -58,7 +82,7 @@ const SignUpForm = () => {
           margin="30px 10px"
           borderRadius="5px"
         >
-          Sign in with Google
+          Sign up with Google
         </CustomButton>
       </VStack>
     </Box>
