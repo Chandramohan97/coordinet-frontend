@@ -8,8 +8,8 @@ import LoginForm from "./Components/LoginForm/LoginForm";
 function App() {
   return (
     <div className="App">
-      <LoginPage />
-
+      {/* <LoginPage /> */}
+      <Signup></Signup>
       {/* <Router>
         <Routes>
           <Route path="/" element={<HomePage />} />
