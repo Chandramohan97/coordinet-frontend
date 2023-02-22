@@ -1,28 +1,28 @@
-import React from "react";
-import {
-  NavContainer,
-  NavLogo,
-  ButtonDiv,
-} from "../../Components/Nav/NavbarStyles";
-import { Button } from "../../Components/button/ButtonStyles";
-import { Link } from "react-router-dom";
+// import React from "react";
+// import {
+//   NavContainer,
+//   NavLogo,
+//   ButtonDiv,
+// } from "../../Components/Nav/NavbarStyles";
+// // import { Button } from "../../Components/button/ButtonStyles";
+// import { Link } from "react-router-dom";
 
-const HomePage = () => {
-  return (
-    <div className="Homepage">
-      <NavContainer>
-        <NavLogo>Coordinet</NavLogo>
-        <ButtonDiv>
-          <Link to="login">
-            <Button>Login</Button>
-          </Link>
-          <Link to="signUp">
-            <Button>Signup</Button>
-          </Link>
-        </ButtonDiv>
-      </NavContainer>
-    </div>
-  );
-};
+// const HomePage = () => {
+//   return (
+//     <div className="Homepage">
+//       <NavContainer>
+//         <NavLogo>Coordinet</NavLogo>
+//         <ButtonDiv>
+//           <Link to="login">
+//             <Button>Login</Button>
+//           </Link>
+//           <Link to="signUp">
+//             <Button>Signup</Button>
+//           </Link>
+//         </ButtonDiv>
+//       </NavContainer>
+//     </div>
+//   );
+// };
 
-export default HomePage;
+// export default HomePage;

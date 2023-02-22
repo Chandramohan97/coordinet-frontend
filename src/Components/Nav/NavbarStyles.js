@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const NavContainer = styled.div`
-  background-color: #f7f8fc;
+  background-color: #f7f8fc; //light greyish-blue
   display: flex;
   justify-content: space-between;
 `;
