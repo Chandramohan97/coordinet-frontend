@@ -18,6 +18,7 @@ function App() {
         <Route path="/" element={<HomePage/>}/>
         <Route path="/login" element={<LoginPage/>}/>
         <Route path="/signUp" element={<SignUp/>}/>
+        <Route path="/teamStrength" element={<TeamStrength/>} />
       </Routes>
     </Router>
        {/* <HomePage /> */}
