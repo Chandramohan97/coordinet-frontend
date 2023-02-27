@@ -8,34 +8,38 @@ import {
   Input,
   VStack,
 } from "@chakra-ui/react";
+
 const SignUpForm = () => {
   return (
     <Box>
-      <VStack justifyContent="space-between" spacing="10px">
-        <Heading as="h2" fontFamily="Verdana">
-          Sign in to Coordinet
+      <VStack justifyContent="space-between" spacing="30px">
+        <Heading as="h3" fontFamily="Verdana">
+          Sign up to Coordinet
         </Heading>
         <form>
-          <VStack spacing="20px">
-            <FormControl>
-              <FormLabel>Name</FormLabel>
-              <Input
+          <VStack >
+            <FormControl id="name" isRequired>
+              <FormLabel fontSize={"14px"} mx="11px">Name</FormLabel>
+              <Input 
+                type="text"
                 height="5vh"
                 width="20vw"
                 borderRadius="5px"
-                placeholder="Enter email address"
+                placeholder="Enter name"
                 textIndent="0.25rem"
               ></Input>
-              <FormLabel>Mobile Number</FormLabel>
+              <FormLabel fontSize={"14px"} mx="11px">Mobile Number</FormLabel>
               <Input
+                type="number"
                 height="5vh"
                 width="20vw"
                 borderRadius="5px"
                 placeholder="Enter Mobile Number"
                 textIndent="0.25rem"
               />
-              <FormLabel>Email</FormLabel>
+              <FormLabel fontSize={"14px"} mx="11px">Email</FormLabel>
               <Input
+                type="email"
                 height="5vh"
                 width="20vw"
                 borderRadius="5px"
@@ -45,8 +49,9 @@ const SignUpForm = () => {
             </FormControl>
 
             <FormControl>
-              <FormLabel>Password</FormLabel>
+              <FormLabel fontSize={"14px"} mx="11px">Password</FormLabel>
               <Input
+                type="password"
                 height="5vh"
                 width="20vw"
                 borderRadius="5px"
@@ -66,8 +71,8 @@ const SignUpForm = () => {
             fontSize="16px"
             margin="30px 10px"
             borderRadius="5px"
+            value="Sign Up"
           >
-            Sign Up
           </CustomButton>
         </form>
         <CustomButton
@@ -80,9 +85,9 @@ const SignUpForm = () => {
           textAlign="center"
           fontSize="16px"
           margin="30px 10px"
-          borderRadius="5px"
+          borderRadius="1px solid black"
+          value="Sign up with Google"
         >
-          Sign up with Google
         </CustomButton>
       </VStack>
     </Box>

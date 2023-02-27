@@ -12,15 +12,16 @@ import CustomButton from "../button/CustomButton";
 const LoginForm = () => {
   return (
     <Box>
-      <VStack justifyContent="space-between" spacing="10px">
-        <Heading as="h2" fontFamily="Verdana">
+      <VStack justifyContent="space-between" spacing="30px">
+        <Heading as="h3" fontFamily="Verdana">
           Sign in to Coordinet
         </Heading>
         <form>
           <VStack spacing="20px">
-            <FormControl>
-              <FormLabel>Email</FormLabel>
+            <FormControl id="email" isRequired>
+              <FormLabel fontSize={"14px"} mx="11px">Email</FormLabel>
               <Input
+                type="text"
                 height="5vh"
                 width="20vw"
                 borderRadius="5px"
@@ -29,9 +30,10 @@ const LoginForm = () => {
               ></Input>
             </FormControl>
 
-            <FormControl>
-              <FormLabel>Password</FormLabel>
+            <FormControl id="password" isRequired>
+              <FormLabel fontSize={"14px"} mx="11px">Password</FormLabel>
               <Input
+                type="password"
                 height="5vh"
                 width="20vw"
                 borderRadius="5px"
@@ -48,11 +50,11 @@ const LoginForm = () => {
             _hover={{ bg: "#2a9ca1" }} //blue-green
             _active={{ bg: "#555555" }}
             textAlign="center"
-            fontSize="16px"
+            fontSize="14px"
             margin="30px 10px"
             borderRadius="5px"
+            value="Login" 
           >
-            Login
           </CustomButton>
         </form>
         <CustomButton
@@ -63,11 +65,11 @@ const LoginForm = () => {
           _hover={{ bg: "#dcdfe6" }} //blue-green
           _active={{ bg: "#b4b9c4" }}
           textAlign="center"
-          fontSize="16px"
+          fontSize="14px"
           margin="30px 10px"
-          borderRadius="5px"
+          borderRadius="1px solid black"
+          value="Sign in with Google"
         >
-          Sign in with Google
         </CustomButton>
       </VStack>
     </Box>
