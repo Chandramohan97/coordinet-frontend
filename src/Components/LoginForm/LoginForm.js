@@ -27,7 +27,7 @@ const LoginForm = () => {
                 width="20vw"
                 borderRadius="5px"
                 placeholder="Enter email address"
-                textIndent="0.25rem"
+                // textIndent="0.25rem"
               ></InputForm>
             </FormControl>
 

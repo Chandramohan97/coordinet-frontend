@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import CustomButton from "../button/CustomButton";
 import {
   Box,
@@ -18,7 +19,7 @@ const SignUpForm = () => {
         <Heading as="h3" fontFamily="Verdana">
           Sign up to Coordinet
         </Heading>
-        <form method="post">
+        <form>
           <VStack >
             <FormControl id="name" isRequired>
               <FormLabel fontSize={"14px"} mx="11px">Name</FormLabel>
@@ -62,6 +63,7 @@ const SignUpForm = () => {
               ></InputForm>
             </FormControl>
           </VStack>
+          <Link to="/teamStrength">
           <CustomButton
             color="white"
             height="5vh"
@@ -76,6 +78,7 @@ const SignUpForm = () => {
             value="Sign Up"
           >
           </CustomButton>
+          </Link>
         </form>
         <CustomButton
           color="black"
