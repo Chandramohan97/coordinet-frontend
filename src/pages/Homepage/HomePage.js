@@ -1,11 +1,11 @@
 import React from 'react'
 import { Text,Stack,Box, Flex } from '@chakra-ui/react'
 import CustomButton from '../../Components/button/CustomButton'
-import HomePageHeader from '../../Components/Header/HomePageHeader'
+import Navbar from '../../Components/Navbar/Navbar'
 const HomePage = () => {
   return (
     <Flex my={"30px"} flexDirection={"row"} justifyContent="space-around"  background="#F7F8FC">
-      <HomePageHeader/>
+      <Navbar/>
       <Flex flexDirection={"row"} justifyContent="space-around"  >
             <CustomButton
                 color="white"
