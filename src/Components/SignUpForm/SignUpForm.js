@@ -5,59 +5,61 @@ import {
   FormControl,
   FormLabel,
   Heading,
-  Input,
   VStack,
 } from "@chakra-ui/react";
+import InputForm from "../InputForm/InputForm";
+
 
 const SignUpForm = () => {
+
   return (
     <Box>
       <VStack justifyContent="space-between" spacing="30px">
         <Heading as="h3" fontFamily="Verdana">
           Sign up to Coordinet
         </Heading>
-        <form>
+        <form method="post">
           <VStack >
             <FormControl id="name" isRequired>
               <FormLabel fontSize={"14px"} mx="11px">Name</FormLabel>
-              <Input 
+              <InputForm 
                 type="text"
                 height="5vh"
                 width="20vw"
                 borderRadius="5px"
                 placeholder="Enter name"
-                textIndent="0.25rem"
-              ></Input>
+                // textIndent="0."
+              ></InputForm>
               <FormLabel fontSize={"14px"} mx="11px">Mobile Number</FormLabel>
-              <Input
+              <InputForm
                 type="number"
                 height="5vh"
                 width="20vw"
                 borderRadius="5px"
                 placeholder="Enter Mobile Number"
-                textIndent="0.25rem"
+                // textIndent="0.1rem"
               />
               <FormLabel fontSize={"14px"} mx="11px">Email</FormLabel>
-              <Input
+              <InputForm
                 type="email"
                 height="5vh"
                 width="20vw"
                 borderRadius="5px"
                 placeholder="Enter Email address"
-                textIndent="0.25rem"
+                // textIndent="0.25rem"
               />
             </FormControl>
 
             <FormControl>
               <FormLabel fontSize={"14px"} mx="11px">Password</FormLabel>
-              <Input
+              <InputForm
                 type="password"
                 height="5vh"
                 width="20vw"
                 borderRadius="5px"
                 textIndent="0.25rem"
                 placeholder="********"
-              ></Input>
+              ></InputForm>
             </FormControl>
           </VStack>
           <CustomButton

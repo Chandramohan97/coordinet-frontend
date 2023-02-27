@@ -8,6 +8,7 @@ import {
   VStack,
 } from "@chakra-ui/react";
 import CustomButton from "../button/CustomButton";
+import InputForm from "../InputForm/InputForm";
 // import InputForm from "../InputForm/InputForm";
 const LoginForm = () => {
   return (
@@ -20,26 +21,26 @@ const LoginForm = () => {
           <VStack spacing="20px">
             <FormControl id="email" isRequired>
               <FormLabel fontSize={"14px"} mx="11px">Email</FormLabel>
-              <Input
+              <InputForm
                 type="text"
                 height="5vh"
                 width="20vw"
                 borderRadius="5px"
                 placeholder="Enter email address"
                 textIndent="0.25rem"
-              ></Input>
+              ></InputForm>
             </FormControl>
 
             <FormControl id="password" isRequired>
               <FormLabel fontSize={"14px"} mx="11px">Password</FormLabel>
-              <Input
+              <InputForm
                 type="password"
                 height="5vh"
                 width="20vw"
                 borderRadius="5px"
                 textIndent="0.25rem"
                 placeholder="********"
-              ></Input>
+              ></InputForm>
             </FormControl>
           </VStack>
           <CustomButton

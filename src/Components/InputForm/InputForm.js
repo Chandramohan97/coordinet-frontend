@@ -3,11 +3,10 @@ import React from "react";
 
 const InputForm = (props) => {
   const { height, width, borderRadius, placeholder, textIndent,type } = props;
-  return;
+  return(
   
   <Input
     sx={{
-      required : required,
       type : type,
       height: height,
       width: width,
@@ -15,7 +14,7 @@ const InputForm = (props) => {
       placeholder: placeholder,
       textIndent: textIndent,
     }}
-  />;
+  />);
 };
 
 export default InputForm;
