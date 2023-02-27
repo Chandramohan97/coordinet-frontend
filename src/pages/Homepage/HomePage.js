@@ -1,28 +1,41 @@
-// import React from "react";
-// import {
-//   NavContainer,
-//   NavLogo,
-//   ButtonDiv,
-// } from "../../Components/Nav/NavbarStyles";
-// // import { Button } from "../../Components/button/ButtonStyles";
-// import { Link } from "react-router-dom";
+import React from 'react'
+import { Text,Stack,Box, Flex } from '@chakra-ui/react'
+import CustomButton from '../../Components/button/CustomButton'
+import HomePageHeader from '../../Components/Header/HomePageHeader'
+const HomePage = () => {
+  return (
+    <Flex my={"30px"} flexDirection={"row"} justifyContent="space-around"  background="#F7F8FC">
+      <HomePageHeader/>
+      <Flex flexDirection={"row"} justifyContent="space-around"  >
+            <CustomButton
+                color="white"
+                height="5vh"
+                width="7vw"
+                bg="#31bfc8"
+                _hover={{ bg: "#2a9ca1" }} //blue-green
+                _active={{ bg: "#555555" }}
+                textAlign="center"
+                fontSize="15px"
+                margin="15px 10px"
+                borderRadius="5px"
+                value="Login"
+            />
+            <CustomButton
+                color="white"
+                height="5vh"
+                width="7vw"
+                bg="#31bfc8"
+                _hover={{ bg: "#2a9ca1" }} //blue-green
+                _active={{ bg: "#555555" }}
+                textAlign="center"
+                fontSize="15px"
+                margin="15px 10px"
+                borderRadius="5px"
+                value="Sign up"
+            />
+    </Flex>
+  </Flex>
+  )
+}
 
-// const HomePage = () => {
-//   return (
-//     <div className="Homepage">
-//       <NavContainer>
-//         <NavLogo>Coordinet</NavLogo>
-//         <ButtonDiv>
-//           <Link to="login">
-//             <Button>Login</Button>
-//           </Link>
-//           <Link to="signUp">
-//             <Button>Signup</Button>
-//           </Link>
-//         </ButtonDiv>
-//       </NavContainer>
-//     </div>
-//   );
-// };
-
-// export default HomePage;
+export default HomePage;
