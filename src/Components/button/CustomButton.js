@@ -15,7 +15,7 @@ const CustomButton = (props) => {
     fontSize,
     margin,
     borderRadius,
-    children,
+    value,
   } = props;
   return (
     <Button
@@ -29,10 +29,10 @@ const CustomButton = (props) => {
         textAlign: textAlign,
         fontSize: fontSize,
         margin: margin,
-        borderRadius: borderRadius,
+        border: borderRadius,
       }}
     >
-      {children}
+      {value}
     </Button>
   );
 };
