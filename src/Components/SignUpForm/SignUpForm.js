@@ -21,7 +21,7 @@ const SignUpForm = () => {
         </Heading>
         <form>
           <VStack >
-            <FormControl id="name" isRequired>
+            <FormControl id="name" isRequired isInvalid>
               <FormLabel fontSize={"14px"} mx="11px">Name</FormLabel>
               <InputForm 
                 type="text"
