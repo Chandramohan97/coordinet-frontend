@@ -4,12 +4,15 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { ChakraProvider } from "@chakra-ui/react";
-
+import KanbanBoard from "./KanbanBoard";
+import App1 from "./Components/KanbanTest/App1";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <ChakraProvider>
-      <App />
+      {/* <App /> */}
+      <App1></App1>
+      {/* <KanbanBoard/> */}
     </ChakraProvider>
   </React.StrictMode>
 );

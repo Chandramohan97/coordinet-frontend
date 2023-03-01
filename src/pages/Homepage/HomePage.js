@@ -21,7 +21,7 @@ const HomePage = () => {
                 margin="15px 10px"
                 borderRadius="5px"
                 value="Login"
-            />
+            />  
           </Link>
         <Link to="/signUp">
             <CustomButton

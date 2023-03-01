@@ -7,10 +7,10 @@ const RadioInputForm = (props) => {
 
   return (
   <InputGroup>
-    <Input readOnly width = "20vw"backgroundColor={"white"} color="black" value={props.value} cursor="grab" />
+    <Input readOnly width="18vw" backgroundColor={"white"} color="black" value={props.value} cursor="grab" borderRadius={"15px"} />
     <InputLeftElement>
         <label htmlFor="circle-radio">
-          <Radio border="1px solid black"></Radio>
+          <Radio border="2px solid black"></Radio>
         </label>    
     </InputLeftElement>
     </InputGroup>
