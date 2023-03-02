@@ -2,7 +2,7 @@ import { FormLabel, Input } from "@chakra-ui/react";
 import React from "react";
 
 const InputForm = (props) => {
-  // const [name,setName]
+  
   const { type, height, width, borderRadius, placeholder } = props;
   return(
   <Input

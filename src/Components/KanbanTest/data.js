@@ -1,6 +1,6 @@
 export const data = [
     {
-      id: 'column-1',
+      id: 1,
       title: 'To Do',
       tasks: [
         {
@@ -18,7 +18,7 @@ export const data = [
       ],
     },
     {
-      id: 'column-2',
+      id: 2,
       title: 'In Progress',
       tasks: [
         {
@@ -32,7 +32,7 @@ export const data = [
       ],
     },
     {
-      id: 'column-3',
+      id: 3,
       title: 'Done',
       tasks: [
         {

@@ -1,9 +1,10 @@
 import React from 'react'
-import { Box, Heading } from '@chakra-ui/react'
+import { Box, Heading, Textarea } from '@chakra-ui/react'
 import { data } from './data'
 import Column from './Column'
 import { Flex } from '@chakra-ui/react'
-
+import { DragDropContext,Droppable,Draggable } from 'react-beautiful-dnd'
+import {render,screen} from '@testing-library/react'
 const App1 = () => {
   return (
     <Box p ="4">
@@ -20,4 +21,36 @@ const App1 = () => {
   )
 }
 
-export default App1
+
+// const App1=()=>{
+//   const [boardData,setData] = React.useState(data);
+
+//   return(
+    
+//       <div className='app1'>
+//         <DragDropContext>
+//           <Droppable droppableId="board">
+//             {(provided) => (
+//               <Flex flexDirection={"column"} gap="20px" {...provided.droppableProps} ref={provided.innerRef}>  
+//                 {boardData.map((column,index) => (
+//                   <Draggable key={column.id} draggableId={`Column-${column.id}`} index={index}>
+//                     {(provided) => (
+//                       <Textarea 
+//                         {...provided.dragHandleProps}
+//                         defaultValue={column.title}
+//                         {...provided.draggableProps}
+//                         ref={provided.innerRef}
+//                     ></Textarea>          
+//                   )}
+//                   </Draggable>
+//                 ))}
+//                 {provided.placeholder} 
+//               </Flex>
+//               )}
+//           </Droppable>
+//           </DragDropContext>
+//         </div>
+      
+//   )
+// }
+export default App1;

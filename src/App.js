@@ -24,22 +24,8 @@ function App() {
         <Route path="/jobRole" element={<JobRole/>} />
       </Routes>
     </Router> */}
-    <App1/>
-       {/* <HomePage /> */}
-       {/* <LoginPage/> */}
-      {/* <TeamStrength /> */}
-      
-      {/* <LoginPage /> */}
-      
-      {/* <Signup>  </Signup> */}
-      {/* <Router>
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="/signUp" element={<Signup />} />
-        </Routes>
-      </Router> */}
-    </div>
+     <App1/> 
+       </div>
   );
 }
 
