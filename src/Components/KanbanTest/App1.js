@@ -5,6 +5,9 @@ import Column from './Column'
 import { Flex } from '@chakra-ui/react'
 import { DragDropContext,Droppable,Draggable } from 'react-beautiful-dnd'
 import {render,screen} from '@testing-library/react'
+import { Editor } from 'react-draft-wysiwyg'
+import { EditorState } from 'react-draft-wysiwyg'
+
 const App1 = () => {
   return (
     <Box p ="4">
@@ -26,7 +29,6 @@ const App1 = () => {
 //   const [boardData,setData] = React.useState(data);
 
 //   return(
-    
 //       <div className='app1'>
 //         <DragDropContext>
 //           <Droppable droppableId="board">

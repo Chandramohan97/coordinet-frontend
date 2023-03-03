@@ -1,10 +1,20 @@
-import { Box, Drawer, Text, Textarea,Modal,ModalOverlay, ModalContent, ModalHeader, ModalBody, ModalCloseButton, HStack, Flex, VStack, Input } from '@chakra-ui/react';
+import { Box, Drawer, Text, Textarea,Modal,ModalOverlay, ModalContent, ModalHeader, ModalBody, ModalCloseButton, HStack, Flex, VStack, Input, Button } from '@chakra-ui/react';
 // import { DragHandle } from "@chakra-ui/react";
 import React from 'react';
+import { Editor } from 'react-draft-wysiwyg';
+import { EditorState } from 'draft-js';
+import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
+import './Task.css'
 
 function Task({ task }) {
   const [open,setOpen] = React.useState(false);
-  
+  const [value,setValue] = React.useState(task.content)
+  const [editor,setEditor] = React.useState(()=>EditorState.createEmpty());
+
+  function editorHandler(newEditor){
+    setEditor(newEditor);
+  }
+
   function handleOpen() {
     setOpen(true);
   }
@@ -12,6 +22,10 @@ function Task({ task }) {
 function handleClose() {
     setOpen(false);
   }
+
+function changeHeight(){
+
+} 
   return (
   // <Draggable>
     <Box 
@@ -31,10 +45,10 @@ function handleClose() {
       />
       <Modal isOpen={open} onClose={handleClose} size="custom" >
         <ModalOverlay />
-        <ModalContent maxW="75vw" maxH="70vh">
+        <ModalContent maxW="75vw" h="70vh" maxh="100vh">
             <Input
              width={"35vw"}
-             height="7vh"
+             height={"7vh"}
              fontSize={"20px"}
              defaultValue={task.content}
              my="2vh"
@@ -51,21 +65,33 @@ function handleClose() {
                 <Flex direction={"row"} >
                   <Flex flexDirection={"column"} alignItems="center" justifyContent={"space-evenly"} gap="10px">
                     <Text fontSize={"m"} textAlign={"left"} >Description</Text>
-                    <Textarea
-                    scro
-                    placeholder="Describe the issue"
-                    size="m"
-                    paddingLeft="12px"
-                    fontFamily="sans-serif"
-                    resize="none"
-                    borderRadius="none"
-                    borderColor="gray.300"
-                    width="35vw"
-                    height={"20vh"}
-                    _hover={{ borderColor: "gray.400" }}
-                    _focus={{ borderColor: "blue.500" }}
-                     />
+                    <Editor
+                     editorState={editor}
+                     onEditorStateChange={editorHandler}
+                     wrapperClassName="wrapper-class"
+                     toolbarClassName='toolbar-class'
+                     toolbar={{
+                      options: ['inline', 'blockType', 'fontSize'],
+                      inline: {
+                        options: ['bold', 'italic', 'underline'],
+                      },
+                      blockType: {
+                        options: ['Normal', 'H1', 'H2', 'H3', 'H4', 'H5', 'H6', 'Blockquote'],
+                        inDropdown:true,
+                      },
+                      fontSize: {
+                        options: [8, 9, 10, 11, 12, 14, 16, 18, 20, 22, 24, 28, 32, 36, 40, 48, 56, 64, 72, 96],
+                        inDropdown: true,
+                      },
+                      }}
+                
 
+                     />
+                  <HStack>
+                    <Button backgroundColor={"blue.100"} _hover/>
+                    <Button/>
+                  </HStack>
+                    
                   </Flex>
 
                 </Flex>
