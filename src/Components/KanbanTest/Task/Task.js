@@ -5,15 +5,17 @@ import { Editor } from 'react-draft-wysiwyg';
 import { EditorState } from 'draft-js';
 import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 import './Task.css'
+import JoditEditor from 'jodit-react';
+import Jodit from './Jodit';
+import Comments from '../../Comments/Comments';
 
 function Task({ task }) {
   const [open,setOpen] = React.useState(false);
-  const [value,setValue] = React.useState(task.content)
-  const [editor,setEditor] = React.useState(()=>EditorState.createEmpty());
-
-  function editorHandler(newEditor){
-    setEditor(newEditor);
-  }
+  const [visibility,setVisibility]= React.useState(false)
+  const [description,setDescrition]= React.useState("");
+  // const [value,setValue] = React.useState(task.content)
+  // const [content,setContent] = React.useState("");
+  
 
   function handleOpen() {
     setOpen(true);
@@ -22,10 +24,6 @@ function Task({ task }) {
 function handleClose() {
     setOpen(false);
   }
-
-function changeHeight(){
-
-} 
   return (
   // <Draggable>
     <Box 
@@ -65,32 +63,23 @@ function changeHeight(){
                 <Flex direction={"row"} >
                   <Flex flexDirection={"column"} alignItems="center" justifyContent={"space-evenly"} gap="10px">
                     <Text fontSize={"m"} textAlign={"left"} >Description</Text>
-                    <Editor
-                     editorState={editor}
-                     onEditorStateChange={editorHandler}
-                     wrapperClassName="wrapper-class"
-                     toolbarClassName='toolbar-class'
-                     toolbar={{
-                      options: ['inline', 'blockType', 'fontSize'],
-                      inline: {
-                        options: ['bold', 'italic', 'underline'],
-                      },
-                      blockType: {
-                        options: ['Normal', 'H1', 'H2', 'H3', 'H4', 'H5', 'H6', 'Blockquote'],
-                        inDropdown:true,
-                      },
-                      fontSize: {
-                        options: [8, 9, 10, 11, 12, 14, 16, 18, 20, 22, 24, 28, 32, 36, 40, 48, 56, 64, 72, 96],
-                        inDropdown: true,
-                      },
-                      }}
-                
-
-                     />
-                  <HStack>
-                    <Button backgroundColor={"blue.100"} _hover/>
-                    <Button/>
-                  </HStack>
+                     { visibility ? 
+                     <>
+                     <Jodit />
+                     <HStack>
+                      <Button backgroundColor={"blue.100"} onClick={()=>{setVisibility(false)}}>Save</Button>
+                      <Button onClick={()=> {setVisibility(false)}}>Cancel</Button>
+                      </HStack>
+                     </>
+                      :
+                     <Input 
+                     width={"40vw"}
+                     _hover={{backgroundColor:"lightgrey"}}
+                     placeholder='Enter a title here' 
+                     onClick={()=> {setVisibility(true)}} 
+                     borderColor="transparent"
+                     /> }
+                    <Comments/>
                     
                   </Flex>
 
