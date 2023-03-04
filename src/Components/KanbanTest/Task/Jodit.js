@@ -12,7 +12,7 @@ const Jodit = (props) => {
   
   const config = {
     placeholder:'Add Description',
-    // toolbar:false,
+    
     width:"40vw",
     maxWidth:"40vw",
     buttons:[]    
