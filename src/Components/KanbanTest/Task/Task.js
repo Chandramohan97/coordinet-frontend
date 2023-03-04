@@ -43,19 +43,9 @@ function handleClose() {
       />
       <Modal isOpen={open} onClose={handleClose} size="custom" >
         <ModalOverlay />
-        <ModalContent maxW="75vw" h="70vh" maxh="100vh">
+        <ModalContent maxW="75vw" h="auto" maxH="none">
             <Input
-             width={"35vw"}
-             height={"7vh"}
-             fontSize={"20px"}
-             defaultValue={task.content}
-             my="2vh"
-             ml={"2vw"}
-             border="0.1px solid"
-             placeholder='Short Description'
-             isRequired
-             _hover={{backgroundColor:"lightgrey"}}
-             _active={{backgroundColor:"initial"}}
+             width={"40vw"} height={"6vh"} fontSize={"20px"} defaultValue={task.content} my="2vh" ml={"2vw"} border="0.1px solid"     placeholder='Short Description' isRequired _hover={{backgroundColor:"lightgrey"}} _active={{backgroundColor:"initial"}}
              borderColor="transparent"
             />
             <ModalBody ml="0.5vw">
@@ -79,6 +69,7 @@ function handleClose() {
                      onClick={()=> {setVisibility(true)}} 
                      borderColor="transparent"
                      /> }
+                    <Text as="p" textAlign={"left"}>Comments</Text>
                     <Comments/>
                     
                   </Flex>
