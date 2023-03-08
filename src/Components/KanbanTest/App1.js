@@ -34,7 +34,4 @@ const App1 = () => {
   )
 }
 
-
-
-
 export default App1;
