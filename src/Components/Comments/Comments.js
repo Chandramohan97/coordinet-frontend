@@ -1,4 +1,4 @@
-import { FormControl, Input } from '@chakra-ui/react';
+import { FormControl, Input, Textarea,Button,HStack,Text } from '@chakra-ui/react';
 import React from 'react'
 
 const Comments = (props) => {
@@ -6,6 +6,7 @@ const Comments = (props) => {
   const [item, setItem] = React.useState("");
   const [editItem, setEditItem] = React.useState("");
   const [list, setList] = React.useState([]);
+  const [check,setCheck] = React.useState(false);
 
   function edit(editItem, id) {
     const newList = list.map((list) => {
@@ -29,7 +30,7 @@ const Comments = (props) => {
       setList([...list, obj]);
       // list.push({ id: Math.random() * 100, item: item });
       // console.log(list);
-      document.getElementById("myInput").value = "";
+      // document.getElementById("myInput").value = "";
       setItem("");
     }
   }
@@ -41,33 +42,62 @@ const Comments = (props) => {
   }
   // console.log(item);
   return (
-    <FormControl>
-      <Input
-        placeholder="Add comments"
-        onChange={(e) => setItem(e.target.value)}
-        id="myInput"
-      />
-      <br />
-      <br />
-      <button onClick={() => Click()}>Click</button>
-      <br />
+    <>
+      {check ?
+        <>
+        <Textarea
+          // borderRadius="2px"
+          id='myInput'
+          placeholder="Add comment"
+          onChange={(e) => setItem(e.target.value)}
+          resize="none"
+          borderRadius={"5px"}
+          border="1px solid"
+          // _active={{backgroundColor:"lightgrey"}}
+        /> 
 
-      <ul>
-        {list.map((el) => (
-          <>
-            <li key={el.id}>
-              <input
-                onChange={(e) => setEditItem(e.target.value)}
-                defaultValue={el.value}
-              />
-              <button onClick={() => edit(editItem, el.id)}> Update </button>
-              <button onClick={() => onDelete(list, el.id)}> Delete </button>
-              <br />
-            </li>
-          </>
-        ))}
-      </ul>
- </FormControl>
+      <HStack position={"relative"} left="-15vw">
+        <Button
+        backgroundColor={"blue"}
+        color="white"
+        height="30px" 
+        borderRadius={"4px"}
+        onClick={ () => { 
+          Click(); 
+          setCheck(false);
+        }}>Save</Button>
+        <Button
+        // backgroundColor={"blue"}
+        color="black"
+        height="30px" 
+        borderRadius={"4px"}
+        onClick={ () => { 
+        setCheck(false);
+        }}>Cancel</Button>
+        </HStack>
+        </>
+
+        : 
+        <Input onClick={()=>setCheck(true)} placeholder="Add Comments"/>
+      }
+
+
+      {/* <Button onClick={() =>} */}
+
+        <ul>
+          {list.map((el) => (
+              <li key={el.id}>
+                <Text
+                >{el.value}</Text>
+                
+                <button onClick={() => edit(editItem, el.id)}> Update </button>
+                <button onClick={() => onDelete(list, el.id)}> Delete </button>
+                <br />
+              </li> 
+            
+          ))}
+        </ul>
+  </>
   );
   
 }
