@@ -15,7 +15,7 @@ import App1 from "./Components/KanbanTest/App1";
 function App() {
   return (
     <div className="App">
-    {/* <Router>
+    <Router>
       <Routes>
         <Route path="/" element={<HomePage/>}/>
         <Route path="/login" element={<LoginPage/>}/>
@@ -23,8 +23,8 @@ function App() {
         <Route path="/teamStrength" element={<TeamStrength/>} />
         <Route path="/jobRole" element={<JobRole/>} />
       </Routes>
-    </Router> */}
-     <App1/> 
+    </Router>
+     {/* <App1/>  */}
        </div>
   );
 }
