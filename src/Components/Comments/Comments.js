@@ -56,7 +56,7 @@ const Comments = (props) => {
           // _active={{backgroundColor:"lightgrey"}}
         /> 
 
-      <HStack position={"relative"} left="-15vw">
+      <HStack position={"relative"} left="-14vw">
         <Button
         backgroundColor={"blue"}
         color="white"

@@ -24,7 +24,7 @@ function Column({ column }) {
         <Text className='title' fontWeight="bold" mb="2">
           {column.title} 
         </Text>
-        <IconButton aria-label="Add" icon={<AddIcon onClick={()=>setNewCard(true)} />  } pb="13px" />
+        <IconButton aria-label="Add" icon={<AddIcon onClick={()=>{ newCard ? setNewCard(false) : setNewCard(true)}} />  } pb="13px" />
         {/* To add a new card  */}
           <div className="newCards" position="relative" top="20px">   
             { newCard &&
