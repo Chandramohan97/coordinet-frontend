@@ -9,7 +9,7 @@ import './Task.css'
 function Task({ task }) {
   const [open,setOpen] = React.useState(false);
   const [value,setValue] = React.useState(task.content)
-  const [editor,setEditor] = React.useState(()=>EditorState.createEmpty());
+  const [editor,setEditor] = React.useState(EditorState.createEmpty());
 
   function editorHandler(newEditor){
     setEditor(newEditor);
@@ -65,7 +65,7 @@ function changeHeight(){
                 <Flex direction={"row"} >
                   <Flex flexDirection={"column"} alignItems="center" justifyContent={"space-evenly"} gap="10px">
                     <Text fontSize={"m"} textAlign={"left"} >Description</Text>
-                    <Editor
+                     <Editor
                      editorState={editor}
                      onEditorStateChange={editorHandler}
                      wrapperClassName="wrapper-class"
@@ -83,10 +83,10 @@ function changeHeight(){
                         options: [8, 9, 10, 11, 12, 14, 16, 18, 20, 22, 24, 28, 32, 36, 40, 48, 56, 64, 72, 96],
                         inDropdown: true,
                       },
-                      }}
+                      }} 
                 
-
-                     />
+                      
+                      /> 
                   <HStack>
                     <Button backgroundColor={"blue.100"} _hover/>
                     <Button/>
