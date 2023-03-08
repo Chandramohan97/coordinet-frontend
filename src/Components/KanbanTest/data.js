@@ -1,50 +1,37 @@
-export const data = [
+import { v4 as uuid } from "uuid";
+export const Board = [
     {
-      id: 1,
-      title: 'To Do',
-      tasks: [
-        {
-          id: 'task-1',
-          content: 'Task 1',
+      id:uuid(),
+      title : 'New',
+      cards:[
+          { 
+              id : uuid(),
+              label : "Card 1", 
+              // assignee : "First card"
+          },
+          { 
+              id :uuid(),
+              label : "Card 2",
+              // assignee : "Second card"
+          }
+      ]
+  },  
+  {
+    id:uuid(),
+    title : 'In Progress',
+    cards:[
+        { 
+            id : uuid(),
+            label : "Card 3", 
+            // assignee : "First card"
         },
-        {
-          id: 'task-2',
-          content: 'Task 2',
-        },
-        {
-          id: 'task-3',
-          content: 'Task 3',
-        },
-      ],
-    },
-    {
-      id: 2,
-      title: 'In Progress',
-      tasks: [
-        {
-          id: 'task-4',
-          content: 'Task 4',
-        },
-        {
-          id: 'task-5',
-          content: 'Task 5',
-        },
-      ],
-    },
-    {
-      id: 3,
-      title: 'Done',
-      tasks: [
-        {
-          id: 'task-6',
-          content: 'Task 6',
-        },
-        {
-          id: 'task-7',
-          content: 'Task 7',
-        },
-      ],
-    },
-    
-  ];
+        { 
+            id : uuid(),
+            label : "Card 4",
+            // assignee : "Second card"
+        }
+    ]
+},  
+
   
+]   
