@@ -10,9 +10,7 @@ import { EditorState } from 'react-draft-wysiwyg'
 
 
 const App1 = () => {
-
   const [boards,SetBoards] = React.useState(Board);
-
   // const addCards = (title)
   const onEnd = (result) =>{
     console.log(result);
@@ -22,19 +20,16 @@ const App1 = () => {
         <Heading as="h1" mb="4">
             Kanban Board
         </Heading>
-        <DragDropContext onDragEnd={onEnd}>
+          <DragDropContext onDragEnd={onEnd}>
             <Flex className='col'>
-                {boards.map((column,index) =>(
-                        <Column key={column.id}  column={column} index={index}/>    
-                    ))}
-              </Flex>
+                {boards.map((column,index) =>{
+                  return <Column key={column.id} droppableId={column.id} column={column} index={index}/>
+                })}
+            </Flex>
         </DragDropContext>
+
     </Box>
 
   )
 }
-
-
-
-
 export default App1;
