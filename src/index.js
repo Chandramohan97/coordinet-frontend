@@ -8,13 +8,13 @@ import KanbanBoard from "./KanbanBoard";
 import App1 from "./Components/KanbanTest/App1";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <React.StrictMode>
+  <React.Fragment>
     <ChakraProvider>
       {/* <App /> */}
       <App1/>
       {/* <KanbanBoard/> */}
     </ChakraProvider>
-  </React.StrictMode>
+  </React.Fragment>
 );
 
 // If you want to start measuring performance in your app, pass a function

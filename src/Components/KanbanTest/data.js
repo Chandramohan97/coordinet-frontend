@@ -21,7 +21,7 @@ export const Board = [
     title : 'In Progress',
     cards:[
         { 
-            id : uuid(),
+            id :uuid(),
             label : "Card 3", 
             // assignee : "First card"
         },
