@@ -58,12 +58,12 @@ function handleClose() {
                  <ModalBody ml="0.5vw">
                       <HStack>
                         <Flex direction={"row"} >
-                           <Flex flexDirection={"column"} alignItems="center" justifyContent={"space-evenly"} gap="10px">
-                             <Text position={"relative"} left="-16.5vw" fontSize={"m"} textAlign={"left"} fontWeight="bold" >Description</Text>
-                              { visibility ? 
-                              <>
-                              <Jodit />
-                              <HStack position={"relative"} left="-14vw">
+                          <Flex flexDirection={"column"} alignItems="center" justifyContent={"space-evenly"} gap="10px">
+                            <Text position={"relative"} left="-17vw" fontSize={"m"} textAlign={"left"} fontWeight="bold" >Description</Text>
+                            { visibility ? 
+                            <>
+                            <Jodit />
+                            <HStack position={"relative"} left="-15vw">
                               <Button backgroundColor={"blue"} color="white" onClick={()=>{setVisibility(false)}}
                               height="30px" borderRadius={"4px"}
                               >Save</Button>
@@ -78,8 +78,9 @@ function handleClose() {
                             onClick={()=> {setVisibility(true)}} 
                             borderColor="transparent"
                             /> }
-                            <Text as="p" position={"relative"} left="-16.5vw" fontWeight={"bold"}>Comments</Text>
-                            <Comments/>                            
+                            <Text as="p" position={"relative"} left="-17.3vw" fontWeight={"bold"}>Comments</Text>
+                            <Comments/>
+                            
                           </Flex>
                           <Flex direction={"column"}>
                             <div className='status'>
