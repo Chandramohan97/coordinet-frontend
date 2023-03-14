@@ -42,14 +42,16 @@
           </div>
       </Flex> 
       <Droppable droppableId={column.id} index={index} key={column.id}>
+        {/* <div className='droppable-area'> */}
         {(provided) =>(
-          <Box className='card-holder' {...provided.droppableProps} ref={provided.innerRef} >
+          <Box className='card-holder' {...provided.droppableProps} ref={provided.innerRef} height="100%" >
               {column.cards.map((cards,index) => (
                 <Task key={cards.id} cards={cards} index={index}/>
             ))}
           {provided.placeholder}
         </Box>
         )}
+        {/* </div> */}
       </Droppable>
     </Box>
   );

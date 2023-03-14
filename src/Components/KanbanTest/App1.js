@@ -68,7 +68,7 @@ const App1 = () => {
             Kanban Board
         </Heading>
           <DragDropContext onDragEnd={onEnd}>
-            <Flex className='col'>
+           <Flex className='col'>
                 {boards.map((column,index) =>{
                   return <Column key={column.id} droppableId={column.id} column={column} index={index}/>
                 })}
