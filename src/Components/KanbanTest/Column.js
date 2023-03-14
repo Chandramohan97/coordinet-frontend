@@ -7,7 +7,7 @@
   import { Droppable,Draggable } from 'react-beautiful-dnd';
   import React from 'react'
 
-  function Column({ column }) {
+  function Column({ column,index }) {
 
     const [newCard,setNewCard] = React.useState(false);
     const [newCardLabel,setNewCardLabel] = React.useState("")
@@ -28,7 +28,7 @@
         {/* To add a new card  */}
           <div className="newCards" position="relative" top="20px">   
             { newCard &&
-              <Textarea
+              <Text
               placeholder='Describe'
               bg="white"
               rounded={"md"}
@@ -40,14 +40,14 @@
               
             }
           </div>
-      </Flex>
-      <Droppable droppableId={column.id}>
+      </Flex> 
+      <Droppable droppableId={column.id} index={index} key={column.id}>
         {(provided) =>(
           <Box className='card-holder' {...provided.droppableProps} ref={provided.innerRef} >
               {column.cards.map((cards,index) => (
                 <Task key={cards.id} cards={cards} index={index}/>
             ))}
-          {/* {provided.placeholder} */}
+          {provided.placeholder}
         </Box>
         )}
       </Droppable>

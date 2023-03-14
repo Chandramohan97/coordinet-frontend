@@ -29,25 +29,26 @@ function handleClose() {
         // {...provided.dragHandleProps} 
         // style={{position:"relative",border:"1px solid black round"}}  
         // >
-          <Textarea
-            // position={"relative"}
-            // zIndex='-1'
+          <Text
+            
+            pl="10px"
+            pt="5px"
             bg="white"
-            height={"100%"}
+            height={"7vh"}
             rounded={"md"}
-            margin={"5px 0px"} 
+            margin={"10px 0px"} 
             ref={provided.innerRef}
             {...provided.draggableProps}
             {...provided.dragHandleProps}
             focusBorderColor="transparent"
             resize="none" 
-            // _hover={{cursor:"pointer" , bg  :"lightblue"}}
+            _hover={{cursor:"pointer" , bg  :"lightblue"}}
             onClick={()=>handleOpen()}
             defaultValue={cards.label}       
-            ></Textarea> 
+            >{cards.label}</Text> 
         // </div> 
       )} 
-      </Draggable>
+      </Draggable>  
           <Modal isOpen={open} onClose={handleClose} size="custom" >
             <ModalOverlay />
               <ModalContent maxW="75vw" h="auto" maxH="none">
