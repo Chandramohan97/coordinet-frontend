@@ -27,15 +27,11 @@ function handleClose() {
   }
   return (
     <>
-     <Draggable draggableId={cards.id} key={cards.id} index={index} isDragDisabled={false} >
+     <Draggable draggableId={`Column-${index}`} key={cards.id} index={index} >
        {(provided)=>(
-          // <Box className='cards' //   bg="white"     mb="2"      rounded="md"        _hover={{backgroundColor:"lightgrey"    //   }}
-          //   // key={task.id}
-          //   >
             <div className='cards'
                 >
               <Textarea
-                draggable={true}
                 bg="white"
                 rounded={"md"}
                 margin={"5px 0px"}

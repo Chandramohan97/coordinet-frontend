@@ -7,7 +7,7 @@ import { AddIcon } from "@chakra-ui/icons";
 import { Droppable } from 'react-beautiful-dnd';
 import React from 'react'
 
-function Column({ column }) {
+function Column({ boards,index }) {
 
   const [newCard,setNewCard] = React.useState(false);
   const [newCardLabel,setNewCardLabel] = React.useState("")
@@ -22,7 +22,7 @@ function Column({ column }) {
     <Box className='board' p="4" bg="gray.100" rounded="md" mr="4" w="300px">
       <Flex flexDirection={"row"}>
         <Text className='title' fontWeight="bold" mb="2">
-          {column.title} 
+          {boards.title} 
         </Text>
         <IconButton aria-label="Add" icon={<AddIcon onClick={()=>{ newCard ? setNewCard(false) : setNewCard(true)}} />  } pb="13px" />
         {/* To add a new card  */}
@@ -35,20 +35,22 @@ function Column({ column }) {
               focusBorderColor="transparent"
               resize="none"
               onChange={(e)=>setNewCardLabel(e.target.value)}
-              onKeyDown={pressEnter}
+              onKeyDown={pressEnter}    
               />
               
             }
           </div>
       </Flex>
-      <Droppable droppableId={column.id}>
+      <Droppable droppableId={boards.id} key={boards.id}>
         {(provided) =>(
-          <Box className='card-holder' {...provided.droppableProps} ref={provided.innerRef} >
-              {column.cards.map((cards,index) => (
+           <div className='card-holder' 
+            {...provided.droppableProps}
+            > 
+              {boards.cards.map((cards,index) => (
                 <Task key={cards.id} cards={cards} index={index}/>
             ))}
-          {/* {provided.placeholder} */}
-        </Box>
+          {provided.placeholder}
+        </div>
         )}
       </Droppable>
     </Box>

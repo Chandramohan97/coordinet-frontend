@@ -24,8 +24,8 @@ const App1 = () => {
         </Heading>
         <DragDropContext onDragEnd={onEnd}>
             <Flex className='col'>
-                {boards.map((column,index) =>(
-                        <Column key={column.id}  column={column} index={index}/>    
+                {boards.map((boards,index) =>(
+                        <Column key={boards.id} boards={boards} index={index}/>    
                     ))}
               </Flex>
         </DragDropContext>
