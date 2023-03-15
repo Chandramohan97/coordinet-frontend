@@ -23,7 +23,7 @@
     <Box className='board' p="4" bg="gray.100" rounded="md" mr="4" w="300px">
       <Flex flexDirection={"row"}>
         <Text className='title' fontWeight="bold" mb="2">
-          {column.title} 
+          {boards.title} 
         </Text>
         <IconButton aria-label="Add" icon={<AddIcon onClick={()=>setNewCard(true)} />  } pb="13px" />
         {/* To add a new card  */}
