@@ -7,12 +7,28 @@ import { DragDropContext,Droppable,Draggable } from 'react-beautiful-dnd'
 import {render,screen} from '@testing-library/react'
 import { Editor } from 'react-draft-wysiwyg'
 import { EditorState } from 'react-draft-wysiwyg'
+import { v4 as uuid } from "uuid";
 
 
 const App1 = () => {
   const [boards,setBoards] = React.useState(Board);
   // const addCards = (title)
-  
+
+  const addNewCard = (label,boardId) =>{
+    // console.log(label)
+    const card ={
+      id : uuid(),
+      label : label,
+    }
+
+  const index=boards.findIndex((item)=> item.id === boardId)
+  if(index < 0)return;
+
+  const tempBoards = [...boards];
+  tempBoards[index].cards.push(card);
+  setBoards(tempBoards);
+  }
+
   const onEnd = (result) =>{
     if (result.destination.droppableId === result.source.droppableId) {
       const boardIndex = boards.findIndex((board) => board.id === result.destination.droppableId);
@@ -70,7 +86,7 @@ const App1 = () => {
           <DragDropContext onDragEnd={onEnd}>
            <Flex className='col'>
                 {boards.map((column,index) =>{
-                  return <Column key={column.id} droppableId={column.id} column={column} index={index}/>
+                  return <Column key={column.id} droppableId={column.id} column={column} index={index} addNewCard={addNewCard}/>
                 })}
             </Flex>
         </DragDropContext>

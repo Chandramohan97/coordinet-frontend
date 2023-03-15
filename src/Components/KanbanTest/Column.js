@@ -7,14 +7,15 @@
   import { Droppable,Draggable } from 'react-beautiful-dnd';
   import React from 'react'
 
-  function Column({ column,index }) {
+  function Column({ column,index,addNewCard }) {
 
     const [newCard,setNewCard] = React.useState(false);
-    const [newCardLabel,setNewCardLabel] = React.useState("")
+    const [label,setLabel] = React.useState("")
 
     const pressEnter = (e) =>{
       if(e.key =='Enter'){
-        
+          addNewCard(label,column.id);
+          setNewCard(false)
       } 
     }
 
@@ -28,13 +29,13 @@
         {/* To add a new card  */}
           <div className="newCards" position="relative" top="20px">   
             { newCard &&
-              <Text
+              <Input
               placeholder='Describe'
               bg="white"
               rounded={"md"}
               focusBorderColor="transparent"
               resize="none"
-              onChange={(e)=>setNewCardLabel(e.target.value)}
+              onChange={(e)=>setLabel(e.target.value)}
               onKeyDown={pressEnter}
               />
               
@@ -44,7 +45,7 @@
       <Droppable droppableId={column.id} index={index} key={column.id}>
         {/* <div className='droppable-area'> */}
         {(provided) =>(
-          <Box className='card-holder' {...provided.droppableProps} ref={provided.innerRef} height="100%" >
+          <Box className='card-holder' key={column.id} {...provided.droppableProps} ref={provided.innerRef} height="100%" >
               {column.cards.map((cards,index) => (
                 <Task key={cards.id} cards={cards} index={index}/>
             ))}
