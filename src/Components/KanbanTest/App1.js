@@ -4,9 +4,6 @@ import { Board } from './data'
 import Column from './Column'
 import { Flex } from '@chakra-ui/react'
 import { DragDropContext,Droppable,Draggable } from 'react-beautiful-dnd'
-import {render,screen} from '@testing-library/react'
-import { Editor } from 'react-draft-wysiwyg'
-import { EditorState } from 'react-draft-wysiwyg'
 import { v4 as uuid } from "uuid";
 
 

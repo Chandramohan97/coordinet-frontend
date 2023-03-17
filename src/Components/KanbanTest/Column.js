@@ -23,24 +23,27 @@
     <Box className='board' p="4" bg="gray.100" rounded="md" mr="4" w="300px">
       <Flex flexDirection={"row"}>
         <Text className='title' fontWeight="bold" mb="2">
-          {boards.title} 
+          {column.title} 
         </Text>
         <IconButton aria-label="Add" icon={<AddIcon onClick={()=>setNewCard(true)} />  } pb="13px" />
         {/* To add a new card  */}
-          <div className="newCards" position="relative" top="20px">   
+          {/* <div className="newCards" position="relative" top="20px">    */}
             { newCard &&
-              <Input
-              placeholder='Describe'
-              bg="white"
-              rounded={"md"}
-              focusBorderColor="transparent"
-              resize="none"
-              onChange={(e)=>setLabel(e.target.value)}
-              onKeyDown={pressEnter}
-              />
-              
+             <>
+              <ul>
+                <Input
+                  placeholder='Describe'
+                  bg="white"
+                  rounded={"md"}
+                  focusBorderColor="transparent"
+                  resize="none"
+                  onChange={(e)=>setLabel(e.target.value)}
+                  onKeyDown={pressEnter}
+                />
+              </ul>
+            </> 
             }
-          </div>
+          {/* </div> */}
       </Flex> 
       <Droppable droppableId={column.id} index={index} key={column.id}>
         {/* <div className='droppable-area'> */}

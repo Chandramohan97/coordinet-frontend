@@ -2,10 +2,9 @@ import { Box, Drawer, Text, Textarea,Modal,ModalOverlay, ModalContent, ModalHead
 // import { DragHandle } from "@chakra-ui/react";
 import React from 'react';
 import './Task.css'
-import JoditEditor from 'jodit-react';
-import Jodit from './Jodit';
 import Comments from '../../Comments/Comments';
 import { Draggable } from 'react-beautiful-dnd';
+import { isDisabled } from '@testing-library/user-event/dist/utils';
 
 function Task({ cards,index}) {
   const [open,setOpen] = React.useState(false);
@@ -30,7 +29,6 @@ function handleClose() {
         // style={{position:"relative",border:"1px solid black round"}}  
         // >
           <Text
-            
             pl="10px"
             pt="5px"
             bg="white"
@@ -52,44 +50,19 @@ function handleClose() {
           <Modal isOpen={open} onClose={handleClose} size="custom" >
             <ModalOverlay />
               <ModalContent maxW="75vw" h="auto" maxH="none">
-                <Input
-                 width={"40vw"} height={"6vh"} fontSize={"20px"} defaultValue={cards.label} my="2vh" ml={"2vw"} border="0.1px solid"     placeholder='Short Description' isRequired _hover={{backgroundColor:"lightgrey"}} _active={{backgroundColor:"initial"}}
-                  borderColor="transparent"
+                <Textarea
+                 width={"40vw"} height={"2vh"} fontSize={"20px"} defaultValue={cards.label} my="2vh" ml={"2vw"} border="0.1px solid"  
+                 placeholder='Short Description'  _hover={{backgroundColor:"lightgrey"}}
+                  borderColor="transparent" resize={"none"}
+                  _focus={{
+                    // pointerEvents:"none",
+                    pointerEvents:"none",
+                    backgroundColor:"white"
+                  }}
                  />
                  <ModalBody ml="0.5vw">
                       <HStack>
-                        <Flex direction={"row"} >
-                          <Flex flexDirection={"column"} alignItems="center" justifyContent={"space-evenly"} gap="10px">
-                            <Text position={"relative"} left="-17vw" fontSize={"m"} textAlign={"left"} fontWeight="bold" >Description</Text>
-                            { visibility ? 
-                            <>
-                            <Jodit />
-                            <HStack position={"relative"} left="-15vw">
-                              <Button backgroundColor={"blue"} color="white" onClick={()=>{setVisibility(false)}}
-                              height="30px" borderRadius={"4px"}
-                              >Save</Button>
-                              <Button height="30px" borderRadius={"4px"} onClick={()=> {setVisibility(false)}}>Cancel</Button>
-                              </HStack>
-                            </>
-                              :
-                            <Input 
-                            width={"40vw"}
-                            _hover={{backgroundColor:"lightgrey"}}
-                            placeholder='Enter a title here' 
-                            onClick={()=> {setVisibility(true)}} 
-                            borderColor="transparent"
-                            /> }
-                            <Text as="p" position={"relative"} left="-17.3vw" fontWeight={"bold"}>Comments</Text>
-                            <Comments/>
-                            
-                          </Flex>
-                          <Flex direction={"column"}>
-                            <div className='status'>
-                              <Text>Status</Text>
-                              <Button></Button>
-                            </div>
-                          </Flex>
-                        </Flex>
+                        
                       </HStack>
                     </ModalBody>
                 <ModalCloseButton />
