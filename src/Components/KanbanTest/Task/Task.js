@@ -7,6 +7,12 @@ import { Draggable } from 'react-beautiful-dnd';
 import { isDisabled } from '@testing-library/user-event/dist/utils';
 
 function Task({ cards,index}) {
+
+  const textarea = document.querySelector('.modal-description');
+
+  window.addEventListener('click', (event)=>{
+      textarea.remove('hover')
+  })
   const [open,setOpen] = React.useState(false);
   const [visibility,setVisibility]= React.useState(false)
   const [description,setDescrition]= React.useState("");
@@ -50,8 +56,9 @@ function handleClose() {
           <Modal isOpen={open} onClose={handleClose} size="custom" >
             <ModalOverlay />
               <ModalContent maxW="75vw" h="auto" maxH="none">
-                <Textarea
-                 width={"40vw"} height={"2vh"} fontSize={"20px"} defaultValue={cards.label} my="2vh" ml={"2vw"} border="0.1px solid"  
+                <Textarea 
+                className='modal-description'
+                 width={"40vw"} height={"1px"} fontSize={"20px"} defaultValue={cards.label} my="2vh" ml={"2vw"} border="0.1px solid"  
                  placeholder='Short Description'  _hover={{backgroundColor:"lightgrey"}}
                   borderColor="transparent" resize={"none"}
                   _focus={{
