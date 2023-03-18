@@ -17,7 +17,11 @@
           addNewCard(label,column.id);
           setNewCard(false)
       } 
+      else if(e.key == 'Escape'){
+        setNewCard(false);
+      }
     }
+
 
   return (
     <Box className='board' p="4" bg="gray.100" rounded="md" mr="4" w="300px">
@@ -26,11 +30,11 @@
           {column.title} 
         </Text>
         <IconButton aria-label="Add" icon={<AddIcon onClick={()=>setNewCard(true)} />  } pb="13px" />
+      </Flex> 
         {/* To add a new card  */}
           {/* <div className="newCards" position="relative" top="20px">    */}
             { newCard &&
-             <>
-              <ul>
+             <> 
                 <Input
                   placeholder='Describe'
                   bg="white"
@@ -40,11 +44,11 @@
                   onChange={(e)=>setLabel(e.target.value)}
                   onKeyDown={pressEnter}
                 />
-              </ul>
+                
             </> 
             }
           {/* </div> */}
-      </Flex> 
+      
       <Droppable droppableId={column.id} index={index} key={column.id}>
         {/* <div className='droppable-area'> */}
         {(provided) =>(
@@ -57,7 +61,10 @@
         )}
         {/* </div> */}
       </Droppable>
+      
     </Box>
+
+    
   );
 }
 
