@@ -4,10 +4,24 @@ import React from 'react';
 import './Task.css'
 import Comments from '../../Comments/Comments';
 import { Draggable } from 'react-beautiful-dnd';
+import ReactQuill from 'react-quill';
+import 'react-quill/dist/quill.snow.css';
+import CustomButton from '../../button/CustomButton';
 
 
 function Task({ cards,index}) {
 
+  const modules = {
+    toolbar : [
+      ['bold', 'italic', 'underline', 'strike','image'],
+      [{ list: 'ordered' }, { list: 'bullet' }],
+      [{ header: [1, 2, 3, 4, 5, 6] }],
+      [{ color: [] }, { background: [] }],
+      ['clean'],
+      
+    ],
+  }
+  
   const textarea = document.querySelector('.modal-description');
 
   window.addEventListener('click', (event)=>{
@@ -18,12 +32,6 @@ function Task({ cards,index}) {
   const [description,setDescrition]= React.useState("");
   const [value,setValue] = React.useState(cards.content)
   const [content,setContent] = React.useState("");
-  
-  const textarea = document.getElementsByClassName('modal-description')
-  document.addEventListener('click',(event)=>{
-    textarea.remove('hover');
-  })
-
   
   function handleOpen() {
     setOpen(true);
@@ -64,15 +72,10 @@ function handleClose() {
           <Modal isOpen={open} onClose={handleClose} size="custom" >
             <ModalOverlay />
               <ModalContent maxW="75vw" h="auto" maxH="none">
-<<<<<<< HEAD
-                <Textarea class='modal-descirption'
-                 width={"40vw"} height={"2vh"} fontSize={"20px"} defaultValue={cards.label} my="2vh" ml={"2vw"} border="0.1px solid"  
-=======
-                <Textarea 
+                <Input 
                 className='modal-description'
-                 width={"40vw"} height={"1px"} fontSize={"20px"} defaultValue={cards.label} my="2vh" ml={"2vw"} border="0.1px solid"  
->>>>>>> de613bf6f72f7c2914b8874e51a06b116f291f02
-                 placeholder='Short Description'  _hover={{backgroundColor:"lightgrey"}}
+                 width={"40vw"} height={"7.5vh"} fontSize={"22px"} defaultValue={cards.label} my="5vh" ml={"2vw"} border="0.1px solid"  
+                 placeholder='Short Description'  _hover={{backgroundColor:"lightgrey"}} fontWeight="bold"
                   borderColor="transparent" resize={"none"}
                   _focus={{
                     // pointerEvents:"none",
@@ -82,7 +85,42 @@ function handleClose() {
                  />
                  <ModalBody ml="0.5vw">
                       <HStack>
-                        
+                        <Flex flexDirection={'column'}>
+                          <ReactQuill className='quill' modules={modules} theme='snow'></ReactQuill>
+                          <div className='quillButton' >
+                            <CustomButton
+                              color="white"
+                              height="40px"
+                              width="60px"
+                              bg="blue.500"
+                              _hover={{ bg: "#2a9ca1" }} //blue-green
+                              _active={{ bg: "#555555" }}
+                              textAlign="center"
+                              fontSize="14px"
+                              margin="30px 10px"
+                              borderRadius="2px"
+                              value="Login"
+                            />
+                            <CustomButton
+                              color="white"
+                              height="40px"
+                              width="60px"
+                              bg="blue.500"
+                              _hover={{ bg: "#2a9ca1" }} //blue-green
+                              _active={{ bg: "#555555" }}
+                              textAlign="center"
+                              fontSize="14px"
+                              margin="30px 10px"
+                              borderRadius="2px"
+                              value="Cancel"
+                            />
+                          </div>
+
+                          <div className='comments'>
+                            <p>Comments</p>  
+
+                          </div>
+                        </Flex>
                       </HStack>
                     </ModalBody>
                 <ModalCloseButton />
@@ -92,4 +130,4 @@ function handleClose() {
   );
   }
   
-export default Task;
+export default Task;  
