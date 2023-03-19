@@ -1,5 +1,6 @@
-import { Box, Drawer, Text, Textarea,Modal,ModalOverlay, ModalContent, ModalHeader, ModalBody, ModalCloseButton, HStack, Flex, VStack, Input, Button } from '@chakra-ui/react';
-// import { DragHandle } from "@chakra-ui/react";
+import { Box, Drawer, Text, Textarea,Modal,ModalOverlay, ModalContent, ModalHeader, ModalBody, ModalCloseButton, 
+  HStack, Flex, VStack, Input, Button, Grid } from '@chakra-ui/react';
+import { Select } from '@chakra-ui/react';
 import React from 'react';
 import './Task.css'
 import Comments from '../../Comments/Comments';
@@ -7,7 +8,6 @@ import { Draggable } from 'react-beautiful-dnd';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import CustomButton from '../../button/CustomButton';
-
 
 function Task({ cards,index}) {
 
@@ -53,6 +53,7 @@ function handleClose() {
           <Text
             pl="10px"
             pt="5px"
+            // my=""
             bg="white"
             height={"7vh"}
             rounded={"md"}
@@ -71,25 +72,43 @@ function handleClose() {
       </Draggable>  
           <Modal isOpen={open} onClose={handleClose} size="custom" >
             <ModalOverlay />
-              <ModalContent maxW="75vw" h="auto" maxH="none">
-                <Input 
-                className='modal-description'
-                 width={"40vw"} height={"7.5vh"} fontSize={"22px"} defaultValue={cards.label} my="5vh" ml={"2vw"} border="0.1px solid"  
-                 placeholder='Short Description'  _hover={{backgroundColor:"lightgrey"}} fontWeight="bold"
-                  borderColor="transparent" resize={"none"}
-                  _focus={{
-                    // pointerEvents:"none",
-                    pointerEvents:"none",
-                    backgroundColor:"white"
-                  }}
-                 />
-                 <ModalBody ml="0.5vw">
-                      <HStack>
-                        <Flex flexDirection={'column'}>
-                          <ReactQuill className='quill' modules={modules} theme='snow'></ReactQuill>
-                          <div className='quillButton' >
-                            <CustomButton
-                              color="white"
+              <ModalContent maxW="75vw" display={"flex"} flexDirection="row" h="auto" maxH={"none"}>
+                <VStack flexDirection={"column"}>
+                  <Input 
+                  className='modal-description'
+                  width={"40vw"} height={"7.5vh"} fontSize={"20px"} defaultValue={cards.label} mt="8vh" ml={"2vw"} border="0.1px solid"  
+                  placeholder='Short Description'  _hover={{backgroundColor:"lightgrey"}} fontWeight="bold"
+                    borderColor="transparent" 
+                    _focus={{
+                      pointerEvents:"none",
+                      backgroundColor:"white"
+                    }}
+                  /> 
+                <Box>
+                  <ReactQuill 
+                  className='quill' 
+                  modules={modules} 
+                  theme='snow' 
+                  style={{marginTop:"2.5vh",marginLeft:"2vw"}} >
+                  </ReactQuill>
+                </Box>
+
+                <div className='quillButton' style={{position:"relative",left:"-14.5vw"}}>
+                    <CustomButton
+                     color="white"
+                              height="40px"
+                              width="60px"
+                              bg="blue.500"
+                              _hover={{ bg: "lightblue" }} //blue-green
+                              _active={{ bg: "#555555" }}
+                              textAlign="center"
+                              fontSize="14px"
+                              margin="30px 10px"
+                              borderRadius="2px"
+                              value="Save"
+                     />
+                    <CustomButton
+                      color="white"
                               height="40px"
                               width="60px"
                               bg="blue.500"
@@ -99,7 +118,36 @@ function handleClose() {
                               fontSize="14px"
                               margin="30px 10px"
                               borderRadius="2px"
-                              value="Login"
+                              value="Cancel"
+                    />
+                    <p>Comments</p>
+                </div>
+
+                </VStack>
+                 <VStack mt="8vh" ml={"2vw"}>                  
+                  <Text 
+                  color="rgb(94, 108, 132)"
+                  fontSize={"12.5px"}
+                  fontFamily="CircularStdBold"
+                  >STATUS</Text>
+                  </VStack>          
+                 {/* <ModalBody ml="0.5vw" display={"flex"} flexDirection="row" gap="5vw">
+                      <HStack>
+                        <Flex flexDirection={'column'}>
+                          <ReactQuill className='quill' modules={modules} theme='snow' style={{marginTop:"4vh"}}></ReactQuill>
+                          <div className='quillButton' >
+                            <CustomButton
+                              color="white"
+                              height="40px"
+                              width="60px"
+                              bg="blue.500"
+                              _hover={{ bg: "lightblue" }} //blue-green
+                              _active={{ bg: "#555555" }}
+                              textAlign="center"
+                              fontSize="14px"
+                              margin="30px 10px"
+                              borderRadius="2px"
+                              value="Save"
                             />
                             <CustomButton
                               color="white"
@@ -118,11 +166,14 @@ function handleClose() {
 
                           <div className='comments'>
                             <p>Comments</p>  
-
                           </div>
                         </Flex>
                       </HStack>
-                    </ModalBody>
+
+                      <VStack  >
+                          <p>Hello</p>
+                        </VStack>
+                    </ModalBody> */}
                 <ModalCloseButton />
                 </ModalContent>   
               </Modal>
