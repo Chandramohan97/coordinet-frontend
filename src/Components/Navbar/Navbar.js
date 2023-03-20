@@ -1,7 +1,7 @@
 import { Flex, Text, Box, Image } from '@chakra-ui/react'
 import CustomButton from '../button/CustomButton'
 import { Link } from 'react-router-dom'
-import img from "../../Asssets/landingPage.png"
+import img from "../../Asssets/landingPage(1).png"
 
 import React from 'react'
 
@@ -76,15 +76,9 @@ const Navbar = () => {
                     borderRadius="5px"
                     value="About"
                 />
-          </Flex>
-    
+          </Flex> 
       </Flex>
       
-      <Flex ml='11vw' mt="20vh" flexDirection={"row"} gap="30vw" border={"1px solid"}>
-        <h1>Hello</h1>
-          {/* <p>Hello</p> */}
-          <Image src={img} width="fit-content" border={"1px solid"}/>
-      </Flex>
     </Flex>
   );
   
