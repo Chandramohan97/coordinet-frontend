@@ -1,6 +1,8 @@
 import { Box, Drawer, Text, Textarea,Modal,ModalOverlay, ModalContent, ModalHeader, ModalBody, ModalCloseButton, HStack, Flex, VStack, Input, Button } from '@chakra-ui/react';
 // import { DragHandle } from "@chakra-ui/react";
 import React from 'react';
+import ReactQuill from 'react-quill';
+import 'react-quill/dist/quill.snow.css';
 import './Task.css'
 import Comments from '../../Comments/Comments';
 import { Draggable } from 'react-beautiful-dnd';
@@ -56,20 +58,18 @@ function handleClose() {
           <Modal isOpen={open} onClose={handleClose} size="custom" >
             <ModalOverlay />
               <ModalContent maxW="75vw" h="auto" maxH="none">
-                <Textarea 
-                className='modal-description'
-                 width={"40vw"} height={"1px"} fontSize={"20px"} defaultValue={cards.label} my="2vh" ml={"2vw"} border="0.1px solid"  
-                 placeholder='Short Description'  _hover={{backgroundColor:"lightgrey"}}
-                  borderColor="transparent" resize={"none"}
+                <Input 
+                 className='modal-description' minW={"35vw"} maxW={"35vw"} height={"8vh"} maxH={"none"} fontSize={"20px"} defaultValue={cards.label} my="8vh" ml={"2vw"}  
+                 placeholder='Short Description' _hover={{backgroundColor:"lightgrey"}}
+                  borderColor="transparent" resize={true}
                   _focus={{
-                    // pointerEvents:"none",
-                    pointerEvents:"none",
+                    // pointerEvents:"none"
                     backgroundColor:"white"
                   }}
                  />
                  <ModalBody ml="0.5vw">
                       <HStack>
-                        
+                        <ReactQuill theme='snow'/>
                       </HStack>
                     </ModalBody>
                 <ModalCloseButton />
