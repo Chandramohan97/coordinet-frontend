@@ -7,7 +7,6 @@ import 'react-quill/dist/quill.snow.css';
 import './Task.css'
 import Comments from '../../Comments/Comments';
 import { Draggable } from 'react-beautiful-dnd';
-import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import CustomButton from '../../button/CustomButton';
 

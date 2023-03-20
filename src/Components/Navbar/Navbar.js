@@ -1,7 +1,7 @@
 import { Flex, Text, Box, Image } from '@chakra-ui/react'
 import CustomButton from '../button/CustomButton'
 import { Link } from 'react-router-dom'
-import img from "../../Asssets/landingPage.png"
+import img from "../../Asssets/landingPage(1).png"
 
 import React from 'react'
 
