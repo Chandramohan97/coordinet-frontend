@@ -12,8 +12,8 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.Fragment>
     <ChakraProvider>
-      {/* <App /> */}
-      <App1/>
+      <App />
+      {/* <App1/> */}
       {/* <KanbanBoard/> */}
     </ChakraProvider>
   </React.Fragment>
