@@ -6,16 +6,19 @@ import {
   Heading,
   Input,
   VStack,
+  Button,
+  Image
 } from "@chakra-ui/react";
 import CustomButton from "../button/CustomButton";
 import InputForm from "../InputForm/InputForm";
+import googleImage from "../../Asssets/googleImage.png"
 // import InputForm from "../InputForm/InputForm";
 const LoginForm = () => {
   return (
     <Box>
       <VStack justifyContent="space-between" spacing="30px">
         <Heading as="h3" fontFamily="Verdana">
-          Sign in to Coordinet
+          Sign in 
         </Heading>
         <form>
           <VStack spacing="20px">
@@ -58,7 +61,9 @@ const LoginForm = () => {
           >
           </CustomButton>
         </form>
-        <CustomButton
+        <Button
+          position={"relative"}
+          top="-20px"
           color="black"
           height="5vh"
           width="20vw"
@@ -66,12 +71,12 @@ const LoginForm = () => {
           _hover={{ bg: "#dcdfe6" }} //blue-green
           _active={{ bg: "#b4b9c4" }}
           textAlign="center"
-          fontSize="14px"
-          margin="30px 10px"
-          borderRadius="1px solid black"
-          value="Sign in with Google"
+          fontSize="16px"
+          border="1px solid black"
         >
-        </CustomButton>
+          <Image src={googleImage} alt="GoogleImage" height={"20px"} mr="8px" />
+          Login
+        </Button>
       </VStack>
     </Box>
   );

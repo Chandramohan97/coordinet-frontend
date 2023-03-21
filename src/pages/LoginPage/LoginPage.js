@@ -11,7 +11,8 @@ const LoginPage = () => {
   return (
     <div className="LoginPage">
       <Flex my={"30px"} mx="30px" flexDirection={"row"} justifyContent="space-between"  background="#F7F8FC">
-        <Navbar/>
+        {/* <Navbar/> */}
+        <h1>{""}</h1>
         <Link to="/signUp">
               <CustomButton
                   color="white"
