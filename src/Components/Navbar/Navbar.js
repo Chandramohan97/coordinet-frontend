@@ -8,18 +8,19 @@ import React from 'react'
 const Navbar = () => {
   return (
   <Flex flexDirection={"column"}>
-    <Flex my={"30px"} flexDirection={"row"} justifyContent="space-evenly" background="#F7F8FC">
-        <Text
-            fontFamily="Jacques Francois"
+    <Flex my={"30px"} flexDirection={"row"} justifyContent="space-between" background="#F7F8FC">
+        <Text fontFamily="Jacques Francois"
             fontWeight="regular"
             fontSize="40px"
             color="#000000"
-            position={"relative"}
-            left="-100px"
+            ml="5vw"
+            // position={"relative"}
+            // left="-100px"
             >
             COORDINET
         </Text>
-        <Flex flexDirection={"row"} justifyContent="space-around"  >
+
+        <Flex flexDirection={"row"} justifyContent="space-around" mr={"23vw"} >
         <CustomButton
             color="white"
                   height="5vh"
