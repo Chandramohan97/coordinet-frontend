@@ -75,7 +75,7 @@ const LoginForm = () => {
           border="1px solid black"
         >
           <Image src={googleImage} alt="GoogleImage" height={"20px"} mr="8px" />
-          Login
+          Login with Google
         </Button>
       </VStack>
     </Box>

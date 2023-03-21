@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import img from "../../Asssets/landingPage(1).png"
 
 import React from 'react'
+import { BlockMapBuilder } from 'draft-js'
 
 const Navbar = () => {
   return (
@@ -22,11 +23,15 @@ const Navbar = () => {
 
         <Flex flexDirection={"row"} justifyContent="space-around" mr={"23vw"} >
         <CustomButton
-            color="white"
+                color="black"
                   height="5vh"
                   width="7vw"
-                  bg="#31bfc8"
-                  _hover={{ bg: "#2a9ca1" }} //blue-green
+                //   bg="#31bfc8"
+                  _hover={{ 
+                    transform:"translate(0px,-5px)",
+                    borderBottom : "2px solid red",
+                    borderColor:"blue"}} //blue-green
+                  
                   _active={{ bg: "#555555" }}
                   textAlign="center"
                   fontSize="15px"
