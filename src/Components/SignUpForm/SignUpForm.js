@@ -1,13 +1,17 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import CustomButton from "../button/CustomButton";
+// import { Button } from "@chakra-ui/react";
 import {
   Box,
   FormControl,
   FormLabel,
   Heading,
   VStack,
+  Button,
+  Image
 } from "@chakra-ui/react";
+import googleImage from '../../Asssets/googleImage.png'
 import InputForm from "../InputForm/InputForm";
 
 
@@ -17,7 +21,7 @@ const SignUpForm = () => {
     <Box>
       <VStack justifyContent="space-between" spacing="30px">
         <Heading as="h3" fontFamily="Verdana">
-          Sign up to Coordinet
+          Sign Up
         </Heading>
         <form>
           <VStack >
@@ -80,7 +84,9 @@ const SignUpForm = () => {
           </CustomButton>
           </Link>
         </form>
-        <CustomButton
+        <Button
+          position={"relative"}
+          top="-20px"
           color="black"
           height="5vh"
           width="20vw"
@@ -89,11 +95,11 @@ const SignUpForm = () => {
           _active={{ bg: "#b4b9c4" }}
           textAlign="center"
           fontSize="16px"
-          margin="30px 10px"
-          borderRadius="1px solid black"
-          value="Sign up with Google"
+          border="1px solid black"
         >
-        </CustomButton>
+          <Image src={googleImage} alt="GoogleImage" height={"20px"} mr="10px" />
+          Sign up with Google
+        </Button>
       </VStack>
     </Box>
   );

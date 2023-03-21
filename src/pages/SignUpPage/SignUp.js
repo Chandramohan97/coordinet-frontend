@@ -13,7 +13,8 @@ const SignUp = () => {
   return( 
     <div className="SignUp">
     <Flex my={"30px"} mx="30px" flexDirection={"row"} justifyContent="space-between"  background="#F7F8FC">
-      <Navbar/>
+      {/* <Navbar/> */}
+      <h1>{""}</h1>
       <Link to="/login">
             <CustomButton
                 color="white"
