@@ -1,5 +1,5 @@
 import React from 'react'
-import { Flex,Link,Heading,VStack,Text,Box ,Input,Form} from '@chakra-ui/react'
+import { Flex,Link,Heading,VStack,Text,Box ,Input, PopoverAnchor} from '@chakra-ui/react'
 import CustomButton from '../../Components/button/CustomButton';
 import './EmailVerification.css'
 // import LoginPage from '../LoginPage/LoginPage';
@@ -50,10 +50,10 @@ const EmailVerification = () => {
         
         <form>
           <div className='inputBox'>
+            <input type="number" max></input>
             <input type="number" maxLength={"1"}></input>
-            <input  type="number" maxLength={"1"}></input>
-            <input  type="number" maxLength={"1"}></input>
-            <input  type="number" maxLength={"1"}></input>
+            <input type="number" maxLength={"1"}></input>
+            <input type="number" maxLength={"1"}></input>
           </div>
           <CustomButton
             color="white"
@@ -64,11 +64,16 @@ const EmailVerification = () => {
             _active={{ bg: "#555555" }}
             textAlign="center"
             fontSize="15px"
-            margin="0"
+            margin='30px 0px'
             borderRadius="0px"
             value="Verify"
             />
           </form>
+        <div className='links'>
+          <a href="#">Resend Code{" "}</a> 
+          <p>or{" "}</p> 
+          <a href='#'>Logout</a>
+        </div>
     </VStack>
       </div>
   )

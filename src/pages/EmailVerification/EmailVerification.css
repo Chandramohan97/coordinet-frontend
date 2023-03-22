@@ -1,5 +1,9 @@
 form{
     margin-top: 10vh;
+    position: relative;
+    top: -11vh;
+    /* padding : 10px 0px; */
+    /* border: 1px solid; */
 }
 input{
     width: 76.2px;
@@ -13,7 +17,7 @@ input{
 }
 
 input:focus {
-   border: none;
+    border: none;
     border-bottom: 2px solid black;
     outline: none;
   }
@@ -22,13 +26,20 @@ input:focus {
     margin-bottom: 10px;
     display: flex;
     justify-content: space-evenly;
-
-    /* border: 1px solid; */
-    /* top: -10px; */
-    /* gap :  */
 }
 
-/* input:focus{
-    outline:none;
-    color:black;
-} */
+a{
+    /* margin-top: -10vh; */
+    display: inline;
+    /* border: 1px solid; */
+    color: blue;
+    /* background-color: blue; */
+}
+
+.links{
+    position: relative;
+    top: -25vh;
+}
+p{
+    display: inline;
+}
