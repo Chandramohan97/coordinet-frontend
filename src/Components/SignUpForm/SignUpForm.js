@@ -67,7 +67,7 @@ const SignUpForm = () => {
               ></InputForm>
             </FormControl>
           </VStack>
-          <Link to="/teamStrength">
+          <Link to="/EmailVerification">
           <CustomButton
             color="white"
             height="5vh"
