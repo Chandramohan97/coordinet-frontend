@@ -1,0 +1,16 @@
+input {
+    display: block;
+    margin: 20em auto;
+    border: none;
+    padding: 0;
+    width: 343.2px; /* increase the width of the container */
+    background: repeating-linear-gradient(90deg, dimgrey 0 , dimgrey 1ch, transparent 0, transparent 1.5ch) 0 100%/ 6ch 2px no-repeat;
+    font: 4ch droid sans mono, consolas, monospace; 
+     letter-spacing: 0.5ch; 
+ }
+  
+
+/* input:focus{
+    outline:none;
+    color:black;
+} */
