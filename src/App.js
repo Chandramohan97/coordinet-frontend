@@ -9,6 +9,7 @@ import RadioInputForm from "./Components/RadioInputForm/RadioInputForm";
 import TeamStrength from "./pages/TeamStrength/TeamStrength";
 import SignUp from "./pages/SignUpPage/SignUp";
 import JobRole from "./pages/JobRole/JobRole";
+import EmailVerification from "./pages/EmailVerification/EmailVerification";
 // import HomePage from "./pages/Homepage/HomePage";
 import App1 from "./Components/KanbanTest/App1";
 
@@ -20,6 +21,7 @@ function App() {
         <Route path="/" element={<HomePage/>}/>
         <Route path="/login" element={<LoginPage/>}/>
         <Route path="/signUp" element={<SignUp/>}/>
+        <Route path="/emailVerification" element={<EmailVerification/>} />
         <Route path="/teamStrength" element={<TeamStrength/>} />
         <Route path="/jobRole" element={<JobRole/>} />
       </Routes>

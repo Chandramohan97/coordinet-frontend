@@ -30,8 +30,7 @@ const Navbar = () => {
                   _hover={{ 
                     transform:"translate(0px,-5px)",
                     borderBottom : "2px solid red",
-                    borderColor:"blue"}} //blue-green
-                  
+                    borderColor:"blue"}} 
                   _active={{ bg: "#555555" }}
                   textAlign="center"
                   fontSize="15px"
@@ -41,11 +40,14 @@ const Navbar = () => {
         />  
         <Link to="/login">
             <CustomButton
-                color="white"
+                  color="black"
                     height="5vh"
                     width="7vw"
-                    bg="#31bfc8"
-                    _hover={{ bg: "#2a9ca1" }} //blue-green
+                    // bg="#31bfc8"
+                    _hover={{ 
+                      transform:"translate(0px,-5px)",
+                      borderBottom : "2px solid red",
+                      borderColor:"blue"}}
                     _active={{ bg: "#555555" }}
                     textAlign="center"
                     fontSize="15px"
@@ -56,11 +58,14 @@ const Navbar = () => {
         </Link>
             <Link to="/signUp">
                 <CustomButton
-                    color="white"
+                    color="black"
                     height="5vh"
                     width="7vw"
-                    bg="#31bfc8"
-                    _hover={{ bg: "#2a9ca1" }} //blue-green
+                    // bg="#31bfc8"
+                    _hover={{ 
+                      transform:"translate(0px,-5px)",
+                      borderBottom : "2px solid red",
+                      borderColor:"blue"}}
                     _active={{ bg: "#555555" }}
                     textAlign="center"
                     fontSize="15px"
@@ -70,11 +75,14 @@ const Navbar = () => {
                 />
               </Link>
               <CustomButton
-                    color="white"
+                    color="black"
                     height="5vh"
                     width="7vw"
-                    bg="#31bfc8"
-                    _hover={{ bg: "#2a9ca1" }} //blue-green
+                    // bg="#31bfc8"
+                    _hover={{ 
+                      transform:"translate(0px,-5px)",
+                      borderBottom : "2px solid red",
+                      borderColor:"blue"}}
                     _active={{ bg: "#555555" }}
                     textAlign="center"
                     fontSize="15px"

@@ -1,6 +1,7 @@
 import { Heading,Image ,Box,Text, Grid} from '@chakra-ui/react';
 import React from 'react';
 import img from '../../Asssets/landingPage(1).png'
+
 const Hero = () =>{
   return(
     <Box className='hero' display={"flex"} flexDirection="row" justifyContent={"space-evenly"} mt="8vh">
