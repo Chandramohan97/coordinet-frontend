@@ -1,5 +1,5 @@
 import React from 'react'
-import { Flex,Link,Heading,VStack,Text,Box ,Input} from '@chakra-ui/react'
+import { Flex,Link,Heading,VStack,Text,Box ,Input, PopoverAnchor} from '@chakra-ui/react'
 import CustomButton from '../../Components/button/CustomButton';
 import './EmailVerification.css'
 // import LoginPage from '../LoginPage/LoginPage';
@@ -49,21 +49,31 @@ const EmailVerification = () => {
          </VStack>
         
         <form>
-        <input style={{border: "none", borderBottom: "1px solid black", width: "2rem", margin: "0.5rem", textAlign: "center"}} type="text" maxLength="1"/>         
+          <div className='inputBox'>
+            <input type="number" max></input>
+            <input type="number" maxLength={"1"}></input>
+            <input type="number" maxLength={"1"}></input>
+            <input type="number" maxLength={"1"}></input>
+          </div>
           <CustomButton
-          color="white"
-          height="5vh"
-          width={"344.8px"}
-          bg="#31bfc8"
-          _hover={{ bg: "#2a9ca1" }} //blue-green
-          _active={{ bg: "#555555" }}
-          textAlign="center"
-          fontSize="15px"
-          margin="0"
-          borderRadius="0px"
-          value="Verify"
-          />
-        </form>
+            color="white"
+            height="5vh"
+            width={"344.8px"}  
+            bg="#31bfc8"
+            _hover={{ bg: "#2a9ca1" }} //blue-green
+            _active={{ bg: "#555555" }}
+            textAlign="center"
+            fontSize="15px"
+            margin='30px 0px'
+            borderRadius="0px"
+            value="Verify"
+            />
+          </form>
+        <div className='links'>
+          <a href="#">Resend Code{" "}</a> 
+          <p>or{" "}</p> 
+          <a href='#'>Logout</a>
+        </div>
     </VStack>
       </div>
   )

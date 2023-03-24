@@ -1,16 +1,45 @@
-input {
-    display: block;
-    margin: 20em auto;
+form{
+    margin-top: 10vh;
+    position: relative;
+    top: -11vh;
+    /* padding : 10px 0px; */
+    /* border: 1px solid; */
+}
+input{
+    width: 76.2px;
+    height: 50px;
     border: none;
-    padding: 0;
-    width: 343.2px; /* increase the width of the container */
-    background: repeating-linear-gradient(90deg, dimgrey 0 , dimgrey 1ch, transparent 0, transparent 1.5ch) 0 100%/ 6ch 2px no-repeat;
-    font: 4ch droid sans mono, consolas, monospace; 
-     letter-spacing: 0.5ch; 
- }
-  
+    border-bottom: 2px solid;
+    background-color: transparent;
+    text-align: center;
+    line-height: 60px;
+    /* outline: none; */
+}
 
-/* input:focus{
-    outline:none;
-    color:black;
-} */
+input:focus {
+    border: none;
+    border-bottom: 2px solid black;
+    outline: none;
+  }
+.inputBox{
+    /* position: relative; */
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+a{
+    /* margin-top: -10vh; */
+    display: inline;
+    /* border: 1px solid; */
+    color: blue;
+    /* background-color: blue; */
+}
+
+.links{
+    position: relative;
+    top: -25vh;
+}
+p{
+    display: inline;
+}

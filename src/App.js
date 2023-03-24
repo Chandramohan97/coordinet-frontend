@@ -1,4 +1,5 @@
 import "./App.css";
+import Sidebar from "./Components/Sidebar/Sidebar";
 import HomePage from "./pages/Homepage/HomePage";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import Signup from "./pages/SignUpPage/SignUp";
@@ -16,7 +17,7 @@ import App1 from "./Components/KanbanTest/App1";
 function App() {
   return (
     <div className="App">
-    <Router>
+    {/* <Router>
       <Routes>
         <Route path="/" element={<HomePage/>}/>
         <Route path="/login" element={<LoginPage/>}/>
@@ -25,7 +26,8 @@ function App() {
         <Route path="/teamStrength" element={<TeamStrength/>} />
         <Route path="/jobRole" element={<JobRole/>} />
       </Routes>
-    </Router>
+    </Router> */}
+    <Sidebar />
      {/* <App1/>  */}
        </div>
   );
