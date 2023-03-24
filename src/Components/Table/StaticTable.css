@@ -8,6 +8,13 @@ Input:hover{
     cursor: pointer;
 }
 
+.text{
+font-size: 20px;
+font-weight: bold;
+/* font-family: inder; */
+}
 div{
-    width: ;
+    width: 60vw;
+    /* border: 1px solid; */
+    overflow-x: hidden;
 }
