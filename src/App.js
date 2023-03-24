@@ -10,7 +10,7 @@ import RadioInputForm from "./Components/RadioInputForm/RadioInputForm";
 import TeamStrength from "./pages/TeamStrength/TeamStrength";
 import SignUp from "./pages/SignUpPage/SignUp";
 import JobRole from "./pages/JobRole/JobRole";
-import EmailVerification from "./pages/EmailVerification/EmailVerification";
+// import EmailVerification from "./pages/EmailVerification/EmailVerification";
 // import HomePage from "./pages/Homepage/HomePage";
 import App1 from "./Components/KanbanTest/App1";
 

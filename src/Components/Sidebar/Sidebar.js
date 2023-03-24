@@ -1,36 +1,19 @@
-import { Drawer, DrawerOverlay, DrawerContent, Button, DrawerCloseButton, DrawerHeader, DrawerBody,Box,Flex } from "@chakra-ui/react"
+import { Divider, Box,Flex, Text } from "@chakra-ui/react"
 import { useState } from "react"
 import { Icon } from "@chakra-ui/react"
 import { FaHome } from "react-icons/fa"
-function Sidebar() {
-  const [isOpen, setIsOpen] = useState(false)
-
-  const onClose = () => setIsOpen(false)
-  const onOpen = () => setIsOpen(true)
-
+function Sidebar(props) {
+ 
   return (
-    <>
-      <Button onClick={onOpen}>Open Sidebar</Button>
-
-      <Drawer isOpen={isOpen} onClose={onClose} placement="left">
-        <DrawerOverlay />
-        <DrawerContent bg="#191970">
-          <DrawerCloseButton />
-          <Box mt="100px">
-            {/* <Flex flexDirection={"row"}> */}
-                <Icon as={FaHome} fill="white" />
-                <DrawerHeader color={"white"} ><p>Home</p>
-                </DrawerHeader>
-                {/* </Flex> */}
-          <hr></hr>
-          
-
-          <DrawerBody color="white" >
-            <p>Project Dashboard</p>
-          </DrawerBody>
-          </Box>
-        </DrawerContent>
-      </Drawer>
+  <>
+    <Box height="70vh" width={"20vw"} backgroundColor="#191970"  >
+      <Flex flexDirection="row" mt="10vh" ml="1vw">
+        <Icon as={FaHome} fill="white" display={"inline"}/>
+        <Text color={"white"} position={"relative"} top="-5px" ml="5px">Home</Text>
+      </Flex>
+      <Divider></Divider>
+    </Box>
+    
     </>
   )
 }
