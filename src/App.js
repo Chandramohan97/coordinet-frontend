@@ -13,6 +13,7 @@ import JobRole from "./pages/JobRole/JobRole";
 // import EmailVerification from "./pages/EmailVerification/EmailVerification";
 // import HomePage from "./pages/Homepage/HomePage";
 import App1 from "./Components/KanbanTest/App1";
+import StaticTable from "./Components/Table/StaticTable";
 
 function App() {
   return (
@@ -27,7 +28,8 @@ function App() {
         <Route path="/jobRole" element={<JobRole/>} />
       </Routes>
     </Router> */}
-    <Sidebar />
+    {/* <Sidebar /> */}
+    <StaticTable/>
      {/* <App1/>  */}
        </div>
   );
