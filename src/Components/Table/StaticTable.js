@@ -6,7 +6,7 @@ import './StaticTable.css'
 function StaticTable(){
     return(
        <div className='tableContainer'>
-           <Box mt="10vh" display={"flex"} gap="10vw" pl="5vw"  p="1vh">
+           <Box mt="7.22vh" display={"flex"} gap="10vw" pl="5vw"  p="1vh">
                 <Text className='text'  ml="80px">Name</Text>
                 <Text className='text'  position={"relative"} left="4.5vw">Status</Text>
                 <Text className='text' position={"relative"} left="7vw">Due Date</Text>
