@@ -14,6 +14,7 @@ const SampleTableDashboard = () => {
                 <Input 
                 placeholder='Name of the Project, eg. First Project'
                 focusBorderColor='transparent'
+                fontFamily={"Inder"}
                 marginRight={"20px !important"} 
                 width={"20vw"} 
                 rounded="10px" 
@@ -29,6 +30,8 @@ const SampleTableDashboard = () => {
         color="white"
         bg="#31bfc8"
         mt="15px" 
+        _hover={{ bg: "#2a9ca1" }} //blue-green
+        _active={{ bg: "#555555" }}
         height={"38px"} 
         width="100px" 
         ml="81.5vw" >Next</Button>
