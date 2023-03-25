@@ -15,6 +15,7 @@ import JobRole from "./pages/JobRole/JobRole";
 import App1 from "./Components/KanbanTest/App1";
 import StaticTable from "./Components/Table/StaticTable";
 import SampleTableDashboard from "./pages/Sample Table DashBoard/SampleTableDashboard";
+import TaskCreation from "./pages/TaskCreation/TaskCreation";
 
 function App() {
   return (
@@ -31,7 +32,8 @@ function App() {
     </Router> */}
     {/* <Sidebar /> */}
     {/* <StaticTable/> */}
-    <SampleTableDashboard/>
+    {/* <SampleTableDashboard/> */}
+    <TaskCreation/>
      {/* <App1/>  */}
        </div>
   );
