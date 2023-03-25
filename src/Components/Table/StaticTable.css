@@ -8,10 +8,10 @@ font-weight: bold;
 /* font-family: inder; */
 }
 .tableContainer{
-    width: 60vw;
+    width: 52vw;
     background-color: white ;    
     overflow-x: hidden;
     border: 1px solid;
-    height :65vh;
+    height :70 vh;
     border-color: lightgray;
 }
