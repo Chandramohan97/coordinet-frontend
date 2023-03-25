@@ -7,7 +7,7 @@ function Sidebar(props) {
  
   return (
   <>
-    <Box height="65vh" width={"12vw"} backgroundColor="#191970"  >
+    <Box height="80vh" width={"12vw"} backgroundColor="#191970"  >
       <Flex flexDirection="row" mt="10vh" ml="1vw">
         <Icon as={FaHome} fill="white" display={"inline"}/>
         <Text color={"white"} position={"relative"} top="-5px" ml="5px">Home</Text>
