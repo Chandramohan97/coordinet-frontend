@@ -1,10 +1,4 @@
-ul{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-}
-
-Input:hover{
+  Input:hover{
     cursor: pointer;
 }
 
@@ -13,8 +7,11 @@ font-size: 20px;
 font-weight: bold;
 /* font-family: inder; */
 }
-div{
+.tableContainer{
     width: 60vw;
-    /* border: 1px solid; */
+    background-color: white ;    
     overflow-x: hidden;
+    border: 1px solid;
+    height :65vh;
+    border-color: lightgray;
 }

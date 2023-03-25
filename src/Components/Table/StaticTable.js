@@ -5,7 +5,7 @@ import './StaticTable.css'
 
 function StaticTable(){
     return(
-       <div className='tableContainer'  style={{backgroundColor:"rgba(0, 0, 0, 0.00001)"}}>
+       <div className='tableContainer'>
            <Box mt="10vh" display={"flex"} gap="10vw" pl="5vw"  p="1vh">
                 <Text className='text'  ml="80px">Name</Text>
                 <Text className='text'  position={"relative"} left="4.5vw">Status</Text>
