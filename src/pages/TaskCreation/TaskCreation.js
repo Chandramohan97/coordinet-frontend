@@ -2,8 +2,17 @@ import React from 'react'
 import StaticTable from '../../Components/Table/StaticTable'
 import Sidebar from '../../Components/Sidebar/Sidebar'
 import { Flex,Heading, HStack,Input,Text, VStack,Button } from '@chakra-ui/react'
+import { useLocation } from 'react-router-dom';
 
 const TaskCreation = () => {
+  
+  const [task1,setTask1]= React.useState("")
+  const [task2,setTask2]= React.useState("")
+  const [task3,setTask3]= React.useState("")
+
+  const location = useLocation();
+  const [project, setProject] = React.useState(location.state.project || "")
+
   return (
     <div className='taskcreation'>
              <Heading textAlign={"left"} fontFamily={"Inder"} fontSize="40px" ml="2vw" mt={"5vh"}>COORDINET</Heading>
@@ -18,7 +27,9 @@ const TaskCreation = () => {
                 rounded="10px" 
                 fontFamily={"Inder"}
                 height={"40px"} 
-                backgroundColor="white"/>
+                backgroundColor="white"
+                onChange={(e) => setTask1(e.target.value)}
+                />
                 <Input 
                 placeholder='Second Task'
                 focusBorderColor='transparent'
@@ -27,20 +38,24 @@ const TaskCreation = () => {
                 fontFamily={"Inder"}
                 rounded="10px" 
                 height={"40px"} 
-                backgroundColor="white"/> 
+                backgroundColor="white"
+                onChange={(e) => setTask2(e.target.value)}
+                /> 
                 <Input 
-                placeholder='Second Task'
+                placeholder='Third Task'
                 focusBorderColor='transparent'
                 fontFamily={"Inder"}
                 marginRight={"20px !important"} 
                 width={"20vw"} 
                 rounded="10px" 
-                height={"40px"} 
-                backgroundColor="white"/>  
+                height={"40px"}
+                backgroundColor="white"
+                onChange={(e) => setTask3(e.target.value)}
+                />  
             </VStack>
             <Flex gap="0px" flexDirection={"row"} ml="20vw">
-                <Sidebar/>
-                <StaticTable/>
+                <Sidebar project={project} />
+                <StaticTable taskList={[task1,task2,task3]}/>
             </Flex>
         </HStack>
         <Button 

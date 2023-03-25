@@ -3,7 +3,8 @@ import React from 'react';
 import './StaticTable.css'
 
 
-function StaticTable(){
+function StaticTable({taskList}){
+
     return(
        <div className='tableContainer'>
            <Box mt="7.22vh" display={"flex"} gap="10vw" pl="5vw"  p="1vh">
@@ -23,8 +24,10 @@ function StaticTable(){
                         focusBorderColor='transparent'
                         _hover={{cursor:"pointer",outline:"none"}}
                         _active={{border:"none",outline:"none"}}
+                        value={taskList[0]}
                 />  
                 <Input
+                     
                     borderRadius={"20px"}
                     width="10vw"
                     ml="1.9vw"
@@ -51,6 +54,7 @@ function StaticTable(){
            <HStack mt="2vh"  >  
             <Flex flexDirection={"row"} gap="1.5vw" pl="5vw">
                 <Input
+                        value={taskList[1]}
                         borderRadius={"20px"}
                         width="15vw"
                         //  border="1px solid"
@@ -92,6 +96,7 @@ function StaticTable(){
                         focusBorderColor='transparent'
                         _hover={{cursor:"pointer",outline:"none"}}
                         _active={{border:"none",outline:"none"}}
+                        value={taskList[2]}
                 />  
                 <Input
                     borderRadius={"20px"}
