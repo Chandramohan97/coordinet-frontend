@@ -1,25 +1,19 @@
 import "./App.css";
-import Sidebar from "./Components/Sidebar/Sidebar";
 import HomePage from "./pages/Homepage/HomePage";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import Signup from "./pages/SignUpPage/SignUp";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import LoginForm from "./Components/LoginForm/LoginForm";
-// import Teamstrength from "./Components/TeamStrength/Teamstrength";
-import RadioInputForm from "./Components/RadioInputForm/RadioInputForm";
 import TeamStrength from "./pages/TeamStrength/TeamStrength";
-import SignUp from "./pages/SignUpPage/SignUp";
 import JobRole from "./pages/JobRole/JobRole";
-// import EmailVerification from "./pages/EmailVerification/EmailVerification";
-// import HomePage from "./pages/Homepage/HomePage";
-import App1 from "./Components/KanbanTest/App1";
-import StaticTable from "./Components/Table/StaticTable";
 import ProjectCreation from "./pages/Sample Table DashBoard/ProjectCreation";
 import TaskCreation from "./pages/TaskCreation/TaskCreation";
+import ViewingOptions from "./pages/ViewingOptions/ViewingOptions";
 
 function App() {
   return (
     <div className="App">
+      
     {/* <Router>
       <Routes>
         <Route path="/" element={<HomePage/>}/>
@@ -30,14 +24,14 @@ function App() {
         <Route path="/jobRole" element={<JobRole/>} />
       </Routes>
     </Router> */}
-    {/* <Sidebar /> */}
-    {/* <StaticTable/> */}
-    <Router >
+    
+    {/* <Router >
       <Routes>
         <Route path="/" element={<ProjectCreation/>} />
         <Route path="/taskCreation" element={<TaskCreation/>} />
       </Routes>
-    </Router>
+    </Router> */}
+    <ViewingOptions/>
     {/* <TaskCreation/> */}
      {/* <App1/>  */}
        </div>
