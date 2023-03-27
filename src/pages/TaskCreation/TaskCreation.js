@@ -9,13 +9,19 @@ const TaskCreation = () => {
   const [task1,setTask1]= React.useState("")
   const [task2,setTask2]= React.useState("")
   const [task3,setTask3]= React.useState("")
-
-  const location = useLocation();
-  const [project, setProject] = React.useState(location.state.project || "")
+  
+  const  location  = useLocation();
+  const  {project} = location.state;
+  // console.log(project);
+  // const { state } = location || {};
+  // const myStateVariable = state ? state.myStateVariable : null;
+  // console.log(myStateVariable);
+  // const location = useLocation();
+  // const [project, setProject] = React.useState(location.state.project || "")
 
   return (
     <div className='taskcreation'>
-             <Heading textAlign={"left"} fontFamily={"Inder"} fontSize="40px" ml="2vw" mt={"5vh"}>COORDINET</Heading>
+        <Heading textAlign={"left"} fontFamily={"Inder"} fontSize="40px" ml="2vw" mt={"5vh"}>COORDINET</Heading>
         <HStack gap="5vw">
             <VStack pl="3vw">
                 <Text fontSize={"35px"} textAlign="left" fontFamily={"Inder"} width="21vw">Creating Tasks</Text>
@@ -54,7 +60,7 @@ const TaskCreation = () => {
                 />  
             </VStack>
             <Flex gap="0px" flexDirection={"row"} ml="20vw">
-                <Sidebar project={project} />
+                <Sidebar project={project}/>
                 <StaticTable taskList={[task1,task2,task3]}/>
             </Flex>
         </HStack>

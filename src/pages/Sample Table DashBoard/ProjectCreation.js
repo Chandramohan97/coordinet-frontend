@@ -18,7 +18,7 @@ const ProjectCreation = () => {
                 <Input 
                 placeholder='Name of the Project, eg. First Project'
                 focusBorderColor='transparent'
-                fontFamily={"Inder"}
+                fontFamily={"Inder"}  
                 marginRight={"20px !important"} 
                 width={"20vw"} 
                 rounded="10px" 
@@ -33,10 +33,7 @@ const ProjectCreation = () => {
             </Flex>
         </HStack>
 
-        <Link to={{
-          pathname: "/taskCreation",
-          state: {project}
-        }}>
+        <Link to="/taskCreation" state={{project : project }}>
           <Button 
           color="white"
           bg="#31bfc8"
