@@ -46,7 +46,7 @@ const LoginForm = () => {
               ></InputForm>
             </FormControl>
           </VStack>
-          <CustomButton
+          <Button
             color="white"
             height="5vh"
             width="20vw"
@@ -59,7 +59,7 @@ const LoginForm = () => {
             borderRadius="5px"
             value="Login" 
           >
-          </CustomButton>
+          </Button>
         </form> hoeas
         <Button
           position={"relative"}
