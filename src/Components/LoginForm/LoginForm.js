@@ -7,78 +7,70 @@ import {
   Input,
   VStack,
   Button,
-  Image
+  Image,Flex
 } from "@chakra-ui/react";
 import CustomButton from "../button/CustomButton";
 import InputForm from "../InputForm/InputForm";
 import googleImage from "../../Asssets/googleImage.png"
 // import InputForm from "../InputForm/InputForm";
+
 const LoginForm = () => {
   return (
-    <Box>
-      <VStack justifyContent="space-between" spacing="30px">
-        <Heading as="h3" fontFamily="Verdana">
-          Sign in 
+    <Box display="flex" justifyContent="center" alignItems="center">
+      <Flex flexDirection="column" spacing="30px">
+        <Heading as="h3" fontFamily="Inder sans-setif" fontSize={{base:"medium",md:"32px"}}>
+          Sign in
         </Heading>
-        <form>
-          <VStack spacing="20px">
-            <FormControl id="email" isRequired>
-              <FormLabel fontSize={"14px"} mx="11px">Email</FormLabel>
-              <InputForm
-                type="text"
-                height="5vh"
-                width="20vw"
-                borderRadius="5px"
-                placeholder="Enter email address"
-                // textIndent="0.25rem"
-              ></InputForm>
-            </FormControl>
+      <form>
+        <Flex spacing="20px" flexDirection="column">
+          <FormControl id="email" isRequired>
+            <FormLabel fontFamily={"Inder sans-serif"} fontSize={{base:"2xs",md:"medium"}} mx="11px" mt="20px">
+              Email
+            </FormLabel>
+            <Input
+              type="text"
+              height={{base:"4.2vh",md:"5vh"}}
+              width="20vw"
+              borderRadius="5px"
+              fontSize={{base:"3xs",md:"medium"}}
+              placeholder="Enter email"
+              textAlign={"left"}
+            ></Input>
+          </FormControl>
 
-            <FormControl id="password" isRequired>
-              <FormLabel fontSize={"14px"} mx="11px">Password</FormLabel>
-              <InputForm
-                type="password"
-                height="5vh"
-                width="20vw"
-                borderRadius="5px"
-                textIndent="0.25rem"
-                placeholder="********"
-              ></InputForm>
-            </FormControl>
-          </VStack>
-          <Button
-            color="white"
-            height="5vh"
-            width="20vw"
-            bg="#31bfc8"
-            _hover={{ bg: "#2a9ca1" }} //blue-green
-            _active={{ bg: "#555555" }}
-            textAlign="center"
-            fontSize="14px"
-            margin="30px 10px"
-            borderRadius="5px"
-            value="Login" 
-          >
-          </Button>
-        </form> hoeas
+          <FormControl id="password" isRequired>
+            <FormLabel fontFamily={"Inder sans-serif"} fontSize={{base:"2xs",md:"medium"}} mx="11px" mt="10px">
+              Password
+            </FormLabel>
+            <Input
+              textAlign={"left"}
+              type="password"
+              height={{base:"4.2vh",md:"5vh"}}
+              width="20vw"
+              borderRadius="5px"
+              fontSize={{base:"small",md:"medium"}}
+              textIndent="0.25rem"
+              placeholder="********"
+            ></Input>
+          </FormControl>
+        </Flex>
         <Button
-          position={"relative"}
-          top="-20px"
-          color="black"
-          height="5vh"
+          color="white"
+          height={{base:"4.2vh",md:"5vh"}}
           width="20vw"
-          bg="#f7f8fc"
-          _hover={{ bg: "#dcdfe6" }} //blue-green
-          _active={{ bg: "#b4b9c4" }}
+          bg="#5cb85c"
+          _hover={{ bg: "#459c45" }} //blue-green
           textAlign="center"
-          fontSize="16px"
-          border="1px solid black"
+          fontSize={{base:"small",md:"medium"}}
+          margin="30px 10px"
+          borderRadius="5px"
         >
-          <Image src={googleImage} alt="GoogleImage" height={"20px"} mr="8px" />
-          Login with Google
+          Login
         </Button>
-      </VStack>
-    </Box>
+      </form>
+    </Flex>
+</Box>
+
   );
 };
 

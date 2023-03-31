@@ -6,13 +6,14 @@ import reportWebVitals from "./reportWebVitals";
 import { ChakraProvider } from "@chakra-ui/react";
 import KanbanBoard from "./KanbanBoard";
 import App1 from "./Components/KanbanTest/App1";
-
+import SignInWithGoogle from "./pages/googleRegistration/SignInWithGoogle";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.Fragment>
     <ChakraProvider>
       <App />
+      {/* <SignInWithGoogle/> */}
       {/* <App1/> */}
       {/* <KanbanBoard/> */}
     </ChakraProvider>
