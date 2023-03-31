@@ -1,6 +1,6 @@
 import React from 'react'
 import { Flex,Link,Heading,VStack,Text,Box ,Input, PopoverAnchor} from '@chakra-ui/react'
-import CustomButton from '../../Components/button/CustomButton';
+import { Button } from '@chakra-ui/react'
 import './EmailVerification.css'
 // import LoginPage from '../LoginPage/LoginPage';
 // import { Stack, Text, Box } from '@chakra-ui/react'
@@ -8,57 +8,64 @@ import './EmailVerification.css'
 const EmailVerification = () => {
   
   const [length,setLength] = React.useState(0);
+  const [dimensions,setDimensions] = React.useState({ width: 0, height: 0 });
+
+  // let {width,height = [0,0];
   const boxRef=React.useRef();
   React.useEffect( ()=>{
     const {width,height} = boxRef.current.getBoundingClientRect();
-    // setLength(width1)
-    console.log(width,height)
-  },[])
+    const obj = boxRef.current.getBoundingClientRect();
+    // console.log(obj.height)
+    // console.log(boxRef.current.getBoundingClientRect().height)
+    // console.log(width,height)
+    setDimensions({width,height});
+    },[dimensions.height,dimensions.width])
 
 
   return (
     <div className='emailVerification'>
       <VStack display={"flex"} flexDirection="column" spacing={"15vh"}>
-        <Flex my={"30px"} mx="30px" flexDirection={"row"} gap="70vw" justifyContent="space-evenly"  background="#F7F8FC">
+        {/* < my={"30px"} mx="30px" flexDirection={"row"} gap="70vw" justifyContent="space-evenly"  background="#F7F8FC">
           {/* <Navbar/> */}
           <h1>{""}</h1>
-          <Link to="/login">
-                <CustomButton
+          {/* <Link to="/login">
+                <Button
                     color="white"
-                    height="5vh"
-                    width="7vw"
-                    bg="#31bfc8"
-                    _hover={{ bg: "#2a9ca1" }} //blue-green
-                    _active={{ bg: "#555555" }}
+                    height={{base:"2.5vh",md:"5vh"}}
+                    width={{base:"3.5vw",md:"7vw"}}
+                    bg="#2B6CB0"
+                    _hover={{ bg: "#3A8CCE" }}
+                    fontSize={{base:"3xs",md:"medium"}}
                     textAlign="center"
-                    fontSize="15px"
                     margin="15px 10px"
-                    borderRadius="5px"
-                    value="Login"
-                />
-          </Link>
-        </Flex>
-       
-        <VStack display={"flex"} flexDirection="column" spacing={"5vh"} >
-          <Heading ref={boxRef}>We just emailed you</Heading>
-          {/* using positon="relative", left=<values> and marginLeft to align text to left */}
-          <Text position={"relative"} left="-2.7vw">Please enter the code we mailed you <br></br>   
-          <p style={{position:"relative", left:"-3.4vw",marginTop:"0.5vh"}}>abcedfhg@gmail.com</p>
-          </Text>
-          <p style={{marginLeft:"-13.7vw"}}>Confirmation Code</p>
-         </VStack>
+                    borderRadius="5px" 
+                >Verify</Button>
+          </Link> */}
         
+       
+        <Flex display={"flex"} flexDirection="column"  >
+          <Heading ref={boxRef} >We just emailed you</Heading>
+          {/* using positon="relative", left=<values> and marginLeft to align text to left */}
+         <Text textAlign={"left"} mt="2vh" width={dimensions.width}>Please enter the code we mailed you <br></br>   
+            <p>abcedfhg@gmail.com</p>
+            </Text>
+          <Text mt="2vh" textAlign={"left"} width={dimensions.width}>Confirmation Code</Text>
+         </Flex>
         <form>
-          <div className='inputBox'>
-            <input type="number" max></input>
-            <input type="number" maxLength={"1"}></input>
-            <input type="number" maxLength={"1"}></input>
-            <input type="number" maxLength={"1"}></input>
-          </div>
-          <CustomButton
+          <Box className='inputBox' display={"flex"} flexDirection="row" gap="12px" >
+            <input 
+             style={{"width": dimensions.width/4 - 10 }}/>
+           <input 
+             style={{"width": dimensions.width/4 - 10}}/>
+             <input 
+             style={{"width": dimensions.width/4 - 10}}/>
+             <input 
+             style={{"width": dimensions.width/4 - 10}}/>
+          </Box>
+          <Button
             color="white"
-            height="5vh"
-            width={"344.8px"}  
+            height={dimensions.height}
+            width={dimensions.width}
             bg="#31bfc8"
             _hover={{ bg: "#2a9ca1" }} //blue-green
             _active={{ bg: "#555555" }}
@@ -66,13 +73,12 @@ const EmailVerification = () => {
             fontSize="15px"
             margin='30px 0px'
             borderRadius="0px"
-            value="Verify"
-            />
+            >Verify</Button>
           </form>
         <div className='links'>
           <a href="#">Resend Code{" "}</a> 
           <p>or{" "}</p> 
-          <a href='#'>Logout</a>
+          <a href='/'>Logout</a>
         </div>
     </VStack>
       </div>

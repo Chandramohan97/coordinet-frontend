@@ -5,19 +5,20 @@ form{
     /* padding : 10px 0px; */
     /* border: 1px solid; */
 }
-input{
-    width: 76.2px;
-    height: 50px;
+
+input{    
+    
+    height: 45px;
     border: none;
     border-bottom: 2px solid;
-    background-color: transparent;
+    background-color: #F7F8FC;
     text-align: center;
     line-height: 60px;
-    /* outline: none; */
+    outline: none; 
 }
 
 input:focus {
-    border: none;
+    /* border: none; */
     border-bottom: 2px solid black;
     outline: none;
   }
