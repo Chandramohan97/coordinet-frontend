@@ -2,7 +2,7 @@ import React from "react";
 import SignUpForm from "../../Components/SignUpForm/SignUpForm";
 import Navbar from "../../Components/Navbar/Navbar";
 import CustomButton from "../../Components/button/CustomButton";
-import { Flex } from "@chakra-ui/react";
+import { Flex,Button } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 
 const SignUp = () => {
@@ -16,19 +16,17 @@ const SignUp = () => {
       {/* <Navbar/> */}
       <h1>{""}</h1>
       <Link to="/login">
-            <CustomButton
-                color="white"
-                height="5vh"
-                width="7vw"
-                bg="#31bfc8"
-                _hover={{ bg: "#2a9ca1" }} //blue-green
-                _active={{ bg: "#555555" }}
-                textAlign="center"
-                fontSize="15px"
-                margin="15px 10px"
-                borderRadius="5px"
-                value="Login"
-            />
+      <Button
+        color="white"
+        height={{base:"2.5vh",md:"5vh"}}
+        width={{base:"3.5vw",md:"7vw"}}
+        bg="#2B6CB0"
+        _hover={{ bg: "#3A8CCE" }}
+        fontSize={{base:"3xs",md:"medium"}}
+        textAlign="center"
+        margin="15px 10px"
+        borderRadius="5px" 
+              >Login</Button>
         </Link>
       </Flex>
       <SignUpForm />
