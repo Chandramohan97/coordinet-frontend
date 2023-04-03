@@ -1,6 +1,9 @@
 import React from 'react'
-import { Flex,Link,Heading,VStack,Text,Box ,Input, PopoverAnchor} from '@chakra-ui/react'
+import { Flex,Heading,VStack,Text,Box ,Input, PopoverAnchor} from '@chakra-ui/react'
+import { Link } from 'react-router-dom'
 import { Button } from '@chakra-ui/react'
+import { useRef } from 'react'
+
 import './EmailVerification.css'
 // import LoginPage from '../LoginPage/LoginPage';
 // import { Stack, Text, Box } from '@chakra-ui/react'
@@ -10,7 +13,6 @@ const EmailVerification = () => {
   const [length,setLength] = React.useState(0);
   const [dimensions,setDimensions] = React.useState({ width: 0, height: 0 });
 
-  // let {width,height = [0,0];
   const boxRef=React.useRef();
   React.useEffect( ()=>{
     const {width,height} = boxRef.current.getBoundingClientRect();
@@ -62,19 +64,21 @@ const EmailVerification = () => {
              <input 
              style={{"width": dimensions.width/4 - 10}}/>
           </Box>
-          <Button
-            color="white"
-            height={dimensions.height}
-            width={dimensions.width}
-            bg="#31bfc8"
-            _hover={{ bg: "#2a9ca1" }} //blue-green
-            _active={{ bg: "#555555" }}
-            textAlign="center"
-            fontSize="15px"
-            margin='30px 0px'
-            borderRadius="0px"
-            >Verify</Button>
-          </form>
+          <Link to="/teamStrength">
+            <Button
+              color="white"
+              height={dimensions.height}
+              width={dimensions.width}
+              bg="#2a9ca1"
+            _hover={{bg: "#1C7B7F"}}
+              _active={{ bg: "#1f8c95" }}
+              textAlign="center"
+              fontSize="15px"
+              margin='30px 0px'
+              borderRadius="0px"
+              >Verify</Button>
+            </Link>
+            </form>
         <div className='links'>
           <a href="#">Resend Code{" "}</a> 
           <p>or{" "}</p> 
