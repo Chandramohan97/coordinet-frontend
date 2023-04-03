@@ -7,120 +7,159 @@ function StaticTable({taskList}){
 
     return(
        <div className='tableContainer'>
-           <Box mt="7.22vh" display={"flex"} gap="10vw" pl="5vw"  p="1vh">
-                <Text className='text'  ml="80px">Name</Text>
-                <Text className='text'  position={"relative"} left="4.5vw">Status</Text>
-                <Text className='text' position={"relative"} left="7vw">Due Date</Text>
-           </Box>
+           <Flex mt={{base:"9vh",md:"8.5vh"}}  
+           justifyContent={{base:"space-around",md:"space-around"}} p="1vh" >
+                <Text className='text' mr="auto" 
+                fontSize={{base:"10px",md:"15px"}} position={"relative"} right={{base:"-10px",md:"-54px"}} 
+                fontFamily={"Inder"} >Task</Text>
+                <Text className='text' mr={{base:"auto",md:"auto"}}  position={"relative"} right={{base:"-10px",md:"-55px"}} 
+                fontSize={{base:"10px",md:"15px"}}  fontFamily={"Inder"}  >Status</Text>
+                <Text className='text' mr="auto" fontSize={{base:"10px",md:"15px"}} position="relative"
+                right={{base:"-5px",md:"-40px"}} fontFamily={"Inder"} >Due Date</Text>
+           </Flex>
         
-           <Divider borderColor={"rgba(0, 0, 0, 0.33)"} />
-           <HStack mt="2vh"  >  
-            <Flex flexDirection={"row"} gap="1.5vw" pl="5vw">
-                <Input
-                        borderRadius={"20px"}
-                        width="15vw"
+            <HStack mt="2vh"  >  
+                <Flex flexDirection={"row"} pl="4vw"
+                justifyContent={{base:"space-around",md:"space-around"}}>
+                    <Input
+                        borderRadius={"5px"}
+                        fontSize={{base:"7px"}}
+                        textAlign={"left"}
+                        // fontWeight={"bold"}
+                        color={"blackAlpha.900"}
+                        isReadOnly="true"
+                        fontFamily={"Inder"}
+                        height={{base:"20px",md:"30px"}}
+                        width={{base:"20vw",md:"10vw"}}
                         //  border="1px solid"
                         bg="rgba(0,0,0,0.1)"
                         focusBorderColor='transparent'
                         _hover={{cursor:"pointer",outline:"none"}}
                         _active={{border:"none",outline:"none"}}
-                        value={taskList[0]}
-                />  
-                <Input
-                     
-                    borderRadius={"20px"}
-                    width="10vw"
-                    ml="1.9vw"
-                    //  border="1px solid"
-                    bg="rgba(0,0,0,0.1)"
-                    focusBorderColor='transparent'
-                    _hover={{cursor:"pointer",outline:"none"}}
-                    active={{border:"none",outline:"none"}}
-                />
-                <Input
-                    width="10vw"
-                    ml="4.5vw"
-                    // left="20px"
-                    borderRadius={"20px"}
-                    bg="rgba(0,0,0,0.1)"
-                    focusBorderColor='transparent'
-                    _hover={{cursor:"pointer",outline:"none"}}
-                    _active={{border:"none",outline:"none"}}
-                />
-            </Flex>
+                        value={taskList[0]} 
+                    />  
+                    <Input 
+                        borderRadius={"5px"}
+                        height={{base:"20px",md:"30px"}}
+                        width={{base:"20vw",md:"10vw"}}
+                        isReadOnly="true"
+                        ml="1.9vw"
+                        //  border="1px solid"
+                        bg="rgba(0,0,0,0.1)"
+                        focusBorderColor='transparent'
+                        _hover={{cursor:"pointer",outline:"none"}}
+                        active={{border:"none",outline:"none"}}
+                    />
+                    <Input
+                        borderRadius={"5px"}
+                        height={{base:"20px",md:"30px"}}
+                        isReadOnly="true"
+                        width={{base:"20vw",md:"10vw"}}
+                        ml="2vw"
+                        // left="20px"
+                        bg="rgba(0,0,0,0.1)"
+                        focusBorderColor='transparent'
+                        _hover={{cursor:"pointer",outline:"none"}}
+                        _active={{border:"none",outline:"none"}}
+                    />
+                </Flex> 
            </HStack>
 
            <Divider borderColor="rgba(0, 0, 0, 0.33)" mt="1vh"/>
            <HStack mt="2vh"  >  
-            <Flex flexDirection={"row"} gap="1.5vw" pl="5vw">
-                <Input
-                        value={taskList[1]}
-                        borderRadius={"20px"}
-                        width="15vw"
+                <Flex flexDirection={"row"} pl="4vw"
+                justifyContent={{base:"space-around",md:"space-around"}}>
+                    <Input
+                            borderRadius={"5px"}
+                            isReadOnly="true"
+                            textAlign={"left"}
+                            fontSize={{base:"7px"}}
+                            // isDisabled="true"
+                            fontFamily={"Inder"}
+                            height={{base:"20px",md:"30px"}}
+                            width={{base:"20vw",md:"10vw"}}
+                            //  border="1px solid"
+                            bg="rgba(0,0,0,0.1)"
+                            focusBorderColor='transparent'
+                            _hover={{cursor:"pointer",outline:"none"}}
+                            _active={{border:"none",outline:"none"}}
+                            value={taskList[1]}
+                            // marginRight={"auto"}
+                    />  
+                    <Input 
+                        borderRadius={"5px"}
+                        height={{base:"20px",md:"30px"}}
+                        width={{base:"20vw",md:"10vw"}}
+                        isReadOnly="true"
+                        ml="1.9vw"
                         //  border="1px solid"
                         bg="rgba(0,0,0,0.1)"
                         focusBorderColor='transparent'
                         _hover={{cursor:"pointer",outline:"none"}}
+                        active={{border:"none",outline:"none"}}
+                    />
+                    <Input
+                        borderRadius={"5px"}
+                        height={{base:"20px",md:"30px"}}
+                        width={{base:"20vw",md:"10vw"}}
+                        isReadOnly="true"
+                        ml="2vw"
+                        // left="20px"
+                        bg="rgba(0,0,0,0.1)"
+                        focusBorderColor='transparent'
+                        _hover={{cursor:"pointer",outline:"none"}}
                         _active={{border:"none",outline:"none"}}
-                />  
-                <Input
-                    borderRadius={"20px"}
-                    width="10vw"
-                    ml="1.9vw"
-                    //  border="1px solid"
-                    bg="rgba(0,0,0,0.1)"
-                    focusBorderColor='transparent'
-                    _hover={{cursor:"pointer",outline:"none"}}
-                    active={{border:"none",outline:"none"}}
-                />
-                <Input
-                    width="10vw"
-                    ml="4.5vw"
-                    // left="20px"
-                    borderRadius={"20px"}
-                    bg="rgba(0,0,0,0.1)"
-                    focusBorderColor='transparent'
-                    _hover={{cursor:"pointer",outline:"none"}}
-                    _active={{border:"none",outline:"none"}}
-                />
-            </Flex>
+                    />
+                </Flex> 
            </HStack>
+
            <Divider borderColor="rgba(0, 0, 0, 0.33)" mt="1vh"/>
            <HStack mt="2vh"  >  
-            <Flex flexDirection={"row"} gap="1.5vw" pl="5vw">
-                <Input
-                        borderRadius={"20px"}
-                        width="15vw"
+                <Flex flexDirection={"row"} pl="4vw"
+                justifyContent={{base:"space-around",md:"space-around"}}>
+                    <Input
+                            borderRadius={"5px"}
+                            textAlign={"left"}
+                            fontSize={{base:"7px"}}
+                            isReadOnly="true"
+                            fontFamily={"Inder"}
+                            height={{base:"20px",md:"30px"}}
+                            width={{base:"20vw",md:"10vw"}}
+                            //  border="1px solid"
+                            bg="rgba(0,0,0,0.1)"
+                            focusBorderColor='transparent'
+                            _hover={{cursor:"pointer",outline:"none"}}
+                            _active={{border:"none",outline:"none"}}
+                            value={taskList[2]}
+                            // marginRight={"auto"}
+                    />  
+                    <Input 
+                        borderRadius={"5px"}
+                        isReadOnly="true"
+                        height={{base:"20px",md:"30px"}}
+                        width={{base:"20vw",md:"10vw"}}
+                        ml="1.9vw"
                         //  border="1px solid"
                         bg="rgba(0,0,0,0.1)"
                         focusBorderColor='transparent'
                         _hover={{cursor:"pointer",outline:"none"}}
+                        active={{border:"none",outline:"none"}}
+                    />
+                    <Input
+                        borderRadius={"5px"}
+                        height={{base:"20px",md:"30px"}}
+                        width={{base:"20vw",md:"10vw"}}
+                        ml="2vw"
+                        isReadOnly="true"
+                        // left="20px"
+                        bg="rgba(0,0,0,0.1)"
+                        focusBorderColor='transparent'
+                        _hover={{cursor:"pointer",outline:"none"}}
                         _active={{border:"none",outline:"none"}}
-                        value={taskList[2]}
-                />  
-                <Input
-                    borderRadius={"20px"}
-                    width="10vw"
-                    ml="1.9vw"
-                    //  border="1px solid"
-                    bg="rgba(0,0,0,0.1)"
-                    focusBorderColor='transparent'
-                    _hover={{cursor:"pointer",outline:"none"}}
-                    active={{border:"none",outline:"none"}}
-                />
-                <Input
-                    width="10vw"
-                    ml="4.5vw"
-                    // left="20px"
-                    borderRadius={"20px"}
-                    bg="rgba(0,0,0,0.1)"
-                    focusBorderColor='transparent'
-                    _hover={{cursor:"pointer",outline:"none"}}
-                    _active={{border:"none",outline:"none"}}
-                />
-            </Flex>
-            
+                    />
+                </Flex> 
            </HStack>
+
 
            <Divider borderColor="rgba(0, 0, 0, 0.33)" mt="1vh"/>
        </div> 

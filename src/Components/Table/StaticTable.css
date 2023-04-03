@@ -5,10 +5,18 @@ font-weight: bold;
 /* font-family: inder; */
 }
 .tableContainer{
-    width: 52vw;
+    width: 40vw;
     background-color: white ;    
     overflow-x: hidden;
     border: 1px solid;
     height :70 vh;
     border-color: lightgray;
 }
+
+@media screen and (max-width: 768px) {
+    .tableContainer {
+      
+      width: 78vw;
+      height: 50vh;
+    }
+  }
