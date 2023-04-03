@@ -58,8 +58,8 @@ const LoginForm = () => {
           color="white"
           height={{base:"4.2vh",md:"5vh"}}
           width="20vw"
-          bg="#5cb85c"
-          _hover={{ bg: "#459c45" }} //blue-green
+          bg="#2a9ca1"
+          _hover={{bg: "#1C7B7F"}} 
           textAlign="center"
           fontSize={{base:"small",md:"medium"}}
           margin="30px 10px"
