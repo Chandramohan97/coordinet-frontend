@@ -12,7 +12,7 @@ const TeamStrength = () => {
       fontSize="40px" ml="2vw" mt={"5vh"} width="fit-content"   
     >COORDINET</Heading>
     
-    <Box mx="30px" className='questions' display={"flex"}  justifyContent="space-between"
+    <Box mx="30px" className='questions' display={"flex"} justifyContent="space-between"
      flexDirection="row" width={"fit-content"} >
       <Text fontWeight={"bold"} height="0px" fontSize={{md:"3xl",base:"2xs"}} fontFamily={"Inder"}
       mx="2px" px="2vw" py="30vh" width={{base:"fit-content",md:"21vw"}} textAlign="left" >Great! Just a few quick questions...
@@ -69,7 +69,7 @@ const TeamStrength = () => {
           </RadioGroup>
         </Flex>
   
-      <Link to="/jobRole">
+      <Link to="/projectCreation">
         <Button 
           overflowX={"hidden"}
           color="white"
