@@ -27,23 +27,6 @@ const EmailVerification = () => {
   return (
     <div className='emailVerification'>
       <VStack display={"flex"} flexDirection="column" spacing={"15vh"}>
-        {/* < my={"30px"} mx="30px" flexDirection={"row"} gap="70vw" justifyContent="space-evenly"  background="#F7F8FC">
-          {/* <Navbar/> */}
-          <h1>{""}</h1>
-          {/* <Link to="/login">
-                <Button
-                    color="white"
-                    height={{base:"2.5vh",md:"5vh"}}
-                    width={{base:"3.5vw",md:"7vw"}}
-                    bg="#2B6CB0"
-                    _hover={{ bg: "#3A8CCE" }}
-                    fontSize={{base:"3xs",md:"medium"}}
-                    textAlign="center"
-                    margin="15px 10px"
-                    borderRadius="5px" 
-                >Verify</Button>
-          </Link> */}
-        
        
         <Flex display={"flex"} flexDirection="column"  >
           <Heading ref={boxRef} >We just emailed you</Heading>
