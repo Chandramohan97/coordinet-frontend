@@ -23,7 +23,7 @@ function StaticTable({taskList}){
                 justifyContent={{base:"space-around",md:"space-around"}}>
                     <Input
                         borderRadius={"5px"}
-                        fontSize={{base:"7px"}}
+                        fontSize={{base:"7px",md:"15px"}}
                         textAlign={"left"}
                         // fontWeight={"bold"}
                         color={"blackAlpha.900"}
@@ -73,7 +73,7 @@ function StaticTable({taskList}){
                             borderRadius={"5px"}
                             isReadOnly="true"
                             textAlign={"left"}
-                            fontSize={{base:"7px"}}
+                            fontSize={{base:"7px",md:"15px"}}
                             // isDisabled="true"
                             fontFamily={"Inder"}
                             height={{base:"20px",md:"30px"}}
@@ -120,7 +120,7 @@ function StaticTable({taskList}){
                     <Input
                             borderRadius={"5px"}
                             textAlign={"left"}
-                            fontSize={{base:"7px"}}
+                            fontSize={{base:"7px",md:"15px"}}
                             isReadOnly="true"
                             fontFamily={"Inder"}
                             height={{base:"20px",md:"30px"}}

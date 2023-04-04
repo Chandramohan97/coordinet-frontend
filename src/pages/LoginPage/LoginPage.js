@@ -24,8 +24,7 @@ const LoginPage = () => {
                   fontSize={{base:"3xs",md:"medium"}}
                   textAlign="center"
                   margin="15px 10px"
-                  borderRadius="5px"
-                  
+                  borderRadius="5px" 
               >Sign Up</Button>
           </Link>
         </Flex>

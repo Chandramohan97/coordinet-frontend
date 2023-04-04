@@ -47,7 +47,9 @@ const ProjectCreation = () => {
         <Link to="/taskCreation" state={{project : project }}>
           <Button 
             color="white"
-            bg="#31bfc8"
+            bg="#2a9ca1"
+            _hover={{bg: "#1C7B7F"}}
+              _active={{ bg: "#1f8c95" }}
             position={{base:"fixed",md:"relative"}}
             left={{md:"-10.5vw"}}
             mr={{base:"auto"}}
@@ -55,7 +57,6 @@ const ProjectCreation = () => {
             height={{base:"2.5vh",md:"5vh"}}
             width={{base:"3.5vw",md:"7vw"}}
             mt="15px" 
-            _hover={{ bg: "#2a9ca1" }}
             fontSize={{base:"3xs",md:"medium"}}
             ml="81.5vw">
             Next
