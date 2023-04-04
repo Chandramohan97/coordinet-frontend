@@ -18,7 +18,7 @@ const TaskCreation = () => {
   return (
     <Box className='taskCreation' px={{base: "2", md: "8"}}>
         <Heading textAlign={"left"} fontFamily={"Inder"} 
-        fontSize={{base:"16px",md:"40px"}} width={"fit-content"} ml="2vw" mt={"5vh"}>COORDINET</Heading>
+          fontSize={{base:"16px",md:"40px"}} width={"fit-content"} ml="2vw" mt={"5vh"}>COORDINET</Heading>
         <HStack gap="5vw">
             <VStack pl="3vw">
                 <Text width={{base:"100px",md:"21vw"}}
@@ -81,7 +81,9 @@ const TaskCreation = () => {
         <Link to="/viewingOptions" state={{project : project , tasks:[task1,task2,task3]}}   >
           <Button 
              color="white"
-             bg="#31bfc8"
+             bg="#2a9ca1"
+            _hover={{bg: "#1C7B7F"}}
+              _active={{ bg: "#1f8c95" }}
              position={{base:"fixed",md:"relative"}}
              left={{md:"-10.5vw"}}
              mr={{base:"auto"}}
@@ -89,7 +91,6 @@ const TaskCreation = () => {
              height={{base:"2.5vh",md:"5vh"}}
              width={{base:"3.5vw",md:"7vw"}}
              mt="15px" 
-             _hover={{ bg: "#2a9ca1" }}
              fontSize={{base:"3xs",md:"medium"}}
              ml={{md:"74vw"}} >
             Next
