@@ -21,7 +21,7 @@ const SignUp = () => {
         height={{base:"2.5vh",md:"5vh"}}
         width={{base:"3.5vw",md:"7vw"}}
         bg="#2B6CB0"
-        _hover={{ bg: "#3A8CCE" }}
+        _hover={{ bg: "#2a9ca1" }}
         fontSize={{base:"3xs",md:"medium"}}
         textAlign="center"
         margin="15px 10px"
