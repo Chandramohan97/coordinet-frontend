@@ -27,16 +27,18 @@ const SignUpForm = () => {
   const [name,setName] = useState("");
   const [email,setEmail] = useState("");
   const [password,setPassword] = useState("");
-  const [mobNo,setMobNo] = useState('');
+  const [mobileNo,setMobNo] = useState('');
 
-  const handleContinue = () =>{
+  const handleContinue = async() =>{
 
-    const nameRegex =/^[A-Za-z ]+$/;   //Regular expressions to check 
-    const emailRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;  //Regular expressions to check for emails.
-    const mobRegex = /^\d{10}$/; // Regular expression to check for a 10-digit mobile number.
+    // event.preventDefault();
+    const nameRegex =/^[A-Za-z ]+$/;   //Regular expressions to check for alphabet. Provision for space for spaces in the name.
+    const emailRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;  
+    const mobRegex = /^\d{10}$/; // 
     const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^a-zA-Z\d\s]).{8,}$/;
  // Regular expression to check for password.  
 
+    // event.preven
     if (!nameRegex.test(name)) {
       toast({
         title: "Invalid name",
@@ -46,7 +48,7 @@ const SignUpForm = () => {
         // isClosable: false,
         variant:"green"
       });
-    } else if (!mobRegex.test(mobNo)) {
+    } else if (!mobRegex.test(mobileNo)) {
       toast({
         title: "Invalid mobile number",
         description: "Mobile number should be 10 digits long.",
@@ -68,14 +70,34 @@ const SignUpForm = () => {
       toast({
         title: "Invalid password",
         description:
-          "Password should be at least 8 characters long, containing at least one uppercase letter, one lowercase letter, and one digit.",
+          "Password should be at least 8 characters long, containing at least one uppercase letter, one lowercase letter, one digit and one special character.",
         status: "error",
         duration: 2000,
         // isClosable: true,
         variant:"green"
       });
     } else {
-      navigate('/emailVerification');
+      try{
+        const response = await axios.post('http://localhost:3000/user/signUp',{
+          name,
+          mobileNo,
+          email,
+          password
+        })
+        if(response.status == 200 ){
+          navigate('/teamStrength')
+        }
+      }catch(error){
+        toast({
+          title : "Error",
+          description :"Error while registering",
+          status:"error",
+          duration:1000,
+          variant:"green"
+
+        })
+        // console.error(error)
+      }
     }
   }
   
@@ -85,7 +107,7 @@ const SignUpForm = () => {
         <Heading as="h3" fontFamily="Inder sans-setif" fontSize={{base:"32px",md:"32px"}}>
           Sign Up
         </Heading>
-      <form >
+      <form>
         <Flex spacing="20px" flexDirection="column">
 
         <FormControl id="name" isRequired>
