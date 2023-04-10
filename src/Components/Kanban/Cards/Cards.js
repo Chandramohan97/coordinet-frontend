@@ -1,5 +1,5 @@
 import { Box, Drawer, Modal,ModalOverlay, ModalContent, ModalHeader, ModalBody, ModalCloseButton, 
-    HStack, Flex, VStack, Input, Button, Grid,Select } from '@chakra-ui/react';
+    HStack, Flex, VStack, Input, Button, Grid,Select, List, ListItem, Menu, MenuItem, MenuButton,MenuList } from '@chakra-ui/react';
 import { Text } from '@chakra-ui/react';   
   import { ChevronDownIcon } from '@chakra-ui/icons';
   import React from 'react';
@@ -12,7 +12,7 @@ import { Text } from '@chakra-ui/react';
   import CustomButton from '../../button/CustomButton';
 //   import DynamicSelect from '../DynamicSelect/DynamicSelect';
   
-  function Cards({ cards,index}) {
+  function Cards({cards,index,status}) {
   
     const modules = {
       toolbar : [
@@ -25,26 +25,21 @@ import { Text } from '@chakra-ui/react';
       ],
     }
     
-    // const textarea = document.querySelector('.modal-description');
-  
-    // window.addEventListener('click', (event)=>{
-    //     textarea.remove('hover')
-    // })
     const [open,setOpen] = React.useState(false);
     const [visibility,setVisibility]= React.useState(false)
     const [description,setDescrition]= React.useState("");
     const [value,setValue] = React.useState(cards.content)
     const [content,setContent] = React.useState("");
-    const defaultStatus = "STATUS"
-    const [status,setStatus] = React.useState("");
+    const [cardStatus,setStatus] = React.useState(status);
     
+    // const cardStatus = React.useRef(status);
+
     function handleOpen() {
       setOpen(true);
     }
-  
-  
-  function handleClose() {
-      setOpen(false);
+    
+    function handleClose() {
+        setOpen(false);
     }
     return (
       <>
@@ -52,7 +47,7 @@ import { Text } from '@chakra-ui/react';
         {(provided) => (
             <Box pl="10px" pt="5px" fontFamily={"Inder,sans-serif"} bg="white" height={"10vh"} rounded={"md"} margin={"10px 0px"} 
             ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps}focusBorderColor="transparent"
-             _hover={{cursor:"pointer" , bg  :"lightblue"}} onClick={()=>handleOpen()}        
+             _hover={{cursor:"pointer",bg  :"lightblue"}}  onClick={()=>handleOpen()}        
             >
             <Text 
             >{cards.label}</Text>
@@ -65,14 +60,14 @@ import { Text } from '@chakra-ui/react';
                 <ModalContent maxW="75vw" display={"flex"} flexDirection="row" h="auto" maxH={"none"}>
                   <VStack display={"flex"} >
                     <Input 
-                    className='modal-description' fontFamily={"Inder sans-serif"}
-                    width={"40vw"} height={"7.5vh"} fontSize={"20px"} defaultValue={cards.label} mt="8vh" ml={"2vw"} border="0.1px solid"  
-                    placeholder='Short Description'  _hover={{backgroundColor:"lightgrey"}} fontWeight="bold"
-                      borderColor="transparent" 
-                      _focus={{
-                        pointerEvents:"none",
-                        backgroundColor:"white"
-                      }}
+                        className='modal-description' fontFamily={"Inder sans-serif"}
+                        width={"40vw"} height={"7.5vh"} fontSize={"20px"} defaultValue={cards.label} mt="8vh" ml={"2vw"} border="0.1px solid"  
+                        placeholder='Short Description' textAlign={"left"}  _hover={{backgroundColor:"lightgrey"}} fontWeight="bold"
+                        borderColor="transparent" 
+                        _focus={{
+                            pointerEvents:"none",
+                            backgroundColor:"white"
+                        }}
                     /> 
                   <Box>
                     <ReactQuill 
@@ -117,15 +112,38 @@ import { Text } from '@chakra-ui/react';
                 
                   </VStack>
   
-                    <Flex flexDirection={"column"} gap="10px" mt="8vh" marginLeft={"2vw"} justifyContent="flex-start">                                      
-                      <Text 
-                        color="rgb(94, 108, 132)"
-                        fontSize={"18px"}
-                        fontFamily="Inder sans-serif"
-                        mr={"80px"}
-                      >Status
-                      </Text>
-                      
+                    <Flex flexDirection={"column"} gap="10px" mt="8vh" marginLeft={"2vw"} justifyContent="flex-start">    
+                        <Flex flexDirection={"column"}>            
+                            <Text 
+                                color="rgb(94, 108, 132)"
+                                fontSize={"18px"}
+                                fontFamily="Inder sans-serif"
+                                mr={"80px"}
+                            >Status</Text>
+                            <Menu>
+                                <MenuButton
+                                    fontFamily={"Inder sans-serif"}
+                                    // as="button"
+                                    textAlign={"left"}
+                                    // border={"1px solid"}
+                                    width={"120px"}
+                                    _hover={{transform: 'scale(1.1)'}}    //scale(1.1) property to scale the property horizonally and vertically. Basically have an out of the screen effect
+                                    // py="10px"
+                                    my="5px"
+                                >{cardStatus}</MenuButton>
+                                
+                                <MenuList>
+                                    <MenuItem onClick={() => setStatus("New")}>
+                                        <Button backgroundColor={"green"} width={"60px"}>New</Button>
+                                    </MenuItem>
+                                    <MenuItem onClick={() => setStatus("Planned")}>Planned</MenuItem>
+                                    <MenuItem onClick={() => setStatus("Planned")}>Review</MenuItem>
+                                    <MenuItem onClick={() => setStatus("Planned")}>Progress</MenuItem>
+                                    <MenuItem onClick={() => setStatus("Planned")}>Closed</MenuItem>
+                                </MenuList>
+                            </Menu>
+                        </Flex>
+                        
                       <Text 
                         color="rgb(94, 108, 132)"
                         fontFamily={"Inder sans-serif"}
