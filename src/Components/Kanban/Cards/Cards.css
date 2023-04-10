@@ -1,0 +1,13 @@
+.quill{
+    width: 40vw;
+    border: 1;
+  }
+
+  .quillButton{
+    margin-left: -12px;
+  }
+
+  .comments p{
+    font-weight: bold;
+    line-height: 20px;
+  }
