@@ -49,8 +49,32 @@ export const boardData = [
             assignee : ""
         }
     ]
-},  
-
+},
+{
+    id:uuid(),
+    title : 'Closed',
+    cards:[
+        { 
+            id : uuid(),
+            label : "Card 5", 
+            commentList :{},
+          //   status : Board.title,
+            Priority : "",
+            dueDate : "",
+            assignee : ""
+        },
+        { 
+            id :uuid(),
+            label : "Card 6",
+            commentList : {},
+          //   status : this.title,
+            Priority : "",
+            dueDate : "",
+            assignee : ""
+        }
+    ]
+} 
+    
   
 ]   
 
