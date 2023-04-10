@@ -7,16 +7,21 @@ import { ChakraProvider } from "@chakra-ui/react";
 import KanbanBoard from "./KanbanBoard";
 import App1 from "./Components/KanbanTest/App1";
 import SignInWithGoogle from "./pages/googleRegistration/SignInWithGoogle";
-
+import { ProSidebarProvider } from "react-pro-sidebar";
+import Boards from "./Components/Kanban/Board/Boards";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.Fragment>
     <ChakraProvider>
-      <App />
+    <ProSidebarProvider>
+      {/* <App1 /> */}
+      <Boards />
       {/* <SignInWithGoogle/> */}
       {/* <App1/> */}
       {/* <KanbanBoard/> */}
+      </ProSidebarProvider>
     </ChakraProvider>
+
   </React.Fragment>
 );
 

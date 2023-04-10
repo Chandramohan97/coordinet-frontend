@@ -11,25 +11,29 @@ import TaskCreation from "./pages/TaskCreation/TaskCreation";
 import ViewingOptions from "./pages/ViewingOptions/ViewingOptions";
 import EmailVerification from "./pages/EmailVerification/EmailVerification"
 import TableView from "./pages/TableView/TableView";
-
+import SideMenu from "./Components/SideMenu/SideMenu";
+import TableDashBoard from "./pages/TableDashBoard/TableDashBoard";
 
 function App() {
   return (
     <div className="App">
-      {/* <App1 */}
-      <Router>
+      
+      {/* ?<TableDashBoard /> */}
+      {/* <App1 */} 
+     <Router>
         <Routes>
           <Route path="/" element={<HomePage/>}/>
           <Route path="/login" element={<LoginPage/>}/>
           <Route path="/signUp" element={<SignUp/>}/>
-          <Route path="/emailVerification" element={<EmailVerification/>} />
+          {/* <Route path="/emailVerification" element={<EmailVerification/>} /> */}
           <Route path="/teamStrength" element={<TeamStrength/>} />
           <Route path="/projectCreation" element={<ProjectCreation/>} />
           <Route path="/taskCreation" element={<TaskCreation/>} />
           <Route path="/viewingOptions" element={<ViewingOptions/>} /> 
           <Route path="/tableView" element={<TableView />} />
+          <Route path="/tableDashboard" element={<SideMenu />} />
         </Routes>
-      </Router>
+      </Router>  
     </div>
   );
 }
