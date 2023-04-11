@@ -1,13 +1,14 @@
-ul{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-}
 
-Input:hover{
-    cursor: pointer;
+.text{
+font-size: 20px;
+font-weight: bold;
+/* font-family: inder; */
 }
-
-div{
-    width: ;
+.tableContainer{
+    width: 52vw;
+    background-color: white ;    
+    overflow-x: hidden;
+    border: 1px solid;
+    height :70 vh;
+    border-color: lightgray;
 }
