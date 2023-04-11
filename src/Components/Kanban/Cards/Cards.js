@@ -1,5 +1,5 @@
 import { Box, Drawer, Modal,ModalOverlay, ModalContent, ModalHeader, ModalBody, ModalCloseButton, 
-    HStack, Flex, VStack, Input, Button, Grid,Select, List, ListItem, Menu, MenuItem, MenuButton,MenuList } from '@chakra-ui/react';
+    HStack, Flex, VStack, Input, Button, Grid,Select, List, ListItem, Menu, MenuItem, MenuButton,MenuList, Textarea } from '@chakra-ui/react';
 import { Text } from '@chakra-ui/react';   
   import { ChevronDownIcon } from '@chakra-ui/icons';
   import React from 'react';
@@ -9,7 +9,6 @@ import { Text } from '@chakra-ui/react';
   import Comments from '../../Comments/Comments';
   import { Draggable } from 'react-beautiful-dnd';
   import 'react-quill/dist/quill.snow.css';
-  import CustomButton from '../../button/CustomButton';
 //   import DynamicSelect from '../DynamicSelect/DynamicSelect';
   
   function Cards({cards,index,status}) {
@@ -38,6 +37,9 @@ import { Text } from '@chakra-ui/react';
     const [value,setValue] = React.useState(cards.content)
     const [content,setContent] = React.useState("");
     const [cardStatus,setStatus] = React.useState(status);
+    const [assginee,setAssignee] = React.useState([{name: "Pickle Rick", value: 328212},{name: "Baby Yoda", value: 328210},
+    {name: "Lord Gaben", value: 328211} ])
+    const [assigneeVisible,setAssigneeVisible] = React.useState(false)
     
     // const cardStatus = React.useRef(status);
 
@@ -136,6 +138,7 @@ import { Text } from '@chakra-ui/react';
                                     pr="12px"
                                     height={"35px"}
                                     border={"1px"}
+                                    borderColor={"grey"}
                                     borderRadius={"5px"}
                                     width={"fit-content"}
                                     backgroundColor={statusColors[cardStatus]}
@@ -175,12 +178,27 @@ import { Text } from '@chakra-ui/react';
                             </Menu>
                         </Flex>
                         
-                      <Text 
-                        color="rgb(94, 108, 132)"
-                        fontFamily={"Inder sans-serif"}
-                        fontSize="18px"
-                        marginRight="80px">
-                        Assignee</Text>
+                      <Flex flexDirection={"column"} position={"relative"} >
+                        <Text 
+                          color="rgb(94, 108, 132)"
+                          fontFamily={"Inder sans-serif"}
+                          fontSize="18px"
+                          marginRight="80px"
+                          >Assignee</Text>
+                        
+                        <Box className='dropDownPlaceholder' onClick={()=>setAssigneeVisible(!assigneeVisible)}
+                          color="rgb(94, 108, 100)" fontSize={"14px"} _hover={{cursor:"pointer"}} 
+                        >Unassigned</Box>
+                        
+                         <Box className='dropDownContent' position={"absolute"} zIndex={1} top="100%" display={assigneeVisible ? "block" : "none"}
+                         >
+                            <Box display={"flex"} flexDirection={"row"} width={"fit-content"} padding={"4px 8px"}   
+                             backgroundColor={"rgb(235, 236, 240)"}>hello</Box>
+                             <Box display={"flex"} flexDirection={"row"} width={"fit-content"} padding={"4px 8px"}   
+                             backgroundColor={"rgb(235, 236, 240)"}>hello</Box>
+                          </Box>
+
+                      </Flex>
   
                         <Text 
                           color="rgb(94, 108, 132)"
@@ -195,7 +213,9 @@ import { Text } from '@chakra-ui/react';
                               fontFamily={"Inder sans-serif"}
                               fontSize="18px"
                               marginRight="80px">
-                            Priority</Text>
+                            Priority
+
+                            </Text>
                             
                         </Flex>
                         
