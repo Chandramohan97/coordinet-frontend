@@ -18,11 +18,11 @@ const SignUp = () => {
       <Link to="/login">
       <Button
         color="white"
-        height={{base:"2.5vh",md:"5vh"}}
-        width={{base:"3.5vw",md:"7vw"}}
+        height={{ base: "2.5vh", md: "5vh" }}
+        width={{ base: "10vw", md: "7vw" }}
         bg="#2B6CB0"
         _hover={{ bg: "#2a9ca1" }}
-        fontSize={{base:"3xs",md:"medium"}}
+        fontSize={{base:"10px",md:"medium"}}
         textAlign="center"
         margin="15px 10px"
         borderRadius="5px" 
@@ -37,28 +37,3 @@ const SignUp = () => {
 };
 
 export default SignUp;
-// const SignUp = () => {
-//   return (
-//     <div className="SignUp">
-//       <NavContainer>
-//         <NavLogo>Coordinet</NavLogo>
-//         <ButtonDiv>
-//           <Link to="/login">
-//             <Button>Login</Button>
-//           </Link>
-//         </ButtonDiv>
-//       </NavContainer>
-//       <Text>Let's Go !</Text>
-//       <Form>
-//         <Input placeholder="Enter Name"></Input>
-//         <Input placeholder="Enter Mobile Number"></Input>
-//         <Input placeholder="Enter Email address"></Input>
-//         <Input placeholder="Enter password"></Input>
-//         <Login>Sign up</Login>
-//         <Login>Signup with Google</Login>
-//       </Form>
-//     </div>
-//   );
-// };
-
-// export default SignUp;
