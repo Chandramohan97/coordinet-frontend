@@ -1,4 +1,4 @@
-import { FormControl, Input, Textarea,Button,HStack,Text } from '@chakra-ui/react';
+import { FormControl, Input, Textarea,Button,HStack,Text,Flex} from '@chakra-ui/react';
 import React from 'react'
 
 const Comments = (props) => {
@@ -45,53 +45,69 @@ const Comments = (props) => {
     <>
       {check ?
         <>
-        <Textarea
-          // borderRadius="2px"
+        <Textarea 
+          placeholder='Add a comment'
+          minH="60px"
+          maxH={"none"}
+          overflowY="auto"
+          width={"40vw"}
+          marginLeft="2vw !important"
           id='myInput'
-          placeholder="Add comment"
-          onChange={(e) => setItem(e.target.value)}
           resize="none"
-          borderRadius={"5px"}
-          border="1px solid"
+          bg={"rgb(244, 245, 247)"}
+          onChange={(e) => setItem(e.target.value)}         
           // _active={{backgroundColor:"lightgrey"}}
         /> 
 
       <HStack position={"relative"} left="-14vw">
         <Button
-        backgroundColor={"blue"}
-        color="white"
-        height="30px" 
-        borderRadius={"4px"}
-        onClick={ () => { 
-          Click(); 
-          setCheck(false);
+          bg="rgb(0, 82, 204)"
+          _hover={{ bg: "rgb(0, 82, 500)" }}
+          _active={{ bg: "#555555" }}
+          textAlign="center"
+          fontSize="14px"
+          color="white"
+          height="32px" 
+          borderRadius={"4px"}
+          onClick={ () => { 
+            Click(); 
+            setCheck(false);
         }}>Save</Button>
         <Button
-        // backgroundColor={"blue"}
-        color="black"
-        height="30px" 
-        borderRadius={"4px"}
-        onClick={ () => { 
-        setCheck(false);
-        }}>Cancel</Button>
+        
+          color="rgb(66, 82, 110)"
+          transition={"all 0.1s ease 0s"}          
+        
+          bg="rgb(255, 255, 255)"
+          // _active={{ bg: "lightblue" }}
+          textAlign="center"
+          fontSize="14px"
+          height="32px" 
+          borderRadius={"4px"}
+          onClick={ () => { 
+          setCheck(false);
+          }}>Cancel</Button>
         </HStack>
         </>
-
         : 
-        <Input onClick={()=>setCheck(true)} placeholder="Add Comments"/>
+        <Input 
+          width={"40vw"}
+          ml="2vw !important"
+          bg={"rgb(244, 245, 247)"}
+          borderRadius={"3px"} onClick={()=>setCheck(true)} placeholder="Add Comments"/>
       }
-
-
-      {/* <Button onClick={() =>} */}
-
         <ul>
           {list.map((el) => (
+            // <Flex justifyContent={"left"} border="1px" flexDirection={"column"} align >
               <li key={el.id}>
-                <Text
-                >{el.value}</Text>
-                
-                <button onClick={() => edit(editItem, el.id)}> Update </button>
-                <button onClick={() => onDelete(list, el.id)}> Delete </button>
+                <Flex flexDirection={"column"} >
+                  <Input defaultValue={el.value} 
+                  />
+              </Flex>
+                <Flex flexDirection={"row"} gap="20px">
+                  <Button onClick={() => edit(editItem, el.id)}> Edit </Button>
+                  <Button onClick={() => onDelete(list, el.id)}> Delete </Button>
+                </Flex>
                 <br />
               </li> 
             
