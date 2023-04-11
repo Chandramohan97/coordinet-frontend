@@ -60,7 +60,7 @@ import { Text } from '@chakra-ui/react';
             >{cards.label}</Text>
             </Box>
           // </div> 
-        )} 
+       )} 
         </Draggable>  
             <Modal isOpen={open} onClose={handleClose} size="custom" >
               <ModalOverlay />
@@ -150,7 +150,7 @@ import { Text } from '@chakra-ui/react';
                                         <Button 
                                         color = "black" fontFamily={"Inder sans-serif"}
                                         backgroundColor={"#00bcd4"} height={"32px"} width={"fit-content"} _hover={"none"}
-                                        
+                    r                    
                                         >New</Button>
                                     </MenuItem>
                                     <MenuItem onClick={() => setStatus("Planned")}>
@@ -182,27 +182,28 @@ import { Text } from '@chakra-ui/react';
                         fontSize="18px"
                         marginRight="80px">
                         Assignee</Text>
-  
+                      
+                      <Flex flexDirection={"column"}>   
                         <Text 
                           color="rgb(94, 108, 132)"
                           fontFamily={"Inder sans-serif"}
                           fontSize="20px"
                           marginRight="80px">
-                        Date</Text>
-  
-                        <Text 
-                          color="rgb(94, 108, 132)"
-                          fontFamily={"Inder sans-serif"}
-                          fontSize="18px"
-                          marginRight="80px">
                         Priority</Text>
-                        
+                        </Flex>
                         <Text 
                           color="rgb(94, 108, 132)"
                           fontFamily={"Inder sans-serif"}
                           fontSize="18px"
                           marginRight="80px">
                         Project</Text>
+                        
+                        <Text 
+                          color="rgb(94, 108, 132)"
+                          fontFamily={"Inder sans-serif"}
+                          fontSize="18px"
+                          marginRight="80px">
+                        Date</Text>
                     </Flex>    
   
                   <ModalCloseButton />
