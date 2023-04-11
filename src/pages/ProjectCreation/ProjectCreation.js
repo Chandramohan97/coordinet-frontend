@@ -1,7 +1,7 @@
 import { Flex,Heading, HStack,Input,Text, VStack,Button } from '@chakra-ui/react'
 import React from 'react'
-import Navbar from '../../Components/Navbar/Navbar'
 import Sidebar from '../../Components/Sidebar/Sidebar'
+import Navbar from '../../Components/Navbar/Navbar'
 import StaticTable from '../../Components/Table/StaticTable'
 import { Link } from "react-router-dom";
 
