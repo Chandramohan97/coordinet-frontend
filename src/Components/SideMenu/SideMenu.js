@@ -1,6 +1,6 @@
 //TableDashboard.js component to be used during the 
 import React from 'react'
-import './TableDashboard.css'
+// import './TableDashboard.css'
 import { Box, Heading,Flex,Text, Divider, Input,OrderedList,UnorderedList,ListItem,HStack, Link} from '@chakra-ui/react';
 import { Sidebar, Menu, MenuItem, SubMenu, ProSidebarProvider,useProSidebar } from 'react-pro-sidebar';
 import { useProSidebarContext } from "react-pro-sidebar";
@@ -18,7 +18,7 @@ const SideMenu = () => {
     };
 
     return (
-      <div style={{ display: 'flex', height: '100vh' }}>
+      <div  style={{ display: 'flex', height: '100vh',border:'1px solid' }}>
           <Sidebar width={collapsed ? "0px" : "250px"} collapsed={collapsed} backgroundColor='#191970'>
             <Flex flexDirection={"row"} justifyContent={"space-between"}>
                 <Link fontFamily="Inder sans-serif" ml="10px" color="white" 

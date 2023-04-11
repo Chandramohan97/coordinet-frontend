@@ -1,3 +1,5 @@
+//Static table to be used for viewing purpose during login/Sign up process.
+
 import { Box, Heading,Flex,Text, Divider, Input,OrderedList,UnorderedList,ListItem,HStack} from '@chakra-ui/react';
 import React from 'react';
 import './StaticTable.css'

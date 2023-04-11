@@ -8,9 +8,11 @@ import { Droppable,Draggable } from 'react-beautiful-dnd';
 import React from 'react'
 
 function Column({ column,index,addNewCard }) {
-
+   
   const [newCard,setNewCard] = React.useState(false);
   const [label,setLabel] = React.useState("");
+  const status = column.title;
+//   console.log(status)
 
   const pressEnter = (e) =>{
     if(e.key =='Enter'){
@@ -57,7 +59,7 @@ return (
       {(provided) =>(
         <Box className='card-holder' key={column.id} {...provided.droppableProps} ref={provided.innerRef} height="100%" >
             {column.cards.map((cards,index) => (
-              <Cards key={cards.id} cards={cards} index={index}/>
+              <Cards key={cards.id} cards={cards} index={index} status={status}/>
           ))}
         {provided.placeholder}
       </Box>
