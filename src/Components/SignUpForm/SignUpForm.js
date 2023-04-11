@@ -82,7 +82,7 @@ const SignUpForm = () => {
           name,
           mobileNo,
           email,
-          password
+          password,
         })
         if(response.status == 200 ){
           navigate('/teamStrength')
@@ -90,13 +90,12 @@ const SignUpForm = () => {
       }catch(error){
         toast({
           title : "Error",
-          description :"Error while registering",
+          description :"Error while registering ",
           status:"error",
           duration:1000,
           variant:"green"
-
         })
-        // console.error(error)
+        // console.log(error)
       }
     }
   }
