@@ -10,10 +10,17 @@ import { Text } from '@chakra-ui/react';
   import { Draggable } from 'react-beautiful-dnd';
   import 'react-quill/dist/quill.snow.css';
   import CustomButton from '../../button/CustomButton';
-//   import DynamicSelect from '../DynamicSelect/DynamicSelect';
-  
+
   function Cards({cards,index,status}) {
   
+
+    const statusColors = {
+      New : "#00bcd4",
+      Planned : "#2196f3",
+      Review :"#ffeb3b",
+      Closed : "rgb(11, 135, 91)",
+      "In Progress": "#3f51b5",
+    }
     const modules = {
       toolbar : [
         ['bold', 'italic', 'underline', 'strike','image'],
@@ -123,23 +130,48 @@ import { Text } from '@chakra-ui/react';
                             <Menu>
                                 <MenuButton
                                     fontFamily={"Inder sans-serif"}
-                                    // as="button"
+                                    // as="div"
+                                    fontSize={"20px"}
                                     textAlign={"left"}
-                                    // border={"1px solid"}
-                                    width={"120px"}
-                                    _hover={{transform: 'scale(1.1)'}}    //scale(1.1) property to scale the property horizonally and vertically. Basically have an out of the screen effect
+                                    pl="12px"
+                                    pr="12px"
+                                    borderRadius={"4px"}
+                                    color="white"
+                                    border={"1px"}
+                                    backgroundColor={statusColors[cardStatus]}
+                                    width={"fit-content"}
+                                    _hover={{transform: 'scale(1.1)',cursor:"pointer"}}    //scale(1.1) property to scale the property horizonally and vertically. Basically have an out of the screen effect
                                     // py="10px"
                                     my="5px"
                                 >{cardStatus}</MenuButton>
                                 
                                 <MenuList>
-                                    <MenuItem onClick={() => setStatus("New")}>
-                                        <Button backgroundColor={"green"} width={"60px"}>New</Button>
+                                    <MenuItem onClick={() => setStatus("New")} >
+                                        <Button 
+                                        color = "black" fontFamily={"Inder sans-serif"}
+                                        backgroundColor={"#00bcd4"} height={"32px"} width={"fit-content"} _hover={"none"}
+                                        
+                                        >New</Button>
                                     </MenuItem>
-                                    <MenuItem onClick={() => setStatus("Planned")}>Planned</MenuItem>
-                                    <MenuItem onClick={() => setStatus("Planned")}>Review</MenuItem>
-                                    <MenuItem onClick={() => setStatus("Planned")}>Progress</MenuItem>
-                                    <MenuItem onClick={() => setStatus("Planned")}>Closed</MenuItem>
+                                    <MenuItem onClick={() => setStatus("Planned")}>
+                                      <Button 
+                                          color = "black" fontFamily={"Inder sans-serif"} _hover={"none"}
+                                          backgroundColor={"#2196f3"} height={"32px"} width={"fit-content"}>Planned</Button>
+                                      </MenuItem>
+                                    <MenuItem onClick={() => setStatus("In Progress")}>
+                                      <Button 
+                                          color = "black" fontFamily={"Inder sans-serif"} _hover={"none"}
+                                          backgroundColor={"#3f51b5"} height={"32px"} width={"fit-content"}>In Progress</Button>
+                                    </MenuItem>
+                                    <MenuItem onClick={() => setStatus("Review")}>
+                                        <Button color = "black" fontFamily={"Inder sans-serif"} _hover={"none"}
+                                          backgroundColor={"#ffeb3b"} height={"32px"} width={"fit-content"}>Review</Button>
+                                      
+                                      </MenuItem>
+                                    <MenuItem onClick={() => setStatus("Closed")}>
+                                    <Button color = "black" fontFamily={"Inder sans-serif"} _hover={"none"}
+                                          backgroundColor={"rgb(11, 135, 91)"} height={"32px"} width={"fit-content"}>Closed</Button>
+                                      </MenuItem>
                                 </MenuList>
                             </Menu>
                         </Flex>
