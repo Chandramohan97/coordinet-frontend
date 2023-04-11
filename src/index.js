@@ -5,7 +5,6 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { ChakraProvider } from "@chakra-ui/react";
 import KanbanBoard from "./KanbanBoard";
-import App1 from "./Components/KanbanTest/App1";
 import SignInWithGoogle from "./pages/googleRegistration/SignInWithGoogle";
 import { ProSidebarProvider } from "react-pro-sidebar";
 import Boards from "./Components/Kanban/Board/Boards";
