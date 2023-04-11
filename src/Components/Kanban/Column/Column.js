@@ -1,6 +1,6 @@
 import { Box, Flex, Input, Text} from '@chakra-ui/react';
 import { Textarea } from '@chakra-ui/react';
-// import Input
+
 import Cards from '../Cards/Cards';
 import { IconButton } from "@chakra-ui/react";
 import { AddIcon } from "@chakra-ui/icons";
