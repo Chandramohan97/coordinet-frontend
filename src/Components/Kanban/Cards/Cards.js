@@ -9,6 +9,7 @@ import { Text } from '@chakra-ui/react';
   import Comments from '../../Comments/Comments';
   import { Draggable } from 'react-beautiful-dnd';
   import 'react-quill/dist/quill.snow.css';
+  import { v4 as uuidv4 } from 'uuid';
 //   import DynamicSelect from '../DynamicSelect/DynamicSelect';
   
   function Cards({cards,index,status}) {
@@ -39,8 +40,11 @@ import { Text } from '@chakra-ui/react';
     const [cardStatus,setStatus] = React.useState(status);
     const [assginee,setAssignee] = React.useState([{name: "Pickle Rick", value: 328212},{name: "Baby Yoda", value: 328210},
     {name: "Lord Gaben", value: 328211} ])
-    const [assigneeVisible,setAssigneeVisible] = React.useState(false)
-    
+    const [assigneeVisible,setAssigneeVisible] = React.useState(false);
+    const assignee = ["Rahul","Chandra","Sourabh"]
+    const [boxVisible,setBoxVisible] = React.useState(true);
+    const [selectedAssignees,setSelectedAssignees] = React.useState([]);
+
     // const cardStatus = React.useRef(status);
 
     function handleOpen() {
@@ -121,7 +125,7 @@ import { Text } from '@chakra-ui/react';
                 
                   </VStack>
   
-                    <Flex flexDirection={"column"} gap="10px" mt="8vh" marginLeft={"2vw"} justifyContent="flex-start">    
+                    <Flex className='assigneeSelect' flexDirection={"column"} gap="10px" mt="8vh" marginLeft={"2vw"} justifyContent="flex-start">    
                         <Flex flexDirection={"column"}>            
                             <Text 
                                 color="rgb(94, 108, 132)"
@@ -136,7 +140,7 @@ import { Text } from '@chakra-ui/react';
                                     textAlign={"left"}
                                     pl="12px"
                                     pr="12px"
-                                    height={"35px"}
+                                    height={"30px"}
                                     border={"1px"}
                                     borderColor={"grey"}
                                     borderRadius={"5px"}
@@ -148,36 +152,40 @@ import { Text } from '@chakra-ui/react';
                                 >{cardStatus}</MenuButton>
                                 
                                 <MenuList>
-                                    <MenuItem onClick={() => setStatus("New")}>
+                                    <MenuItem onClick={() => setStatus("New")} display={cardStatus == "New" ? "none" : "block"}>
                                         <Button _hover={{backgroundColor:"none"}} 
-                                        backgroundColor={"#00bcd4"} 
+                                        backgroundColor={"#00bcd4"} fontSize={"12px"} height="30px"
                                         width={"fit-content"} >New</Button>
                                     </MenuItem>
                                     <MenuItem onClick={() => setStatus("Planned")}>
                                       <Button
+                                       display={cardStatus == "Planned" ? "none" : "block"} height="30px"
                                        backgroundColor={"#2196f3"} _hover={{backgroundColor:"none"}}
                                        width={"fit-content"} >Planned</Button>
                                     </MenuItem>
                                     
                                     <MenuItem onClick={() => setStatus("Review")}>
                                         <Button
+                                          display={cardStatus == "Review" ? "none" : "block"} height="30px"
                                           backgroundColor={"#ffeb3b"} _hover={{backgroundColor:"none"}}
                                           width={"fit-content"} >Review</Button>
                                     </MenuItem>
                                     <MenuItem onClick={() => setStatus("In Progress")}>
                                       <Button
-                                            backgroundColor={"#3f51b5"} _hover={{backgroundColor:"none"}}
-                                            width={"fit-content"} >In Progress</Button>
+                                        display={cardStatus == "In Progress" ? "none" : "block"} height="30px"
+                                        backgroundColor={"#3f51b5"} _hover={{backgroundColor:"none"}}
+                                        width={"fit-content"} >In Progress</Button>
                                     </MenuItem>
                                     <MenuItem onClick={() => setStatus("Closed")}>
                                         <Button
-                                            backgroundColor={"rgb(11, 135, 91)"} _hover={{backgroundColor:"none"}}
-                                            width={"fit-content"} >Closed</Button>
+                                          display={cardStatus == "Closed" ? "none" : "block"} height="30px"
+                                          backgroundColor={"rgb(11, 135, 91)"} _hover={{backgroundColor:"none"}}
+                                          width={"fit-content"} >Closed</Button>
                                     </MenuItem>
                                 </MenuList>
                             </Menu>
                         </Flex>
-                        
+
                       <Flex flexDirection={"column"} position={"relative"} >
                         <Text 
                           color="rgb(94, 108, 132)"
@@ -186,17 +194,40 @@ import { Text } from '@chakra-ui/react';
                           marginRight="80px"
                           >Assignee</Text>
                         
+
                         <Box className='dropDownPlaceholder' onClick={()=>setAssigneeVisible(!assigneeVisible)}
-                          color="rgb(94, 108, 100)" fontSize={"14px"} _hover={{cursor:"pointer"}} 
-                        >Unassigned</Box>
+                          color="rgb(94, 108, 100)" fontSize={"14px"} _hover={{cursor:"pointer"}} display={"flex"} flexDirection={"row"}
+                          gap="10px" border="1px solid" width={"240px"} flexWrap={"wrap"}
+                        >
+                          {
+                            selectedAssignees.length == 0 ? "Unassigned" :   
+                              selectedAssignees.map((selectedAssignee) => (
+                                <Box width={"60px"} border="1px solid" cursor={"pointer"} backgroundColor={"rgb(235, 236, 240)"}
+                                borderRadius={"4px"} transition={"background 0.1s ease 0s"} fontSize={"14.5px"}
+                                >
+                                  {selectedAssignee}
+                                </Box>
+                              ))                          
+                          }
+                        </Box>
                         
-                         <Box className='dropDownContent' position={"absolute"} zIndex={1} top="100%" display={assigneeVisible ? "block" : "none"}
+                         <Box className='dropDownContent' position={"absolute"} zIndex={1} border={"1px"} //zIndex=1 to have the element on top of the screen
+                           boxShadow={"rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.31) 0px 0px 1px;"} 
+                           top="100%" //placing the element right below the parent container i.e. FlexBox with position="relative"
+                          display={assigneeVisible ? "block" : "none"} width={"300px"}
                          >
-                            <Box display={"flex"} flexDirection={"row"} width={"fit-content"} padding={"4px 8px"}   
-                             backgroundColor={"rgb(235, 236, 240)"}>hello</Box>
-                             <Box display={"flex"} flexDirection={"row"} width={"fit-content"} padding={"4px 8px"}   
-                             backgroundColor={"rgb(235, 236, 240)"}>hello</Box>
-                          </Box>
+                          {
+                            assignee.map( (assignee) =>(
+
+                              <Box key={uuidv4()}  flexDirection={"row"}  padding={"4px 8px"} 
+                             _hover={{backgroundColor:"lightblue",cursor:"pointer"}} backgroundColor={"white"} 
+                              onClick={()=>setSelectedAssignees([...selectedAssignees,assignee])}  display={"flex"}
+                             >
+                              {assignee}</Box>
+                            
+                            )
+                            )}                     
+                        </Box>
 
                       </Flex>
   
