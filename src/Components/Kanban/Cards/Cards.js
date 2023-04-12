@@ -1,15 +1,19 @@
-import { Box, Drawer, Modal,ModalOverlay, ModalContent, ModalHeader, ModalBody, ModalCloseButton, 
+import { Box, Drawer, Modal,ModalOverlay, ModalContent, ModalHeader, ModalBody, ModalCloseButton,
     HStack, Flex, VStack, Input, Button, Grid,Select, List, ListItem, Menu, MenuItem, MenuButton,MenuList, Textarea } from '@chakra-ui/react';
 import { Text } from '@chakra-ui/react';   
-  import { ChevronDownIcon } from '@chakra-ui/icons';
-  import React from 'react';
-  import ReactQuill from 'react-quill';
-  import 'react-quill/dist/quill.snow.css';
-  import './Cards.css'
-  import Comments from '../../Comments/Comments';
-  import { Draggable } from 'react-beautiful-dnd';
-  import 'react-quill/dist/quill.snow.css';
-  import { v4 as uuidv4 } from 'uuid';
+import { CloseButton } from '@chakra-ui/react';
+import DatePicker from 'react-date-picker';
+import { ChevronDownIcon } from '@chakra-ui/icons';
+import React from 'react';
+import ReactQuill from 'react-quill';
+import 'react-quill/dist/quill.snow.css';
+import './Cards.css'
+import Comments from '../../Comments/Comments';
+import { Draggable } from 'react-beautiful-dnd';
+import 'react-quill/dist/quill.snow.css';
+import 'react-date-picker/dist/DatePicker.css';
+
+import { v4 as uuidv4 } from 'uuid';
 //   import DynamicSelect from '../DynamicSelect/DynamicSelect';
   
   function Cards({cards,index,status}) {
@@ -38,15 +42,25 @@ import { Text } from '@chakra-ui/react';
     const [value,setValue] = React.useState(cards.content)
     const [content,setContent] = React.useState("");
     const [cardStatus,setStatus] = React.useState(status);
-    const [assginee,setAssignee] = React.useState([{name: "Pickle Rick", value: 328212},{name: "Baby Yoda", value: 328210},
-    {name: "Lord Gaben", value: 328211} ])
     const [assigneeVisible,setAssigneeVisible] = React.useState(false);
-    const assignee = ["Rahul","Chandra","Sourabh"]
+    const [assignee,setAssignee] = React.useState([
+      { name:"Rahul", selected : false},{name:'Chandra',selected:false},{name:"Sourabh",selected:false}])
     const [boxVisible,setBoxVisible] = React.useState(true);
     const [selectedAssignees,setSelectedAssignees] = React.useState([]);
+    const [selectedDate, setSelectedDate] = React.useState(null);
+
 
     // const cardStatus = React.useRef(status);
 
+    const removeAssignee = (name) => {
+      const tempAssignee = selectedAssignees.filter( (assignee) => assignee.name !== name)
+      setSelectedAssignees(tempAssignee)
+    }
+
+    const handleDateChange = (date) => {
+      setSelectedDate(date);
+    };
+  
     function handleOpen() {
       setOpen(true);
     }
@@ -54,6 +68,21 @@ import { Text } from '@chakra-ui/react';
     function handleClose() {
         setOpen(false);
     }
+
+    const changeStatus = (key) =>{
+      const tempAssignee = assignee.map((assignee) => {
+       if(assignee.key === key){
+        return {...assignee,selected : true}
+       }else{
+        return assignee
+       }
+      }
+      
+      )
+      setAssignee(tempAssignee);
+    }  
+    
+
     return (
       <>
       <Draggable draggableId={cards.id} index={index} key={cards.id}>
@@ -137,7 +166,7 @@ import { Text } from '@chakra-ui/react';
                                 <MenuButton
                                     fontFamily={"Inder sans-serif"}
                                     // as="button"
-                                    textAlign={"left"}
+                                    textAlign=  {"left"}
                                     pl="12px"
                                     pr="12px"
                                     height={"30px"}
@@ -195,17 +224,21 @@ import { Text } from '@chakra-ui/react';
                           >Assignee</Text>
                         
 
-                        <Box className='dropDownPlaceholder' onClick={()=>setAssigneeVisible(!assigneeVisible)}
-                          color="rgb(94, 108, 100)" fontSize={"14px"} _hover={{cursor:"pointer"}} display={"flex"} flexDirection={"row"}
+                        <Box className='dropDownPlaceholder'
+                          color="rgb(94, 108, 100)" fontSize={"14px"} display={"flex"} flexDirection={"row"}
                           gap="10px" border="1px solid" width={"240px"} flexWrap={"wrap"}
                         >
                           {
-                            selectedAssignees.length == 0 ? "Unassigned" :   
+                            selectedAssignees.length == 0 ? 
+                            <Text _hover={{cursor:"pointer"}} 
+                              onClick={()=>setAssigneeVisible(!assigneeVisible)} >Unassigned</Text> :   
                               selectedAssignees.map((selectedAssignee) => (
-                                <Box width={"60px"} border="1px solid" cursor={"pointer"} backgroundColor={"rgb(235, 236, 240)"}
-                                borderRadius={"4px"} transition={"background 0.1s ease 0s"} fontSize={"14.5px"}
+                                <Box width={"100px"} border="1px solid" cursor={"pointer"} backgroundColor={"rgb(235, 236, 240)"}
+                                borderRadius={"4px"} transition={"background 0.1s ease 0s"} fontSize={"14px"} display={"flex"}
+                                flexDirection={"row"} alignItems={"center"} height="30px" fontFamily={"Inder"} pl="10px"
                                 >
-                                  {selectedAssignee}
+                                  {selectedAssignee.name}
+                                  <CloseButton onClick={()=>removeAssignee(selectedAssignee.name)} size="sm"/>
                                 </Box>
                               ))                          
                           }
@@ -218,26 +251,44 @@ import { Text } from '@chakra-ui/react';
                          >
                           {
                             assignee.map( (assignee) =>(
-
-                              <Box key={uuidv4()}  flexDirection={"row"}  padding={"4px 8px"} 
-                             _hover={{backgroundColor:"lightblue",cursor:"pointer"}} backgroundColor={"white"} 
-                              onClick={()=>setSelectedAssignees([...selectedAssignees,assignee])}  display={"flex"}
+                              <Box key={uuidv4()}  flexDirection={"row"}  padding={"4px 8px"} border="1px"
+                              _hover={{backgroundColor:"lightblue",cursor:"pointer"}} backgroundColor={"white"} 
+                                onClick={ ()=>{ 
+                                  setSelectedAssignees([...selectedAssignees,assignee])
+                                  changeStatus(assignee.key)
+                                  }}  
+                                  display={ assignee.selected ? "none":"flex"}
                              >
-                              {assignee}</Box>
-                            
+                              {assignee.name}</Box>
                             )
                             )}                     
                         </Box>
 
                       </Flex>
   
+                      <Flex flexDirection={"column"}>
                         <Text 
                           color="rgb(94, 108, 132)"
                           fontFamily={"Inder sans-serif"}
-                          fontSize="20px"
+                          fontSize="18px"
                           marginRight="80px">
                         Date</Text>
-                      
+                        <DatePicker
+                          id="date"
+                          selected={selectedDate}
+                          onChange={handleDateChange}
+                          dateFormat="MM/dd/yyyy"
+                          placeholderText="Select a date"
+                          withPortal={true} // Open the calendar in a portal, outside of the app
+                          popperModifiers={{
+                            preventOverflow: {
+                              enabled: true,
+                            },
+                          }}
+                        />
+                        </Flex>
+
+                        
                         <Flex flexDirection={"column"}>
                             <Text 
                               color="rgb(94, 108, 132)"
