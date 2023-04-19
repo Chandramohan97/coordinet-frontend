@@ -29,14 +29,15 @@ const SignUpForm = () => {
   const [password,setPassword] = useState("");
   const [mobileNo,setMobNo] = useState('');
 
+  
   const handleContinue = async() =>{
 
     // event.preventDefault();
     const nameRegex =/^[A-Za-z ]+$/;   //Regular expressions to check for alphabet. Provision for space for spaces in the name.
     const emailRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;  
     const mobRegex = /^\d{10}$/; // 
-    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^a-zA-Z\d\s]).{8,}$/;
- // Regular expression to check for password.  
+    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^a-zA-Z\d\s]).{8,}$/;  // Regular expression to check for password. 
+ 
 
     // event.preven
     if (!nameRegex.test(name)) {
@@ -78,13 +79,17 @@ const SignUpForm = () => {
       });
     } else {
       try{
-        const response = await axios.post('http://localhost:3000/user/signUp',{
+        const response = await axios.post('http://localhost:3000/signUp',{
           name,
           mobileNo,
           email,
-          password,
+          password
         })
+
         if(response.status == 200 ){
+          localStorage.setItem("Name",name);   //using localStroage to transfer data across different pages.
+          localStorage.setItem("mobileNo",mobileNo)
+          local
           navigate('/teamStrength')
         }
       }catch(error){
