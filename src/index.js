@@ -13,8 +13,9 @@ root.render(
   <React.Fragment>
     <ChakraProvider>
     <ProSidebarProvider>
+      <App />
       {/* <App1 /> */}
-      <Boards />
+      {/* <Boards /> */}
       {/* <SignInWithGoogle/> */}
       {/* <App1/> */}
       {/* <KanbanBoard/> */}

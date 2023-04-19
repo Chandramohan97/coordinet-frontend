@@ -8,8 +8,8 @@ import { Link } from 'react-router-dom'
 const ViewingOptions = () => {
 
   const location = useLocation();
-  const {project,tasks} = location.state;
-  console.log(project);
+  const {projectName,tasks} = location.state;
+//   console.log(project);
   
   return (
     <div className='ViewingOptions'>
@@ -39,7 +39,7 @@ const ViewingOptions = () => {
 
             </VStack>
             <Flex gap="0px" flexDirection={"row"} ml="20vw">
-                <Sidebar project={project}/>
+                <Sidebar projectName={projectName}/>
                 <StaticTable taskList={tasks}/>
             </Flex>
         </HStack>
