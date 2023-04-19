@@ -1,11 +1,32 @@
 import React from 'react'
-import { Flex, Button, HStack ,VStack,Box,Text, Heading,Spacer,Radio,RadioGroup,Stack,InputLeftElement,Input, InputGroup} from '@chakra-ui/react'
+import { Flex, Button, HStack ,VStack,Box,Text, Heading,Spacer,Radio,RadioGroup,Stack,InputLeftElement,Input, InputGroup, Toast} from '@chakra-ui/react'
 import { Link } from 'react-router-dom'
-import CustomButton from '../../Components/button/CustomButton'
 import Navbar from '../../Components/Navbar/Navbar'
-// import './TeamStrength.css'
+import { useNavigate } from 'react-router-dom'
+import { useToast } from '@chakra-ui/react'
 
 const TeamStrength = () => {
+  const [teamStrength,setTeamStrength] = React.useState(0);
+  const toast = useToast();
+  const navigate = useNavigate();
+  
+
+  const Next = () =>{
+    if(teamStrength===0){
+      toast({
+        title: "Please select your Team Strength",
+        description: "Team Count should be more than 0",
+        status: "error",
+        duration: 2000,
+        // isClosable: false,
+        variant:"green"
+      });
+    }else{
+      localStorage.setItem('teamStrength',JSON.stringify(teamStrength));
+      navigate('/projectCreation')
+    }
+  }
+
   return (
   <div className="teamStrength">
     <Heading textAlign={"left"} fontFamily={"Inder"} 
@@ -35,45 +56,64 @@ const TeamStrength = () => {
               <Flex flexDirection="row" gap="10px"  >
                 <VStack spacing={3} width="52%" >
                   <Box display={"flex"}  borderRadius={{base:"10px",md:"15px"}} flexDirection="row" gap="0px" backgroundColor={"white"} 
-                    width={{base:"25vw",md:"10.5vw"}} height={{base:"4.5vh",md:"5vh"}} border="1px solid">
+                    width={{base:"25vw",md:"10.5vw"}} height={{base:"4.5vh",md:"5vh"}} border="1px solid" 
+                    onClick={()=>setTeamStrength(1)}
+                    >
                     <Radio mx="0.5vw" fontSize={{base:"3xs",md:"medium"}}  value="1" colorScheme={"green"}>1</Radio>
                   </Box >
                   
                   <Box display={"flex"} borderRadius={{base:"10px",md:"15px"}} flexDirection="row" gap="0px" backgroundColor={"white"} 
-                  width={{base:"25vw",md:"10.5vw"}} height={{base:"4.5vh",md:"5vh"}} border="1px solid"> 
+                  width={{base:"25vw",md:"10.5vw"}} height={{base:"4.5vh",md:"5vh"}} border="1px solid"
+                  onClick={()=>setTeamStrength(20)}
+                  > 
                     <Radio mx="0.5vw" fontSize={{base:"large",md:"medium"}} value="11-20 employees" colorScheme={"green"}>11-20</Radio>
                   </Box>
                   <Box display={"flex"} borderRadius={{base:"10px",md:"15px"}} flexDirection="row" gap="0px" backgroundColor={"white"} 
-                width={{base:"25vw",md:"10.5vw"}} height={{base:"4.5vh",md:"5vh"}} border="1px solid">
+                width={{base:"25vw",md:"10.5vw"}} height={{base:"4.5vh",md:"5vh"}} border="1px solid"
+                onClick={()=>setTeamStrength(40)}
+                >
                     <Radio mx="0.5vw" fontSize={{base:"large",md:"medium"}} value="31-40 employees" colorScheme={"green"}>31-40</Radio>
                   </Box>
                   <Box display={"flex"} borderRadius={{base:"10px",md:"15px"}} flexDirection="row" gap="0px" backgroundColor={"white"} 
-                    width={{base:"25vw",md:"10.5vw"}} height={{base:"4.5vh",md:"5vh"}} border="1px solid">
+                    width={{base:"25vw",md:"10.5vw"}} height={{base:"4.5vh",md:"5vh"}} border="1px solid"
+                    onClick={()=>setTeamStrength(60)}
+                    >
                     <Radio mx="0.5vw" fontSize={{base:"xs",md:"medium"}} value="51-60 employees" colorScheme={"green"}>51-60</Radio>
                   </Box>
                 </VStack>
 
                 <VStack spacing={3} width="52%" >
                   <Box display={"flex"} borderRadius={{base:"10px",md:"15px"}} flexDirection="row" gap="0px" backgroundColor={"white"} 
-                    width={{base:"25vw",md:"10.5vw"}} height={{base:"4.5vh",md:"5vh"}} border="1px solid">
+                    width={{base:"25vw",md:"10.5vw"}} height={{base:"4.5vh",md:"5vh"}} border="1px solid"
+                    onClick={()=>setTeamStrength(10)}
+                    >
                     <Radio mx="0.5vw" value="2-10 employees" colorScheme={"green"}>2-10 </Radio>
                   </Box >
                   <Box display={"flex"} borderRadius={{base:"10px",md:"15px"}} flexDirection="row" gap="0px" backgroundColor={"white"} 
-                    width={{base:"25vw",md:"10.5vw"}} height={{base:"4.5vh",md:"5vh"}} border="1px solid">
-                      <Radio mx="0.5vw" value="21-30 employees" colorScheme={"green"}>21-30</Radio>
+                    width={{base:"25vw",md:"10.5vw"}} height={{base:"4.5vh",md:"5vh"}} border="1px solid" 
+                    onClick={()=>setTeamStrength(30)}>
+                      <Radio mx="0.5vw" value="21-30 employees" colorScheme={"green"}
+                      
+                      >21-30</Radio>
                   </Box>
                   
                   <Box display={"flex"} borderRadius={{base:"10px",md:"15px"}} flexDirection="row" gap="0px" backgroundColor={"white"} 
-                    width={{base:"25vw",md:"10.5vw"}} height={{base:"4.5vh",md:"5vh"}} border="1px solid">
-                    <Radio mx="0.5vw" value="41-50 employees" colorScheme={"green"}>41-50</Radio>
+                    width={{base:"25vw",md:"10.5vw"}} height={{base:"4.5vh",md:"5vh"}} border="1px solid"
+                    onClick={()=>setTeamStrength(50)}
+                    >
+                    <Radio mx="0.5vw" value="41-50 employees" colorScheme={"green"}
+                    
+                    >41-50</Radio>
                   </Box>
                   
                   <Box display={"flex"} borderRadius={{base:"10px",md:"15px"}} flexDirection="row" gap="0px" backgroundColor={"white"} 
-                    width={{base:"25vw",md:"10.5vw"}} height={{base:"4.5vh",md:"5vh"}} border="1px solid">
+                    width={{base:"25vw",md:"10.5vw"}} height={{base:"4.5vh",md:"5vh"}} border="1px solid"
+                    onClick={()=>setTeamStrength(70)}
+                    >
                     <Radio mx="0.5vw" value="61-70 employees" colorScheme={"green"}>61-70</Radio>
                   </Box>
                   <Flex justifyContent="flex-end" border="1px" width={{base:"80px"}}>
-                    <Link to="/projectCreation">
+                    {/* <Link to="/projectCreation"> */}
                       <Button 
                         width={{base:"4vw",md:"6vw"}}
                         bg="#2a9ca1"
@@ -85,8 +125,9 @@ const TeamStrength = () => {
                         value="Next"
                         height={{base:"4.2vh",md:"5vh"}}
                         left={{md:"33px",base:"12px"}}
+                        onClick={Next}
                       >Next</Button>
-                      </Link>
+                      {/* </Link> */}
                   </Flex>
                 </VStack>
               </Flex>
