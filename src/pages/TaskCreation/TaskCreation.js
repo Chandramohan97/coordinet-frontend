@@ -4,6 +4,8 @@ import Sidebar from '../../Components/Sidebar/Sidebar'
 import { Flex,Heading, HStack,Input,Text, VStack,Button,Box } from '@chakra-ui/react'
 import { Link } from 'react-router-dom'
 import { useLocation } from 'react-router-dom';
+import axios from 'axios'
+const UserInfo = require('../../../../../backend/model/UserInfo');
 
 const TaskCreation = () => {
   
@@ -11,9 +13,25 @@ const TaskCreation = () => {
   const [task2,setTask2]= React.useState("")
   const [task3,setTask3]= React.useState("")
   
+  const createdBy = localStorage.getItem("Name");
+  const maxTeamCount = localStorage.getItem("teamStrength");
+  
   const  location  = useLocation();
-  const  {project} = location.state;
+  const  {projectName} = location.state;
   // console.log(project);
+  
+
+  const NextPage = async() =>{
+
+    const response = await axios.post('http://localhost:3000/projectCreation',{
+      projectName,
+      taskList : [task1,task2,task3],
+      teamMembersList : [createdBy],
+      maxTeamCount,
+      createdBy
+    })
+
+  }
   
   return (
     <Box className='taskCreation' px={{base: "2", md: "8"}}>
@@ -73,12 +91,12 @@ const TaskCreation = () => {
                 />  
             </VStack>
             <Flex gap="0px" flexDirection={"row"} ml="20vw">
-                <Sidebar project={project}/>
+                <Sidebar projectName={projectName}/>
                 <StaticTable taskList={[task1,task2,task3]}/>
             </Flex>
         </HStack>
 
-        <Link to="/viewingOptions" state={{project : project , tasks:[task1,task2,task3]}}   >
+        <Link to="/viewingOptions" state={{projectName : projectName , tasks:[task1,task2,task3]}}   >
           <Button 
              color="white"
              bg="#2a9ca1"
@@ -92,7 +110,9 @@ const TaskCreation = () => {
              width={{base:"3.5vw",md:"7vw"}}
              mt="15px" 
              fontSize={{base:"3xs",md:"medium"}}
-             ml={{md:"74vw"}} >
+             ml={{md:"74vw"}} 
+             onClick={NextPage}
+             >
             Next
             </Button>
           </Link>
