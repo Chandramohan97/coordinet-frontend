@@ -1,14 +1,38 @@
-import { Flex,Heading, HStack,Input,Text, VStack,Button } from '@chakra-ui/react'
+import { Flex,Heading, HStack,Input,Text, VStack,Button, useToast } from '@chakra-ui/react'
 import React from 'react'
 import Sidebar from '../../Components/Sidebar/Sidebar'
 import Navbar from '../../Components/Navbar/Navbar'
 import StaticTable from '../../Components/Table/StaticTable'
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useLocation } from 'react-router-dom'
+import { Toast } from '@chakra-ui/react'
+import axios from 'axios'
+import { Navigate } from 'react-router-dom'
 
 const ProjectCreation = () => {
 
-  const [project,setProject] = React.useState("");
-
+  const toast = useToast();
+  const [projectName,setProjectName] = React.useState("");
+  // const location = useLocation(); 
+  // const {teamStrength} = location.state;
+  
+  const navigate = useNavigate();
+  const NextPage = () => {
+    if(projectName.length === 0 ){
+        toast({
+          title: "Enter the name of your Project",
+          // description: "Team Count should be more than 0",
+          status: "error",
+          duration: 2000,
+          // isClosable: false,
+          variant:"green"
+        });    
+      }else{
+        // localStorage.setItem('projectName',project)
+        navigate('/TaskCreation', {state : {projectName}})
+      }
+  }
+  
   return (
     <div className='sampleTable'>
         <Heading textAlign={"left"} width={"fit-content"}
@@ -35,16 +59,16 @@ const ProjectCreation = () => {
                   backgroundColor="white"
                   position={"relative"}
                   left="-1px"
-                  onChange={(e) => setProject(e.target.value)}
+                  onChange={(e) => setProjectName(e.target.value)}
                 />   
             </Flex>
             <Flex gap="0px" flexDirection={"row"} ml="20vw" border="1px solid">
-                <Sidebar project={project} />
-                <StaticTable taskList={""}/>
+                <Sidebar projectName={projectName} />
+                <StaticTable taskList={["","",""]}/>   
             </Flex>
         </HStack>
 
-        <Link to="/taskCreation" state={{project : project }}>
+        {/* <Link to="/taskCreation" state={{project : project }}> */}
           <Button 
             color="white"
             bg="#2a9ca1"
@@ -58,10 +82,12 @@ const ProjectCreation = () => {
             width={{base:"3.5vw",md:"7vw"}}
             mt="15px" 
             fontSize={{base:"3xs",md:"medium"}}
-            ml="81.5vw">
+            ml="81.5vw"
+            onClick={NextPage}
+            >
             Next
           </Button>
-        </Link>
+        {/* </Link> */}
     </div>
 
   )
