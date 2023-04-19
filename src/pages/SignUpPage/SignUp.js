@@ -6,9 +6,7 @@ import { Flex,Button } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 
 const SignUp = () => {
-  const[name,setName] = React.useState("");
-  const[email,setEmail] = React.useState("")
-  const[mobNo,setMobNo] = React.useState(0);
+
   
   return( 
     <div className="SignUp">
