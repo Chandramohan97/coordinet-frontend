@@ -51,6 +51,9 @@ function StaticTable({taskList}){
                         focusBorderColor='transparent'
                         _hover={{cursor:"pointer",outline:"none"}}
                         active={{border:"none",outline:"none"}}
+                        defaultValue={ taskList[0].length > 0 ? "New" :''}
+                        textAlign={"left"}
+                        color={"#00bcd4"}
                     />
                     <Input
                         borderRadius={"5px"}
@@ -99,6 +102,9 @@ function StaticTable({taskList}){
                         focusBorderColor='transparent'
                         _hover={{cursor:"pointer",outline:"none"}}
                         active={{border:"none",outline:"none"}}
+                        defaultValue={ taskList[1].length > 0 ? "New" :''}
+                        textAlign={"left"}
+                        color={"#00bcd4"}
                     />
                     <Input
                         borderRadius={"5px"}
@@ -146,6 +152,9 @@ function StaticTable({taskList}){
                         focusBorderColor='transparent'
                         _hover={{cursor:"pointer",outline:"none"}}
                         active={{border:"none",outline:"none"}}
+                        defaultValue={ taskList[2].length > 0 ? "New" :''}
+                        textAlign={"left"}
+                        color={"#00bcd4"}
                     />
                     <Input
                         borderRadius={"5px"}
