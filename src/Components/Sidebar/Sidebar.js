@@ -23,7 +23,7 @@ function Sidebar(props) {
         <Box display={"flex"} flexDirection="row">
           {/* <Image src={task} alt="task" fill={"white"} mt="1vh"/> */}
           <Text mt="1vh" color="white" fontSize={{base:"10px",md:"13px"}} fontFamily={"Inder"} textAlign="left" ml="10px" marginTop="12px">
-            {props.project}
+            {props.projectName}
           </Text>
         </Box> : <p>{""}</p>
       }
