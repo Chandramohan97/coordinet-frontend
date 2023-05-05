@@ -52,7 +52,7 @@ const SignUpForm = () => {
     } else if (!mobRegex.test(mobileNo)) {
       toast({
         title: "Invalid mobile number",
-        description: "Mobile number should be 10 digits long.",
+        description: "Mobile number should be of 10 digits.",
         status: "error",
         duration: 2000,
         isClosable: true,
@@ -89,7 +89,7 @@ const SignUpForm = () => {
         if(response.status == 200 ){
           localStorage.setItem("Name",name);   //using localStroage to transfer data across different pages.
           localStorage.setItem("mobileNo",mobileNo)
-          local
+          // local
           navigate('/teamStrength')
         }
       }catch(error){
@@ -100,7 +100,7 @@ const SignUpForm = () => {
           duration:1000,
           variant:"green"
         })
-        // console.log(error)
+        console.log(error)
       }
     }
   }

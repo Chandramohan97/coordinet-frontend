@@ -14,11 +14,6 @@ const HomePage = () => {
   const toggleMenu = () =>{
     setVisible(!isVisible)
   }
-  const links = [
-    { value: "/apple", label: "Apple" },
-    { value: "/banana", label: "Banana" },
-    { value: "/cherry", label: "Cherry" },
-  ]
   return (
     <>
      <Navbar/>

@@ -8,6 +8,7 @@
   // import { HamburgerIcon } from '@chakra-ui/icons'
   import React from 'react'
   import { useMediaQuery } from 'react-responsive'
+  // const path = require('path');
 
   const Navbar = () => {
 

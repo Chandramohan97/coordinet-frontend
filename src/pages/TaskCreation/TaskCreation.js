@@ -5,7 +5,7 @@ import { Flex,Heading, HStack,Input,Text, VStack,Button,Box } from '@chakra-ui/r
 import { Link } from 'react-router-dom'
 import { useLocation } from 'react-router-dom';
 import axios from 'axios'
-const UserInfo = require('../../../../../backend/model/UserInfo');
+
 
 const TaskCreation = () => {
   

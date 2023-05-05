@@ -4,16 +4,18 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { ChakraProvider } from "@chakra-ui/react";
-import KanbanBoard from "./KanbanBoard";
-import SignInWithGoogle from "./pages/googleRegistration/SignInWithGoogle";
+import { SampleBoard } from "./Components/SampleBoard/SampleBoard";
+// import KanbanBoard from "./KanbanBoard";
 import { ProSidebarProvider } from "react-pro-sidebar";
 import Boards from "./Components/Kanban/Board/Boards";
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.Fragment>
     <ChakraProvider>
     <ProSidebarProvider>
-      <App />
+      <SampleBoard/>
+      {/* <App /> */}
       {/* <App1 /> */}
       {/* <Boards /> */}
       {/* <SignInWithGoogle/> */}
