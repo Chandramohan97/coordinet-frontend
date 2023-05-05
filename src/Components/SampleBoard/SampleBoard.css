@@ -1,0 +1,23 @@
+.text{
+    font-size: 20px;
+    font-weight: bold;
+    /* font-family: inder; */
+    }
+    .sampleKanbanContainer{
+        width: 40vw;
+        /* display: flex; */
+        /* justify-content:space-around; */
+        background-color: white ;    
+        overflow-x: hidden;
+        border: 1px solid;
+        height :70vh;
+        border-color: lightgray;
+    }
+    
+    @media screen and (max-width: 768px) {
+        .sampleKanbanContainer {
+          
+          width: 78vw;
+          height: 50vh;
+        }
+      }
