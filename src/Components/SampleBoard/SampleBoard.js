@@ -3,7 +3,7 @@ import React from 'react'
 import { AddIcon } from '@chakra-ui/icons'
 import './SampleBoard.css'
 
-export const SampleBoard = () => {
+function SampleBoard({taskList}){
   return (
     <div className='sampleKanbanContainer'>
         <Flex mt={{base:"9vh",md:"8.5vh"}} ml="30px"gap="10px"
@@ -19,9 +19,18 @@ export const SampleBoard = () => {
                     {/* <AddIcon ml="10px" mt="10%"  /> */}
         </Flex>
             <Box border="1px" width={"175px"} rounded={"md"} backgroundColor={"#00bcd4"} height={"6.5px"} ></Box>
-                <Input width={"175px"} readOnly="true" textAlign={"left"} value="First Task"  mt="5px" />
-                <Input width={"175px"} readOnly="true" textAlign={"left"} value="Second Task" mt="5px" />
-                <Input width={"175px"} readOnly="true" textAlign={"left"} value="Third Task"  mt="5px" />
+                {
+                    taskList.map((taskList) => {
+                        if(taskList.length > 0){
+                            return <Input width={"175px"} readOnly="true" textAlign={"left"} value={taskList}  mt="5px" />
+                            // return <h1>Hello</h1>
+
+                        }
+                    })
+                }
+                
+                {/* <Input width={"175px"} readOnly="true" textAlign={"left"} value="Second Task" mt="5px" />
+                <Input width={"175px"} readOnly="true" textAlign={"left"} value="Third Task"  mt="5px" /> */}
         </Flex>
 
             <Flex flexDirection={"column"} gap="2px"  >
@@ -52,3 +61,5 @@ export const SampleBoard = () => {
     </div>
   )
 }
+
+export default SampleBoard;
