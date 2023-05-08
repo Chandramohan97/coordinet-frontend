@@ -14,8 +14,8 @@ root.render(
   <React.Fragment>
     <ChakraProvider>
     <ProSidebarProvider>
-      <SampleBoard/>
-      {/* <App /> */}
+      {/* <SampleBoard/> */}
+      <App />
       {/* <App1 /> */}
       {/* <Boards /> */}
       {/* <SignInWithGoogle/> */}

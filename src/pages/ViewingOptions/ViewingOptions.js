@@ -4,12 +4,14 @@ import Sidebar from '../../Components/Sidebar/Sidebar'
 import StaticTable from '../../Components/Table/StaticTable'
 import { useLocation } from 'react-router-dom'
 import { Link } from 'react-router-dom'
+import SampleBoard from '../../Components/SampleBoard/SampleBoard'
 
 const ViewingOptions = () => {
 
   const location = useLocation();
   const {projectName,tasks} = location.state;
 //   console.log(project);
+  const [tableView,setTableView] = React.useState(true)
   
   return (
     <div className='ViewingOptions'>
@@ -25,12 +27,15 @@ const ViewingOptions = () => {
                 </Flex>
                 <HStack position="relative" ml="2vw" gap="1.5vw" >
                     <Flex flexDirection={"column"} alignItems="center">
-                        <Image  src={require('../../Asssets/Kanban.png')} width={{base:"60px",md:"130px"}} 
-                        height={{base:"80px",md:"120px"}} alt="Click here to see the preview in kanban view" />
+                        <Image  src={require('../../Asssets/Kanbans.png')} width={{base:"60px",md:"130px"}} onClick={()=>setTableView(false)}
+                        height={{base:"80px",md:"120px"}} alt="Click here to see the preview in kanban view"
+                        _hover={{cursor:"pointer"}} border={"1px solid"}  
+                        />
                         <Text fontFamily="Inder,sans-serif" fontWeight={"bold"} fontSize={{base:"10px",md:"12px"}} ml="0px">Kanban view</Text>
                     </Flex>
                     <Flex flexDirection={"column"} alignItems="center">
-                        <Image src={require('../../Asssets/spreadsheet.png')} 
+                        <Image src={require('../../Asssets/spreadsheet.png')} border={"1px solid black"}
+                         onClick={()=>setTableView(true)} _hover={{cursor:"pointer"}} 
                          height={{base:"80px",md:"120px"}} width={{base:"50px",md:"90px"}}  alt="Click here to see the preview in Table view"/>
                         <Text fontFamily="Inder,sans-serif" fontWeight={"bold"} fontSize={{base:"10px",md:"12px"}} ml="0px">Table view</Text>
                      </Flex>
@@ -39,8 +44,18 @@ const ViewingOptions = () => {
 
             </VStack>
             <Flex gap="0px" flexDirection={"row"} ml="20vw">
-                <Sidebar projectName={projectName}/>
-                <StaticTable taskList={tasks}/>
+                { tableView === true ?   //if tableView is true, then set the viewing option in tabular format.
+                    <>
+                    <Sidebar projectName={projectName}/>
+                    <StaticTable taskList={tasks}/>
+                    </>
+                 : 
+                 //if tableView is false, then set the viewing option in tabular format
+                 <>
+                 <Sidebar projectName={projectName}/>  
+                 <SampleBoard taskList={tasks}/>
+                 </>
+                }
             </Flex>
         </HStack>
 
