@@ -1,5 +1,4 @@
 //Static table to be used for viewing purpose during login/Sign up process.
-
 import { Box, Heading,Flex,Text, Divider, Input,OrderedList,UnorderedList,ListItem,HStack} from '@chakra-ui/react';
 import React from 'react';
 import './StaticTable.css'
@@ -20,58 +19,73 @@ function StaticTable({taskList}){
                 right={{base:"-5px",md:"-40px"}} fontFamily={"Inder"} >Due Date</Text>
            </Flex>
         
-            <HStack mt="2vh"  >  
-                <Flex flexDirection={"row"} pl="4vw"
-                justifyContent={{base:"space-around",md:"space-around"}}>
-                    <Input
-                        borderRadius={"5px"}
-                        fontSize={{base:"7px",md:"15px"}}
-                        textAlign={"left"}
-                        // fontWeight={"bold"}
-                        color={"blackAlpha.900"}
-                        isReadOnly="true"
-                        fontFamily={"Inder"}
-                        height={{base:"20px",md:"30px"}}
-                        width={{base:"20vw",md:"10vw"}}
-                        //  border="1px solid"
-                        bg="rgba(0,0,0,0.1)"
-                        focusBorderColor='transparent'
-                        _hover={{cursor:"pointer",outline:"none"}}
-                        _active={{border:"none",outline:"none"}}
-                        value={taskList[0]} 
-                    />  
-                    <Input 
-                        borderRadius={"5px"}
-                        height={{base:"20px",md:"30px"}}
-                        width={{base:"20vw",md:"10vw"}}
-                        isReadOnly="true"
-                        ml="1.9vw"
-                        //  border="1px solid"
-                        bg="rgba(0,0,0,0.1)"
-                        focusBorderColor='transparent'
-                        _hover={{cursor:"pointer",outline:"none"}}
-                        active={{border:"none",outline:"none"}}
-                        defaultValue={ taskList[0].length > 0 ? "New" :''}
-                        textAlign={"left"}
-                        color={"#00bcd4"}
-                    />
-                    <Input
-                        borderRadius={"5px"}
-                        height={{base:"20px",md:"30px"}}
-                        isReadOnly="true"
-                        width={{base:"20vw",md:"10vw"}}
-                        ml="2vw"
-                        // left="20px"
-                        bg="rgba(0,0,0,0.1)"
-                        focusBorderColor='transparent'
-                        _hover={{cursor:"pointer",outline:"none"}}
-                        _active={{border:"none",outline:"none"}}
-                    />
-                </Flex> 
-           </HStack>
+            {/* <HStack mt="2vh">  */}
+                {
+                    taskList.map((taskList)=>
+                    {
+                      if(taskList.length > 0 ){
+                        return (
+                            <>
+                            <HStack mt="2vh"> 
+                                <Flex flexDirection={"row"} pl="4vw" justifyContent={{base:"space-around",md:"space-around"}}>
+                                    <Input
+                                        borderRadius={"5px"}
+                                        fontSize={{base:"7px",md:"15px"}}
+                                        textAlign={"left"}
+                                        // fontWeight={"bold"}
+                                        color={"blackAlpha.900"}
+                                        isReadOnly="true"
+                                        fontFamily={"Inder"}
+                                        height={{base:"20px",md:"30px"}}
+                                        width={{base:"20vw",md:"10vw"}}
+                                        //  border="1px solid"
+                                        bg="rgba(0,0,0,0.1)"
+                                        focusBorderColor='transparent'
+                                        _hover={{cursor:"pointer",outline:"none"}}
+                                        _active={{border:"none",outline:"none"}}
+                                        value={taskList} 
+                                    />  
+                                    <Input 
+                                        borderRadius={"5px"}
+                                        height={{base:"20px",md:"30px"}}
+                                        width={{base:"20vw",md:"10vw"}}
+                                        isReadOnly="true"
+                                        ml="1.9vw"
+                                        //  border="1px solid"
+                                        bg="rgba(0,0,0,0.1)"
+                                        focusBorderColor='transparent'
+                                        _hover={{cursor:"pointer",outline:"none"}}
+                                        active={{border:"none",outline:"none"}}
+                                        defaultValue={ taskList[0].length > 0 ? "New" :''}
+                                        textAlign={"left"}
+                                        color={"#00bcd4"}
+                                    />
+                                    <Input
+                                        borderRadius={"5px"}
+                                        height={{base:"20px",md:"30px"}}
+                                        isReadOnly="true"
+                                        width={{base:"20vw",md:"10vw"}}
+                                        ml="2vw"
+                                        // left="20px"
+                                        bg="rgba(0,0,0,0.1)"
+                                        focusBorderColor='transparent'
+                                        _hover={{cursor:"pointer",outline:"none"}}
+                                        _active={{border:"none",outline:"none"}}
+                                    />
+                                </Flex> 
+                       </HStack>
+                       <Divider borderColor="rgba(0, 0, 0, 0.33)" mt="1vh"/>
+                       </>
+                        )
+                        
+                      }  
+                    }
+                    )
+                } 
+                
 
-           <Divider borderColor="rgba(0, 0, 0, 0.33)" mt="1vh"/>
-           <HStack mt="2vh"  >  
+           {/* <Divider borderColor="rgba(0, 0, 0, 0.33)" mt="1vh"/> */}
+           {/* <HStack mt="2vh"  >  
                 <Flex flexDirection={"row"} pl="4vw"
                 justifyContent={{base:"space-around",md:"space-around"}}>
                     <Input
@@ -172,7 +186,7 @@ function StaticTable({taskList}){
            </HStack>
 
 
-           <Divider borderColor="rgba(0, 0, 0, 0.33)" mt="1vh"/>
+           <Divider borderColor="rgba(0, 0, 0, 0.33)" mt="1vh"/> */}
        </div> 
     )
 }
